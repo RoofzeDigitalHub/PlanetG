@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+--plan-bg: #e8efe1;
+--plan-ink: #3f4f3c;
+--plan-muted: #6c7a66;
+--plan-pill: #e6eadf;
+--plan-card: #e3eadf;
+--plan-accent: #3f5638;
+}
+
+.plan-section {
+background-color: var(--plan-bg);
+background-image: linear-gradient(180deg, rgba(232, 239, 225, 0.92), rgba(224, 233, 214, 0.98));
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+padding: 70px 0 90px;
+font-family: 'Manrope', sans-serif;
+color: var(--plan-ink);
+}
+
+.plan-section .container{
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+position: relative;
+z-index: 1;
+}
+
+.plan-pill {
+display: inline-flex;
+align-items: center;
+padding: 6px 14px;
+border-radius: 999px;
+background: var(--plan-pill);
+font-size: 11px;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: var(--plan-ink);
+}
+
+.plan-title {
+text-align: center;
+font-size: clamp(30px, 4.5vw, 52px);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin: 16px 0 36px;
+font-weight: 500;
+}
+
+.plan-title span {
+color: var(--plan-muted);
+}
+
+.plan-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 22px;
+}
+
+.plan-card {
+background: var(--plan-card);
+border-radius: 14px;
+padding: 28px 26px 30px;
+min-height: 560px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+/* UPDATED IMAGE */
+
+.plan-card.featured {
+color: #ffffff;
+background-image:
+linear-gradient(rgba(16,28,16,0.4), rgba(16,28,16,0.5)),
+url("/planetG/assets/pricing-1.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.plan-icon {
+font-size: 26px;
+margin-bottom: 6px;
+}
+
+.plan-name {
+font-size: 15px;
+font-weight: 600;
+margin: 0;
+}
+
+.plan-price {
+font-size: 42px;
+font-weight: 600;
+margin: 2px 0 0;
+}
+
+.plan-price span {
+display: block;
+font-size: 12px;
+font-weight: 500;
+color: var(--plan-muted);
+}
+
+.plan-card.featured .plan-price span,
+.plan-card.featured .plan-list li {
+color: rgba(255,255,255,0.85);
+}
+
+.plan-label {
+font-size: 13px;
+font-weight: 600;
+margin: 10px 0 4px;
+}
+
+.plan-list {
+list-style: none;
+padding: 0;
+margin: 0;
+display: grid;
+gap: 8px;
+font-size: 13px;
+color: var(--plan-muted);
+}
+
+.plan-list li::before {
+content: "✓";
+margin-right: 10px;
+color: var(--plan-ink);
+font-weight: 700;
+}
+
+.plan-card.featured .plan-list li::before {
+color: #dbe7d2;
+}
+
+.plan-btn {
+margin-top: auto;
+align-self: center;
+padding: 10px 22px;
+border-radius: 999px;
+background: var(--plan-accent);
+color: #ffffff;
+text-decoration: none;
+font-size: 12px;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+.plan-section {
+background-attachment: scroll;
+}
+
+.plan-grid {
+grid-template-columns: 1fr;
+}
+
+.plan-card {
+min-height: unset;
+}
+
+.plan-card.featured {
+background-attachment: scroll;
+}
+}

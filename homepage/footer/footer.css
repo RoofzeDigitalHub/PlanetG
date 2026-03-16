@@ -1,0 +1,159 @@
+body{
+margin:0;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* FOOTER */
+
+.footer{
+background:#2e4f2e;
+color:#d6e6d6;
+padding-top:60px;
+position:relative;
+overflow:hidden;
+}
+
+.footer h5{
+color:#fff;
+font-size:18px;
+margin-bottom:20px;
+}
+
+.footer p{
+font-size:14px;
+line-height:1.7;
+}
+
+.footer a{
+color:#d6e6d6;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.footer a:hover{
+color:#fff;
+}
+
+.social i{
+margin-right:15px;
+cursor:pointer;
+}
+
+/* BOTTOM BAR */
+
+.bottom-bar{
+border-top:1px solid rgba(255,255,255,0.2);
+margin-top:40px;
+padding:15px 0;
+font-size:14px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+position:relative;
+z-index:2;
+}
+
+.bottom-bar a{
+display:inline;
+margin-left:15px;
+}
+
+/* GRASS TEXTURE */
+
+.grass{
+position:absolute;
+bottom:120px;
+left:0;
+width:100%;
+height:120px;
+background:url("https://www.transparenttextures.com/patterns/grass.png");
+opacity:0.2;
+}
+
+/* SILHOUETTE IMAGE */
+
+.footer-silhouette{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+z-index:1;
+}
+
+.footer-silhouette img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* LOGO */
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#b6f0b6;
+}
+
+/* Keep footer columns in one row on desktop */
+.footer .row{
+display:flex;
+flex-wrap:wrap;
+gap:24px;
+}
+
+@media (min-width: 992px){
+  .footer .row{
+    flex-wrap:nowrap;
+    align-items:flex-start;
+  }
+
+  .footer .col-md-4{
+    flex:0 0 34%;
+    max-width:34%;
+  }
+
+  .footer .col-md-2{
+    flex:0 0 16%;
+    max-width:16%;
+  }
+
+  .footer .col-md-3{
+    flex:0 0 25%;
+    max-width:25%;
+  }
+}
+
+@media (max-width: 991.98px){
+  .footer{
+    padding-top:50px;
+  }
+
+  .footer .row{
+    flex-direction:column;
+    gap:28px;
+  }
+
+  .footer .col-md-4,
+  .footer .col-md-2,
+  .footer .col-md-3{
+    flex:0 0 auto;
+    max-width:100%;
+  }
+
+  .bottom-bar{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .bottom-bar a{
+    margin-left:0;
+    margin-right:12px;
+  }
+
+  .grass{
+    height:80px;
+    bottom:90px;
+  }
+}

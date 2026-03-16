@@ -1,0 +1,170 @@
+.latest-works{
+background:#f5f5f5;
+font-family:Arial, sans-serif;
+}
+
+/* section */
+
+.latest-works{
+padding:80px 0;
+}
+
+
+
+.section-title span{
+background:#e5eadf;
+padding:6px 16px;
+border-radius:20px;
+font-size:13px;
+}
+
+.section-title h2{
+font-size:48px;
+margin-top:15px;
+letter-spacing:2px;
+}
+
+.latest-works .row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+}
+
+.latest-works .row > [class*="col-"]{
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+/* card */
+
+.work-card{
+position:relative;
+border-radius:12px;
+overflow:hidden;
+height:380px;
+cursor:pointer;
+background-image: var(--work-bg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+/* bottom glass info */
+
+.work-info{
+
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+
+padding:20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border-radius:10px;
+
+color:white;
+
+transition:0.4s;
+
+}
+
+.label{
+
+font-size:12px;
+opacity:0.8;
+margin-bottom:3px;
+
+}
+
+.arrow{
+
+font-size:28px;
+
+}
+
+/* hover content */
+
+.hover-content{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#3a5a3a;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:40px;
+
+opacity:0;
+
+transition:0.4s;
+
+}
+
+/* hover effect */
+
+.work-card:hover .hover-content{
+
+opacity:1;
+
+}
+
+.work-card:hover .work-info{
+
+opacity:0;
+
+}
+
+.latest-works .price-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:28px auto 0;
+}
+
+@media (max-width: 991px){
+  .work-card{
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px){
+  .latest-works{
+    padding:60px 0;
+  }
+
+  .section-title h2{
+    font-size:36px;
+  }
+
+  .latest-works .row{
+    grid-template-columns: 1fr;
+  }
+
+  .work-card{
+    height: 320px;
+  }
+}

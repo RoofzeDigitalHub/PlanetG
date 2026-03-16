@@ -1,0 +1,58 @@
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#e6e8e0;
+}
+
+/* Section */
+.why-choose{
+padding:90px 0;
+}
+
+/* Title */
+.section-title{
+font-size:60px;
+color:#4b5d49;
+margin-bottom:50px;
+}
+
+/* Card */
+.why-card{
+padding:35px;
+border-radius:12px;
+color:white;
+height:100%;
+}
+
+/* Dark Cards */
+.dark-card{
+background:#354f36;
+}
+
+/* Light Cards */
+.light-card{
+background:#7f927f;
+}
+
+/* Card Title */
+.why-card h4{
+font-size:22px;
+margin-bottom:15px;
+}
+
+/* Card Text */
+.why-card p{
+font-size:16px;
+line-height:1.7;
+color:#e7e7e7;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.section-title{
+font-size:40px;
+text-align:center;
+}
+
+}

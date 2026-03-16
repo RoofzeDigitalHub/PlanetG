@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --choice-bg: #e7eee4;
+    --choice-ink: #334531;
+    --choice-muted: #6a7b67;
+    --choice-pill: #dbe4d7;
+    --choice-card: #3f5638;
+    --choice-card-alt: #7a8d7a;
+    --choice-card-text: #f0f4ef;
+  }
+
+  .choice-section {
+    background: var(--choice-bg);
+    padding: 70px 0 90px;
+    font-family: 'Manrope', sans-serif;
+    color: var(--choice-ink);
+  }
+
+  .choice-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--choice-pill);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--choice-ink);
+  }
+
+  .choice-title {
+    text-align: center;
+    font-size: clamp(30px, 4.5vw, 52px);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 16px 0 36px;
+    font-weight: 500;
+  }
+
+  .choice-title span {
+    color: var(--choice-muted);
+  }
+
+  .choice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .choice-card {
+    position: relative;
+    background: var(--choice-card);
+    color: var(--choice-card-text);
+    border-radius: 10px;
+    padding: 22px 22px 24px;
+    min-height: 180px;
+  }
+
+  .choice-card.alt {
+    background: var(--choice-card-alt);
+    color: #eef3ee;
+  }
+
+  .choice-index {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+  }
+
+  .choice-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .choice-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(240, 244, 239, 0.85);
+  }
+
+  .choice-card.alt p {
+    color: rgba(238, 243, 238, 0.9);
+  }
+
+  @media (max-width: 991px) {
+    .choice-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .choice-section {
+      padding: 70px 0 80px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .choice-grid {
+      grid-template-columns: 1fr;
+    }
+    .choice-card {
+      padding: 18px 18px 20px;
+    }
+    .choice-card h3 {
+      font-size: 15px;
+    }
+    .choice-card p {
+      font-size: 12.5px;
+    }
+  }
+

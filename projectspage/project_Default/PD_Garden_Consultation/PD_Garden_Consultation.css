@@ -1,0 +1,54 @@
+body{
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.garden-hero{
+height:500px;
+background-image:url("/planetG/assets/pricing-1.jpg");
+background-attachment:fixed; /* apni image */
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+position:relative;
+color:white;
+}
+
+.garden-hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.garden-hero .container{
+position:relative;
+z-index:2;
+}
+
+.hero-title{
+font-size:48px;
+font-weight:600;
+line-height:1.3;
+margin-bottom:30px;
+text-transform:uppercase;
+}
+
+.hero-btn{
+background:#2e7d32;
+color:white;
+padding:12px 30px;
+border-radius:30px;
+font-weight:500;
+}
+
+.hero-btn:hover{
+background:#1b5e20;
+color:white;
+}
+

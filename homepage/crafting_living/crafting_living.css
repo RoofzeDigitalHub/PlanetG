@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Marcellus&display=swap');
+
+:root{
+--gardyn-cream:#f6f6ef;
+--gardyn-olive:#6f7f6a;
+--gardyn-olive-dark:#2f402f;
+--gardyn-pill:#e6eadf;
+}
+
+body{
+margin:0;
+font-family:'Manrope',sans-serif;
+}
+
+/* SECTION */
+
+.crafting-section{
+background-color:var(--gardyn-cream);
+background-image:
+linear-gradient(rgba(246,246,239,0.88), rgba(246,246,239,0.88));
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+padding: 70px 0 90px;
+}
+
+/* CONTAINER */
+
+.crafting-section .container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* GRID */
+
+.crafting-section .row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.crafting-section .col{
+flex:1;
+min-width:300px;
+}
+
+/* IMAGE WRAPPER */
+
+.crafting-images{
+position:relative;
+}
+
+/* MAIN IMAGE CARD */
+
+.crafting-image-main{
+width:100%;
+height:360px;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 30px 60px rgba(17,30,19,0.18);
+
+background-image:url("/planetG/assets/bg8.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* SECOND IMAGE CARD */
+
+.crafting-image-secondary{
+position:absolute;
+right:-20px;
+bottom:-60px;
+width:70%;
+height:220px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 24px 50px rgba(17,30,19,0.2);
+
+background-image:url("/planetG/assets/pricing-1.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* TEXT */
+
+.crafting-tag{
+display:inline-flex;
+align-items:center;
+padding:8px 18px;
+border-radius:999px;
+background:var(--gardyn-pill);
+color:var(--gardyn-olive-dark);
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+margin-bottom:16px;
+}
+
+.crafting-title{
+font-family:'Marcellus',serif;
+font-size:clamp(32px,4.5vw,54px);
+line-height:1.05;
+margin:0 0 18px;
+color:var(--gardyn-olive-dark);
+}
+
+.crafting-title span{
+color:var(--gardyn-olive);
+}
+
+.crafting-text{
+color:#5d6b5a;
+font-size:16px;
+line-height:1.7;
+margin:0 0 26px;
+}
+
+.crafting-btn{
+display:inline-flex;
+align-items:center;
+padding:12px 26px;
+border-radius:999px;
+background:var(--gardyn-olive-dark);
+color:#fff;
+text-decoration:none;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.crafting-section{
+background-attachment:scroll;
+}
+
+.row{
+flex-direction:column;
+}
+
+.crafting-image-main{
+height:280px;
+}
+
+.crafting-image-secondary{
+height:180px;
+bottom:-30px;
+}
+
+}
+
+

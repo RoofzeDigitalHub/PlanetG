@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+
+:root {
+--quote-bg: #eef3ec;
+--quote-ink: #1f2b1f;
+--quote-muted: rgba(31, 43, 31, 0.72);
+}
+
+.quote-section {
+position: relative;
+padding: 70px 0 90px;
+font-family: 'Manrope', sans-serif;
+color: var(--quote-ink);
+overflow: hidden;
+
+min-height: 320px;
+isolation: isolate;
+
+/* BACKGROUND IMAGE + PARALLAX */
+
+background-image:
+
+url("/planetG/assets/bg4-scaled.jpg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+@media (max-width: 991px) {
+  .quote-section {
+    background-attachment: scroll;
+  }
+}
+
+/* texture overlay */
+
+.quote-section::before {
+content: '';
+position: absolute;
+inset: 0;
+background-image: url('https://www.transparenttextures.com/patterns/topography.png');
+opacity: 0.2;
+pointer-events: none;
+z-index: 0;
+}
+
+.quote-section::after {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.7));
+pointer-events: none;
+z-index: 0;
+}
+
+.quote-wrap {
+position: relative;
+max-width: 900px;
+margin: 0 auto;
+text-align: center;
+z-index: 1;
+}
+
+.quote-mark {
+font-size: 42px;
+line-height: 1;
+color: var(--quote-muted);
+margin-bottom: 10px;
+}
+
+.quote-text {
+font-size: clamp(18px, 3vw, 26px);
+line-height: 1.6;
+margin: 0 0 10px;
+}
+
+.quote-author {
+font-size: 12px;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: var(--quote-muted);
+}
+
+.quote-dots {
+display: flex;
+justify-content: center;
+gap: 8px;
+margin-top: 24px;
+}
+
+.quote-dot {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: rgba(31, 43, 31, 0.35);
+}
+
+.quote-dot.active {
+background: #1f2b1f;
+}
+

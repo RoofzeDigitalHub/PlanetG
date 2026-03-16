@@ -1,0 +1,70 @@
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* HERO SECTION */
+
+.hero{
+height:420px;
+background-image:url("/planetG/assets/pricing-1.jpg");
+background-attachment:fixed;
+background-size:cover;
+background-position:center;
+position:relative;
+display:flex;
+align-items:center;
+color:white;
+}
+
+/* dark overlay */
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+/* content */
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.breadcrumb-text{
+font-size:14px;
+opacity:.9;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:70px;
+font-weight:600;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.9;
+}
+
+/* decorative leaves */
+
+.leaf-decoration{
+position:absolute;
+right:40px;
+top:50%;
+transform:translateY(-50%);
+opacity:0.5;
+}
+
+.leaf-decoration img{
+width:200px;
+}
+

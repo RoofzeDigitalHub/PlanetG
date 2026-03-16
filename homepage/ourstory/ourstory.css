@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+.ourstory-hero{
+  position: relative;
+  padding: 70px 0 90px;
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  background-image:
+    linear-gradient(rgba(12, 18, 12, 0.62), rgba(12, 18, 12, 0.58)),
+    url("/planetG/assets/bg8.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.ourstory-hero .container{
+  position: relative;
+  z-index: 2;
+}
+
+.ourstory-hero .tag{
+  background: rgba(255,255,255,0.18);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.ourstory-hero h1{
+  font-size: clamp(34px, 4.8vw, 58px);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 18px;
+}
+
+.ourstory-hero h1 span{
+  color: #a8c3a3;
+}
+
+.ourstory-hero p{
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin: 0 0 24px;
+  font-size: 15px;
+}
+
+.ourstory-hero .hero-btn{
+  border: 1px solid rgba(255,255,255,0.85);
+  padding: 11px 26px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.ourstory-hero .hero-btn:hover{
+  background: #ffffff;
+  color: #1f2b1f;
+}
+
+.ourstory-hero .glass-card{
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 26px;
+  text-align: center;
+  height: 100%;
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(10, 18, 10, 0.35);
+}
+
+.ourstory-hero .green-card{
+  background: #3d5f3d;
+  border-radius: 14px;
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(10, 18, 10, 0.28);
+}
+
+.ourstory-hero .number{
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ourstory-hero .stars{
+  color: #f5d36b;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+@media (max-width: 991px){
+  .ourstory-hero{
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px){
+  .ourstory-hero{
+    padding: 60px 0 80px;
+  }
+
+  .ourstory-hero h1{
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  .ourstory-hero p{
+    font-size: 14px;
+  }
+}

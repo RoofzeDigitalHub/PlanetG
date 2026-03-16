@@ -1,0 +1,73 @@
+body{
+margin:0;
+font-family:"Poppins",sans-serif;
+}
+
+/* HERO SECTION */
+
+.hero-section{
+position:relative;
+height:420px;
+display:flex;
+align-items:center;
+color:white;
+overflow:hidden;
+}
+
+/* BACKGROUND IMAGE */
+
+.hero-section::before{
+content:"";
+position:absolute;
+inset:0;
+background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
+background-attachment:fixed;
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+.hero-section::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.breadcrumb-text{
+font-size:14px;
+opacity:0.9;
+margin-bottom:15px;
+}
+
+.hero-title{
+font-size:64px;
+font-weight:600;
+letter-spacing:2px;
+}
+
+.hero-subtitle{
+margin-top:10px;
+font-size:18px;
+opacity:0.9;
+}
+
+/* RIGHT DECORATION */
+
+.hero-decoration{
+position:absolute;
+right:-60px;
+top:50%;
+transform:translateY(-50%);
+font-size:260px;
+color:rgba(255,255,255,0.15);
+}
+

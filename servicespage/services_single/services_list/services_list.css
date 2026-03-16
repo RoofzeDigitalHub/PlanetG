@@ -1,0 +1,50 @@
+.services-list-section{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Section */
+.services-section{
+padding:20px 0;
+}
+
+/* Service Box */
+.service-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 20px;
+margin-bottom:20px;
+border-radius:14px;
+background:#cfd5cf;
+font-size:18px;
+font-weight:500;
+transition:0.3s;
+cursor:pointer;
+}
+
+/* Active item */
+.service-item.active{
+background:#2f4f34;
+color:white;
+}
+
+/* Arrow */
+.service-arrow{
+font-size:22px;
+}
+
+/* Hover */
+.service-item:hover{
+transform:translateX(5px);
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.service-item{
+font-size:16px;
+padding:14px 18px;
+}
+
+}

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+--price-ink: #3f4f3c;
+--price-muted: #6c7a66;
+--price-line: rgba(63,79,60,0.25);
+--price-pill: #e6eadf;
+--price-btn: #3f4f3c;
+}
+
+/* SECTION */
+
+.price-section{
+background-image:
+/* linear-gradient(rgba(246,247,241,0.88), rgba(246,247,241,0.88)), */
+url("/planetG/assets/bg11.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+padding: 70px 0 90px;
+font-family:'Manrope',sans-serif;
+color:var(--price-ink);
+}
+
+@media (max-width: 991px){
+  .price-section{
+    background-attachment:scroll;
+  }
+}
+
+@media (max-width: 640px){
+  .price-row{
+    grid-template-columns: 1fr;
+  }
+
+  .price-value{
+    text-align: left;
+    min-width: 0;
+  }
+}
+
+/* CENTER WIDTH */
+
+.price-container{
+max-width:700px;
+margin:auto;
+}
+
+/* TITLE */
+
+.price-pill{
+display:inline-flex;
+align-items:center;
+padding:6px 14px;
+border-radius:999px;
+background:var(--price-pill);
+font-size:11px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.price-title{
+font-size:clamp(32px,4.5vw,54px);
+letter-spacing:2px;
+text-transform:uppercase;
+margin:16px 0 28px;
+font-weight:500;
+}
+
+/* LIST */
+
+.price-list{
+border-top:1px solid var(--price-line);
+}
+
+.price-row{
+display:grid;
+grid-template-columns:1fr auto;
+gap:24px;
+padding:18px 0;
+border-bottom:1px solid var(--price-line);
+}
+
+.price-row.is-hidden{
+display:none;
+}
+
+.price-section.is-expanded .price-row.is-hidden{
+display:grid;
+}
+
+.price-name{
+font-size:15px;
+font-weight:600;
+margin:0 0 4px;
+}
+
+.price-desc{
+margin:0;
+color:var(--price-muted);
+font-size:13px;
+}
+
+.price-value{
+text-align:right;
+min-width:120px;
+}
+
+.price-amount{
+font-weight:600;
+}
+
+.price-unit{
+display:block;
+font-size:12px;
+color:var(--price-muted);
+margin-top:2px;
+}
+
+.price-cta{
+margin-top:26px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:10px 24px;
+border-radius:999px;
+background:var(--price-btn);
+color:#fff;
+text-decoration:none;
+font-size:12px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+

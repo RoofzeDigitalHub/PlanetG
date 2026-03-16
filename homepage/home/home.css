@@ -1,0 +1,354 @@
+* { box-sizing: border-box; }
+      body { margin: 0; background: #f6f2ea; }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+
+  :root {
+    --gardyn-topbar: #2f4a2f;
+    --gardyn-topbar-text: #e9f2ea;
+  }
+
+  .gardyn-topbar {
+    background: var(--gardyn-topbar);
+    color: var(--gardyn-topbar-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+  }
+
+  .gardyn-topbar .info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .gardyn-topbar .info-item .bi {
+    color: rgba(233, 242, 234, 0.9);
+    font-size: 14px;
+  }
+
+  .gardyn-topbar a {
+    color: var(--gardyn-topbar-text);
+    text-decoration: none;
+  }
+
+  .gardyn-topbar a:hover {
+    color: #ffffff;
+  }
+
+  .gardyn-topbar .social a {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--gardyn-topbar-text);
+    transition: background 160ms ease;
+  }
+
+  .gardyn-topbar .social a:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Marcellus&display=swap');
+
+  :root {
+    --hero-bg: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=80');
+    --hero-overlay: linear-gradient(110deg, rgba(10, 22, 16, 0.75) 0%, rgba(10, 22, 16, 0.45) 45%, rgba(10, 22, 16, 0.2) 100%);
+    --hero-accent: #b6d36a;
+  }
+
+  .gardyn-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 42px;
+    z-index: 5;
+    background-image: var(--hero-overlay), var(--hero-bg);
+    background-size: cover;
+    background-position: center top;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .gardyn-header .navbar {
+    background: transparent !important;
+  }
+
+  .gardyn-header .navbar-brand {
+    font-family: 'Marcellus', serif;
+    letter-spacing: 0.4px;
+  }
+
+  .gardyn-header .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding-bottom: 6px;
+  }
+
+  .gardyn-header .nav-link.active,
+  .gardyn-header .nav-link:hover {
+    color: #ffffff !important;
+  }
+
+  .gardyn-header .nav-link.active::after,
+  .gardyn-header .nav-link:hover::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--hero-accent);
+    margin-top: 6px;
+  }
+
+  .gardyn-header .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 12px;
+    padding: 8px 18px;
+  }
+
+  .gardyn-header .nav-icons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .gardyn-header .nav-icons .badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    font-size: 10px;
+  }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Marcellus&display=swap');
+
+  :root {
+    --hero-bg: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1920&q=80');
+    --hero-overlay: linear-gradient(110deg, rgba(10, 22, 16, 0.75) 0%, rgba(10, 22, 16, 0.45) 45%, rgba(10, 22, 16, 0.2) 100%);
+    --hero-accent: #b6d36a;
+  }
+
+  .gardyn-hero {
+    position: relative;
+    background-image: var(--hero-overlay), var(--hero-bg);
+    background-size: cover;
+    background-position: center top;
+    color: #ffffff;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    padding: 160px 0 120px;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .gardyn-hero h1 {
+    font-family: 'Marcellus', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .gardyn-hero p {
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .hero-pill span {
+    padding: 10px 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .hero-pill a {
+    padding: 10px 22px;
+    background: var(--hero-accent);
+    color: #203020;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-leaf {
+    position: absolute;
+    right: 30px;
+    bottom: 24px;
+    width: 220px;
+    opacity: 0.35;
+  }
+
+  @media (max-width: 900px) {
+    .gardyn-hero {
+      min-height: 480px;
+      padding: 140px 0 100px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gardyn-hero {
+      min-height: 640px;
+      padding: 140px 0 140px;
+      background-position: center;
+    }
+
+    .gardyn-hero h1 {
+      font-size: clamp(34px, 9vw, 52px);
+      line-height: 1.05;
+    }
+
+    .gardyn-hero p {
+      max-width: 320px;
+      font-size: 15px;
+    }
+
+    .hero-pill {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .hero-pill span {
+      padding: 12px 16px;
+    }
+
+    .hero-pill a {
+      padding: 12px 18px;
+    }
+
+    .hero-leaf {
+      width: 140px;
+      right: 12px;
+      bottom: 18px;
+    }
+  }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Marcellus&display=swap');
+
+  :root {
+    --gardyn-cream: #f6f6ef;
+    --gardyn-olive: #6f7f6a;
+    --gardyn-olive-dark: #2f402f;
+    --gardyn-pill: #e6eadf;
+  }
+
+  .crafting-section {
+    background: var(--gardyn-cream);
+    padding: 70px 0 90px;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .crafting-images {
+    position: relative;
+  }
+
+  .crafting-image-main {
+    width: 100%;
+    height: 360px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(17, 30, 19, 0.18);
+  }
+
+  .crafting-image-main img,
+  .crafting-image-secondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .crafting-image-secondary {
+    position: absolute;
+    right: 18px;
+    bottom: -40px;
+    width: 70%;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(17, 30, 19, 0.2);
+  }
+
+  .crafting-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: var(--gardyn-pill);
+    color: var(--gardyn-olive-dark);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .crafting-title {
+    font-family: 'Marcellus', serif;
+    font-size: clamp(32px, 4.5vw, 54px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    color: var(--gardyn-olive-dark);
+  }
+
+  .crafting-title span {
+    color: var(--gardyn-olive);
+  }
+
+  .crafting-text {
+    color: #5d6b5a;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 26px;
+  }
+
+  .crafting-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: var(--gardyn-olive-dark);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 900px) {
+    .crafting-image-secondary {
+      right: 12px;
+      bottom: -30px;
+      width: 75%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .crafting-section {
+      padding: 70px 0 90px;
+    }
+
+    .crafting-image-main {
+      height: 280px;
+    }
+
+    .crafting-image-secondary {
+      height: 180px;
+      bottom: -20px;
+    }
+  }
+
