@@ -25,7 +25,7 @@
 
 <div class="team-wrapper">
 
-<button class="scroll-btn scroll-left" onclick="scrollTeam(-350)">
+<button class="scroll-btn scroll-left" type="button" data-team-scroll="-350" aria-label="Scroll left">
 <i class="fa-solid fa-chevron-left"></i>
 </button>
 
@@ -117,7 +117,7 @@
 
 </div>
 
-<button class="scroll-btn scroll-right" onclick="scrollTeam(350)">
+<button class="scroll-btn scroll-right" type="button" data-team-scroll="350" aria-label="Scroll right">
 <i class="fa-solid fa-chevron-right"></i>
 </button>
 
@@ -126,17 +126,6 @@
 </div>
 
 </section>
-
-<script>
-
-function scrollTeam(value){
-document.getElementById("teamSlider").scrollBy({
-left:value,
-behavior:"smooth"
-});
-}
-
-</script>
 
 </body>
 </html>

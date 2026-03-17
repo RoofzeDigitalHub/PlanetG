@@ -15,6 +15,7 @@
     padding: 70px 0 90px;
     font-family: 'Manrope', sans-serif;
     color: var(--choice-ink);
+    
   }
 
   .choice-pill {
@@ -53,7 +54,7 @@
     background: var(--choice-card);
     color: var(--choice-card-text);
     border-radius: 10px;
-    padding: 22px 22px 24px;
+    padding: 50px 22px 24px;
     min-height: 180px;
   }
 
@@ -65,10 +66,22 @@
   .choice-index {
     position: absolute;
     top: 16px;
+    left: 18px;
     right: 18px;
-    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    font-size: 14px;
     letter-spacing: 2px;
     opacity: 0.8;
+  }
+
+  .choice-index .choice-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.9;
   }
 
   .choice-card h3 {
@@ -111,4 +124,3 @@
       font-size: 12.5px;
     }
   }
-

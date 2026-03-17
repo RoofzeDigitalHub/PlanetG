@@ -123,20 +123,7 @@
   }
 
   function initStaggerButtons(root = document) {
-    const selector = [
-      ".btn",
-      ".view-btn",
-      ".price-cta",
-      ".plan-btn",
-      ".ourstory-btn",
-      ".hero-btn",
-      ".hero-link",
-      ".hero-action-btn",
-      ".crafting-btn",
-      ".hero-card button"
-    ].join(",");
-
-    const buttons = root.querySelectorAll(selector);
+    const buttons = root.querySelectorAll("[data-stagger]");
     buttons.forEach((btn) => {
       if (btn.dataset.staggerReady === "true") return;
       btn.dataset.staggerReady = "true";

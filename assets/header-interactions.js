@@ -31,6 +31,23 @@
     document.body.classList.remove("menu-modal-open");
   };
 
+  const openSearchModal = () => {
+    const modal = document.querySelector("[data-search-modal]");
+    if (!modal) return;
+    closeMenuModal();
+    modal.classList.add("is-active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("menu-modal-open");
+  };
+
+  const closeSearchModal = () => {
+    const modal = document.querySelector("[data-search-modal].is-active");
+    if (!modal) return;
+    modal.classList.remove("is-active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-modal-open");
+  };
+
   const closeAllDropdowns = () => {
     document.querySelectorAll(".nav-item.dropdown.show").forEach((item) => {
       item.classList.remove("show");
@@ -61,6 +78,7 @@
     const menuToggle = event.target.closest("[data-menu-toggle]");
     if (menuToggle) {
       event.preventDefault();
+      closeSearchModal();
       openMenuModal();
       return;
     }
@@ -69,6 +87,20 @@
     if (menuClose) {
       event.preventDefault();
       closeMenuModal();
+      return;
+    }
+
+    const searchToggle = event.target.closest("[data-search-toggle]");
+    if (searchToggle) {
+      event.preventDefault();
+      openSearchModal();
+      return;
+    }
+
+    const searchClose = event.target.closest("[data-search-close]");
+    if (searchClose) {
+      event.preventDefault();
+      closeSearchModal();
       return;
     }
 
@@ -104,6 +136,7 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeMenuModal();
+      closeSearchModal();
       closeAllDropdowns();
     }
   });

@@ -79,6 +79,9 @@ Pages
 </ul>
 
 <div class="header-actions">
+  <button class="header-search-btn" type="button" aria-label="Search" data-search-toggle>
+    <i class="bi bi-search"></i>
+  </button>
   <a class="btn btn-outline-light rounded-pill header-wave-btn">
     <span class="wave-text">Get In Touch</span>
   </a>
@@ -95,194 +98,83 @@ Pages
 
 <div class="menu-modal" data-menu-modal aria-hidden="true">
   <div class="menu-modal-backdrop" data-menu-close></div>
-  <div class="menu-modal-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+<div class="menu-modal-panel" role="dialog" aria-modal="true" aria-label="Site menu">
     <div class="menu-modal-header">
       <div class="menu-logo">
         <i class="bi bi-leaf"></i>
-        gardyn
+        <span>gardyn</span>
       </div>
       <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
         <i class="bi bi-x"></i>
       </button>
     </div>
+    <div class="menu-divider"></div>
 
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <a class="mobile-link" href="/planetG/homepage/index/index.html">Home</a>
-
-      <div class="mobile-item">
-        <button class="mobile-toggle" type="button" data-mobile-toggle aria-expanded="false">
-          Services
-          <i class="bi bi-chevron-down"></i>
-        </button>
-        <div class="mobile-submenu">
-          <a href="/planetG/servicespage/all_services/index/index.html">All Services</a>
-          <a href="/planetG/servicespage/services_single/index/index.html">Service Single</a>
-        </div>
+    <div class="menu-section">
+      <h4>Our Services</h4>
+      <div class="menu-list" aria-label="Services">
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Garden Design</a>
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Garden Maintenance</a>
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Planting Services</a>
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Tree Care</a>
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Irrigation Services</a>
+        <a class="menu-link" href="/planetG/servicespage/all_services/index/index.html">Specialty Services</a>
       </div>
+    </div>
 
-      <div class="mobile-item">
-        <button class="mobile-toggle" type="button" data-mobile-toggle aria-expanded="false">
-          Projects
-          <i class="bi bi-chevron-down"></i>
-        </button>
-        <div class="mobile-submenu">
-          <a href="/planetG/projectspage/project_Default/index/index.html">Project Default</a>
-          <a href="/planetG/projectspage/projects_3_columns/index/index.html">Projects 3 Columns</a>
-        </div>
+    <div class="menu-divider"></div>
+
+    <div class="menu-section">
+      <h4>Contact Us</h4>
+      <div class="menu-contact">
+        <span><i class="bi bi-clock"></i> Monday - Friday 08.00 - 18.00</span>
+        <span><i class="bi bi-geo-alt"></i> 100 S Main St, New York,</span>
+        <span><i class="bi bi-envelope"></i> contact@gardyn.com</span>
       </div>
+    </div>
 
-      <div class="mobile-item">
-        <button class="mobile-toggle" type="button" data-mobile-toggle aria-expanded="false">
-          Pages
-          <i class="bi bi-chevron-down"></i>
-        </button>
-        <div class="mobile-submenu">
-          <a href="/planetG/pagesection/gallery/index/index.html">Gallery</a>
-          <a href="/planetG/pagesection/abouts_us/index/index.html">About Us</a>
-        </div>
-      </div>
+    <div class="menu-divider"></div>
 
-      <a class="mobile-link" href="/planetG/storepage/index/index.html">Store</a>
-      <a class="mobile-link" href="/planetG/contactpage/index/index.html">Contact</a>
-    </nav>
+    <div class="menu-section">
+      <h4>About Us</h4>
+      <p class="menu-about">
+        Transform your outdoor space with our expert garden services! From design to maintenance, we create
+        beautiful, thriving gardens tailored to your vision. Let us bring your dream garden to life - professional,
+        reliable, and passionate about nature.
+      </p>
+    </div>
+
+    <div class="menu-divider"></div>
+
+    <div class="menu-social" aria-label="Social links">
+      <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="X"><i class="bi bi-x"></i></a>
+      <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" data-search-modal aria-hidden="true">
+  <div class="search-modal-backdrop" data-search-close></div>
+  <div class="search-modal-panel" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-modal-header">
+      <span class="search-title"><i class="bi bi-search"></i> Search</span>
+      <button class="search-close" type="button" aria-label="Close search" data-search-close>
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+    <form class="search-form" action="#" method="get">
+      <input type="text" class="form-control" placeholder="Type your search..." aria-label="Search">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-  const header = document.querySelector(".gardyn-header");
-  const topbar = document.querySelector(".gardyn-topbar");
-
-  function setTopbarHeight() {
-    const height = topbar ? topbar.getBoundingClientRect().height : 0;
-    document.documentElement.style.setProperty("--gardyn-topbar-height", `${Math.round(height)}px`);
-  }
-
-  function handleScroll() {
-    const scrolled = window.scrollY > 10;
-    document.body.classList.toggle("gardyn-scrolled", scrolled);
-    if (header) {
-      header.classList.toggle("scrolled", scrolled);
-    }
-  }
-
-  const menuModal = document.querySelector("[data-menu-modal]");
-
-  const openMenuModal = () => {
-    if (!menuModal) return;
-    menuModal.classList.add("is-active");
-    menuModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("menu-modal-open");
-  };
-
-  const closeMenuModal = () => {
-    const active = document.querySelector("[data-menu-modal].is-active");
-    if (!active) return;
-    active.classList.remove("is-active");
-    active.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("menu-modal-open");
-  };
-
-  const openVideoModal = (src) => {
-    const modal = document.querySelector("[data-video-modal]");
-    if (!modal) return;
-    const frame = modal.querySelector("iframe");
-    if (!frame) return;
-
-    frame.src = src;
-    modal.classList.add("is-active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("video-modal-open");
-  };
-
-  const closeVideoModal = () => {
-    const modal = document.querySelector("[data-video-modal].is-active");
-    if (!modal) return;
-    const frame = modal.querySelector("iframe");
-    if (frame) frame.src = "";
-    modal.classList.remove("is-active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("video-modal-open");
-  };
-
-  setTopbarHeight();
-  handleScroll();
-
-  window.addEventListener("resize", setTopbarHeight);
-  window.addEventListener("scroll", handleScroll, { passive: true });
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(setTopbarHeight);
-  }
-
-  document.addEventListener("click", (event) => {
-    const priceToggle = event.target.closest("[data-price-toggle]");
-    if (priceToggle) {
-      event.preventDefault();
-      const section = priceToggle.closest(".price-section");
-      if (!section) return;
-      const isExpanded = section.classList.toggle("is-expanded");
-      const expandedText = priceToggle.getAttribute("data-expanded-text") || "View Less";
-      const collapsedText = priceToggle.getAttribute("data-collapsed-text") || "View More";
-      priceToggle.textContent = isExpanded ? expandedText : collapsedText;
-      return;
-    }
-
-    const videoClose = event.target.closest("[data-video-close]");
-    if (videoClose) {
-      event.preventDefault();
-      closeVideoModal();
-      return;
-    }
-
-    const menuToggle = event.target.closest("[data-menu-toggle]");
-    if (menuToggle) {
-      event.preventDefault();
-      openMenuModal();
-      return;
-    }
-
-    const menuClose = event.target.closest("[data-menu-close]");
-    if (menuClose) {
-      event.preventDefault();
-      closeMenuModal();
-      return;
-    }
-
-    const mobileToggle = event.target.closest("[data-mobile-toggle]");
-    if (mobileToggle) {
-      event.preventDefault();
-      const item = mobileToggle.closest(".mobile-item");
-      if (!item) return;
-      const isOpen = item.classList.toggle("is-open");
-      mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      return;
-    }
-
-    const mobileLink = event.target.closest(".mobile-link");
-    if (mobileLink) {
-      closeMenuModal();
-      return;
-    }
-
-    const videoTrigger = event.target.closest("[data-video-src]");
-    if (videoTrigger) {
-      event.preventDefault();
-      const src = videoTrigger.getAttribute("data-video-src");
-      if (!src) return;
-      openVideoModal(src);
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeVideoModal();
-      closeMenuModal();
-    }
-  });
-</script>
+<script src="/planetG/homepage/header/header.js"></script>
 
 </body>
 </html>
-

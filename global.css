@@ -72,6 +72,38 @@ canvas {
   display: block;
 }
 
+/* Hero watermark */
+.hero,
+.hero-section,
+.gardyn-hero,
+.garden-hero {
+  position: relative;
+}
+
+.hero::after,
+.hero-section::after,
+.gardyn-hero::after,
+.garden-hero::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 120px;
+  height: 120px;
+  background: url("/planetG/assets/logo-wm.webp") no-repeat center/contain;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero > .container,
+.hero-section > .container,
+.gardyn-hero > .container,
+.garden-hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
 /* Prevent large elements from pushing layout */
 .container,
 .container-fluid {
@@ -180,5 +212,15 @@ canvas {
 
   .hero-decoration {
     display: none;
+  }
+
+  .hero::after,
+  .hero-section::after,
+  .gardyn-hero::after,
+  .garden-hero::after {
+    width: 80px;
+    height: 80px;
+    right: 16px;
+    bottom: 16px;
   }
 }

@@ -1,12 +1,23 @@
 (function () {
   const head = document.head;
   if (!head) return;
+  const cacheBust = Date.now().toString();
+
+  const withCacheBust = (href) => {
+    if (!href) return href;
+    if (/^https?:\/\//i.test(href)) return href;
+    if (href.includes("v=")) return href;
+    const separator = href.includes("?") ? "&" : "?";
+    return `${href}${separator}v=${cacheBust}`;
+  };
 
   const moveLink = (link) => {
     const href = link.getAttribute("href");
     if (!href) return;
+    link.setAttribute("href", withCacheBust(href));
+    const finalHref = link.getAttribute("href");
     const existing = Array.from(head.querySelectorAll('link[rel="stylesheet"]')).find(
-      (el) => el.getAttribute("href") === href
+      (el) => el.getAttribute("href") === finalHref
     );
     if (existing) {
       link.remove();
