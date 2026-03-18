@@ -96,7 +96,8 @@
       root.appendChild(wrapper);
     });
 
-    Promise.all(stylePromises).catch(() => {});
+    await Promise.all(stylePromises).catch(() => {});
+    window.PGRevealRefresh?.();
 
   }
 

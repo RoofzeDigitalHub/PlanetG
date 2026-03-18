@@ -1,5 +1,15 @@
+html,
 body {
-        margin: 0;
-        background: #f6f2ea;
-        font-family: Arial, sans-serif;
-      }
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: #f6f2ea;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+#page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

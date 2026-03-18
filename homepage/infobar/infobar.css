@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
   :root {
     --gardyn-topbar: #2f4a2f;
@@ -8,7 +8,7 @@
   .gardyn-topbar {
     background: var(--gardyn-topbar);
     color: var(--gardyn-topbar-text);
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 13px;
     letter-spacing: 0.2px;
   }
@@ -47,4 +47,10 @@
 
   .gardyn-topbar .social a:hover {
     background: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 991.98px) {
+    .gardyn-topbar {
+      display: none !important;
+    }
   }

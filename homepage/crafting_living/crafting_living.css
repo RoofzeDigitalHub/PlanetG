@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Marcellus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 :root{
 --gardyn-cream:#f6f6ef;
@@ -9,7 +9,6 @@
 
 body{
 margin:0;
-font-family:'Manrope',sans-serif;
 }
 
 /* SECTION */
@@ -23,6 +22,7 @@ background-position:center;
 background-repeat:no-repeat;
 background-attachment:fixed;
 padding: 70px 0 90px;
+font-family:'Roboto',sans-serif;
 }
 
 /* CONTAINER */
@@ -39,7 +39,7 @@ padding:0 20px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:60px;
+gap:48px;
 flex-wrap:wrap;
 }
 
@@ -100,14 +100,16 @@ font-size:12px;
 letter-spacing:1px;
 text-transform:uppercase;
 margin-bottom:16px;
+font-family:'Poppins',sans-serif;
 }
 
 .crafting-title{
-font-family:'Marcellus',serif;
+font-family:'Poppins',sans-serif;
 font-size:clamp(32px,4.5vw,54px);
 line-height:1.05;
 margin:0 0 18px;
 color:var(--gardyn-olive-dark);
+font-weight:600;
 }
 
 .crafting-title span{
@@ -132,6 +134,8 @@ text-decoration:none;
 font-size:13px;
 text-transform:uppercase;
 letter-spacing:1px;
+font-family:'Poppins',sans-serif;
+font-weight:600;
 }
 
 /* MOBILE */
@@ -139,22 +143,46 @@ letter-spacing:1px;
 @media (max-width:768px){
 
 .crafting-section{
+padding: 56px 0 72px;
 background-attachment:scroll;
 }
 
-.row{
+.crafting-section .row{
 flex-direction:column;
+gap:32px;
+align-items:flex-start;
+}
+
+.crafting-section .col{
+min-width:0;
+width:100%;
 }
 
 .crafting-image-main{
-height:280px;
+height:300px;
+background-attachment:scroll;
 }
 
 .crafting-image-secondary{
 height:180px;
-bottom:-30px;
+bottom:-26px;
+right:0;
+width:82%;
+background-attachment:scroll;
+}
+
+.crafting-title{
+font-size:clamp(30px,8vw,40px);
+}
+
+.crafting-text{
+font-size:15px;
+margin-bottom:20px;
+}
+
+.crafting-btn{
+width:100%;
+justify-content:center;
 }
 
 }
-
-

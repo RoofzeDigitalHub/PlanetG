@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 .latest-works{
 background:#f5f5f5;
-font-family:Arial, sans-serif;
+font-family:'Roboto', sans-serif;
 }
 
 /* section */
@@ -9,7 +11,20 @@ font-family:Arial, sans-serif;
 padding:80px 0;
 }
 
+.plan-title {
+text-align: center;
+font-size: clamp(30px, 4.5vw, 52px);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin: 16px 0 36px;
+font-weight: 500;
+color:#3a5a3a;
+font-family:'Poppins', sans-serif;
+}
 
+.plan-title span {
+color: var(--plan-muted);
+}
 
 .section-title span{
 background:#e5eadf;
@@ -18,7 +33,7 @@ border-radius:20px;
 font-size:13px;
 }
 
-.section-title h2{
+.section-title .plan-title{
 font-size:48px;
 margin-top:15px;
 letter-spacing:2px;
@@ -46,6 +61,9 @@ letter-spacing:2px;
 
 .work-card{
 position:relative;
+width:100%;
+max-width:100%;
+box-sizing:border-box;
 border-radius:12px;
 overflow:hidden;
 height:380px;
@@ -55,6 +73,11 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 background-attachment: fixed;
+touch-action:manipulation;
+-webkit-tap-highlight-color:transparent;
+transition:transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow:0 18px 45px rgba(22, 34, 22, 0.15);
+will-change:transform;
 }
 
 /* bottom glass info */
@@ -65,6 +88,7 @@ position:absolute;
 bottom:20px;
 left:20px;
 right:20px;
+z-index:2;
 
 background:rgba(255,255,255,0.2);
 backdrop-filter:blur(10px);
@@ -80,6 +104,7 @@ border-radius:10px;
 color:white;
 
 transition:0.4s;
+font-family:'Poppins', sans-serif;
 
 }
 
@@ -88,7 +113,15 @@ transition:0.4s;
 font-size:12px;
 opacity:0.8;
 margin-bottom:3px;
+font-family:'Roboto', sans-serif;
 
+}
+
+.work-info h5{
+margin:0;
+font-size:18px;
+line-height:1.25;
+font-weight:600;
 }
 
 .arrow{
@@ -108,6 +141,7 @@ left:0;
 
 width:100%;
 height:100%;
+z-index:1;
 
 background:#3a5a3a;
 
@@ -126,21 +160,25 @@ padding:40px;
 opacity:0;
 
 transition:0.4s;
+font-family:'Roboto', sans-serif;
+pointer-events:none;
 
 }
 
-/* hover effect */
+@media (hover: hover) and (pointer: fine){
+  .work-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 28px 65px rgba(22, 34, 22, 0.24);
+  }
 
-.work-card:hover .hover-content{
+  .work-card:hover .hover-content{
+    opacity:1;
+    pointer-events:auto;
+  }
 
-opacity:1;
-
-}
-
-.work-card:hover .work-info{
-
-opacity:0;
-
+  .work-card:hover .work-info{
+    opacity:0;
+  }
 }
 
 .latest-works .price-cta{
@@ -161,15 +199,104 @@ opacity:0;
     padding:60px 0;
   }
 
-  .section-title h2{
-    font-size:36px;
-  }
-
   .latest-works .row{
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .work-card{
-    height: 320px;
+    height: 280px;
+    background-position: center;
+  }
+
+  .section-title .plan-title{
+    font-size:38px;
+    letter-spacing:1px;
+  }
+
+  .work-info{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    padding:16px 18px;
+    background:rgba(63,79,60,0.5);
+    backdrop-filter: blur(14px);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:12px;
+    align-items:center;
+    gap:14px;
+  }
+
+  .label{
+    font-size:11px;
+  }
+
+  .work-info h5{
+    font-size:17px;
+  }
+
+  .arrow{
+    font-size:28px;
+    align-self:center;
+  }
+
+  .hover-content{
+    padding:30px 18px;
+  }
+
+  .work-card.is-active .hover-content{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .work-card.is-active .work-info{
+    opacity:0;
+  }
+
+  .latest-works .price-cta{
+    width:100%;
+    max-width:320px;
+  }
+}
+
+@media (max-width: 640px){
+  .latest-works{
+    padding:58px 0 64px;
+  }
+
+  .section-title .plan-title{
+    font-size:34px;
+    letter-spacing:1px;
+  }
+
+  .work-card{
+    height: 264px;
+  }
+
+  .work-info{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    padding:14px 16px;
+  }
+
+  .work-info h5{
+    font-size:16px;
+  }
+
+  .arrow{
+    font-size:26px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse){
+  .work-card.is-active .hover-content{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .work-card.is-active .work-info{
+    opacity:0;
   }
 }

@@ -8,7 +8,6 @@ font-family:Arial, Helvetica, sans-serif;
 .hero{
 height:420px;
 background-image:url("/planetG/assets/pricing-1.jpg");
-background-attachment:fixed;
 background-size:cover;
 background-position:center;
 position:relative;
@@ -52,19 +51,5 @@ margin-bottom:10px;
 .hero p{
 font-size:20px;
 opacity:.9;
-}
-
-/* decorative leaves */
-
-.leaf-decoration{
-position:absolute;
-right:40px;
-top:50%;
-transform:translateY(-50%);
-opacity:0.5;
-}
-
-.leaf-decoration img{
-width:200px;
 }
 

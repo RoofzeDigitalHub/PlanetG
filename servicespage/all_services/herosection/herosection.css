@@ -21,7 +21,6 @@ content:"";
 position:absolute;
 inset:0;
 background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
-background-attachment:fixed;
 z-index:-2;
 }
 
@@ -58,16 +57,5 @@ letter-spacing:2px;
 margin-top:10px;
 font-size:18px;
 opacity:0.9;
-}
-
-/* RIGHT DECORATION */
-
-.hero-decoration{
-position:absolute;
-right:-60px;
-top:50%;
-transform:translateY(-50%);
-font-size:260px;
-color:rgba(255,255,255,0.15);
 }
 

@@ -11,11 +11,15 @@ padding:80px 0;
 
 .project-card{
 position:relative;
+width:100%;
+max-width:100%;
+box-sizing:border-box;
 height:360px;
 border-radius:10px;
 overflow:hidden;
 cursor:pointer;
-transition:.4s;
+transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+will-change:transform;
 }
 
 /* IMAGE */
@@ -71,6 +75,8 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:40px;
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 26px 60px rgba(20,30,20,0.24);
 }
 
 .project-card:hover .project-info,

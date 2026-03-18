@@ -6,8 +6,8 @@
     "/planetG/homepage/herosection/herosection.html",
     "/planetG/homepage/crafting_living/crafting_living.html",
     "/planetG/homepage/servicesection/servicesection.html",
-    "/planetG/homepage/ourstory/ourstory.html",
     "/planetG/homepage/Price_List/Price_List.html",
+    "/planetG/homepage/ourstory/ourstory.html",
     "/planetG/homepage/whychooseus/whychooseus.html",
     "/planetG/homepage/pricingplan/pricingplan.html",
     "/planetG/homepage/videosection/videosection.html",
@@ -195,12 +195,6 @@
     }, 3500);
   }
 
-  function forceRevealSections() {
-    document.querySelectorAll("section.reveal").forEach((el) => {
-      el.classList.add("is-visible");
-    });
-  }
-
   async function loadSections() {
     const results = await Promise.all(
       sections.map(async (file) => {
@@ -229,10 +223,9 @@
       root.appendChild(wrapper);
     });
 
-    Promise.all(stylePromises).catch(() => {});
-
+    await Promise.all(stylePromises).catch(() => {});
     initTestimonialSlider();
-    window.setTimeout(forceRevealSections, 200);
+    window.PGRevealRefresh?.();
   }
 
   setupInteractions();

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 /* Global layout stability */
 *,
 *::before,
@@ -15,9 +17,72 @@ body {
   scrollbar-gutter: stable;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   background: #f6f2ea;
+  font-family: 'Roboto', sans-serif;
+}
+
+body,
+p,
+li,
+a,
+span {
+  font-family: 'Roboto', sans-serif;
+}
+
+input,
+textarea,
+select {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.btn,
+.navbar-brand,
+.menu-link,
+.menu-logo,
+.header-wave-btn,
+.hero-btn,
+.hero-link,
+.crafting-btn,
+.plan-btn,
+.price-cta,
+.view-btn {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  font-family: 'Poppins', sans-serif;
+}
+
+button span,
+.btn span,
+.header-wave-btn span,
+.hero-btn span,
+.hero-link span,
+.crafting-btn span,
+.plan-btn span,
+.price-cta span,
+.view-btn span,
+.menu-link span,
+.menu-logo span {
+  font-family: 'Poppins', sans-serif;
 }
 
 #page {
@@ -115,9 +180,9 @@ canvas {
   opacity: 0;
   transform: translateY(28px) scale(0.985);
   filter: blur(1.5px);
-  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: opacity 0.85s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: opacity, transform, filter;
 }
 
@@ -125,6 +190,60 @@ canvas {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+}
+
+.reveal-item {
+  opacity: 0;
+  filter: blur(1.5px);
+  transform: translateY(50px);
+  transition-property: opacity, transform, filter;
+  transition-duration: var(--reveal-duration, 0.85s);
+  transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-item.reveal-up,
+.reveal-item.aos-fade-up {
+  transform: translateY(50px);
+}
+
+.reveal-item.reveal-left,
+.reveal-item.aos-fade-left {
+  transform: translateX(-50px);
+}
+
+.reveal-item.reveal-right,
+.reveal-item.aos-fade-right {
+  transform: translateX(50px);
+}
+
+.reveal-item.reveal-hero,
+.reveal-item.reveal-zoom,
+.reveal-item.aos-zoom-in {
+  transform: scale(1.1);
+}
+
+.reveal-item.reveal-btn {
+  transform: translateY(18px) scale(0.98);
+}
+
+.reveal-item.reveal-card {
+  transform: translateY(50px);
+}
+
+.reveal.is-visible .reveal-item,
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.reveal.is-visible .reveal-item.reveal-hero,
+.reveal.is-visible .reveal-item.reveal-zoom,
+.reveal.is-visible .reveal-item.reveal-btn,
+.reveal.is-visible .reveal-item.reveal-card {
+  transform: none;
 }
 
 /* Staggered letter hover for buttons */
@@ -168,6 +287,13 @@ canvas {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    filter: none;
+  }
+
+  .reveal-item {
     opacity: 1;
     transform: none;
     transition: none;

@@ -7,7 +7,6 @@ font-family:Arial, Helvetica, sans-serif;
 .garden-hero{
 height:500px;
 background-image:url("/planetG/assets/bg3.jpg");
-background-attachment:fixed; /* apni image */
 background-size:cover;
 background-position:center;
 display:flex;
@@ -50,12 +49,5 @@ font-weight:500;
 .hero-btn:hover{
 background:#1b5e20;
 color:white;
-}
-
-
-@media (max-width: 991px){
-  .garden-hero{
-    background-attachment: scroll;
-  }
 }
 

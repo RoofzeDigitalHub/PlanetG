@@ -120,6 +120,12 @@
       return;
     }
 
+    const menuLink = event.target.closest(".menu-link");
+    if (menuLink) {
+      closeMenuModal();
+      return;
+    }
+
     const dropdownToggle = event.target.closest(".nav-item.dropdown > .nav-link");
     if (dropdownToggle) {
       event.preventDefault();

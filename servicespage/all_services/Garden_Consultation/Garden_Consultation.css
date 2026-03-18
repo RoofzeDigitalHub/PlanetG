@@ -1,29 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 body{
 margin:0;
 padding:0;
-font-family: Arial, Helvetica, sans-serif;
+font-family:'Roboto', sans-serif;
+background:#edf1e8;
 }
 
 .garden-hero{
-height:500px;
+min-height:520px;
+padding:96px 0;
 background-image:url("/planetG/assets/bg3.jpg");
-background-attachment:fixed; /* apni image */
 background-size:cover;
 background-position:center;
+background-repeat:no-repeat;
 display:flex;
 align-items:center;
 position:relative;
-color:white;
+color:#ffffff;
+overflow:hidden;
 }
 
 .garden-hero::before{
 content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
+inset:0;
+background:linear-gradient(180deg, rgba(18, 30, 18, 0.62) 0%, rgba(18, 30, 18, 0.48) 100%);
 }
 
 .garden-hero .container{
@@ -31,30 +33,110 @@ position:relative;
 z-index:2;
 }
 
+.garden-hero__content{
+max-width:720px;
+padding:32px 0;
+}
+
+.hero-pill{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:8px 16px;
+border-radius:999px;
+background:rgba(255,255,255,0.12);
+border:1px solid rgba(255,255,255,0.14);
+font-size:12px;
+letter-spacing:1.2px;
+text-transform:uppercase;
+margin-bottom:18px;
+font-family:'Poppins', sans-serif;
+}
+
 .hero-title{
-font-size:45px;
+margin:0 0 16px;
+font-family:'Poppins', sans-serif;
+font-size:clamp(36px, 5.6vw, 58px);
+line-height:1.04;
 font-weight:600;
-line-height:1.3;
-margin-bottom:30px;
+letter-spacing:1px;
+text-transform:uppercase;
+max-width:620px;
+text-wrap:balance;
+}
+
+.hero-copy{
+max-width:560px;
+margin:0 0 26px;
+font-size:16px;
+line-height:1.8;
+color:rgba(255,255,255,0.92);
+text-shadow:0 6px 22px rgba(0,0,0,0.18);
 }
 
 .hero-btn{
-background:#2e7d32;
-color:white;
-padding:12px 30px;
-border-radius:30px;
-font-weight:500;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-height:52px;
+padding:12px 28px;
+border-radius:999px;
+background:linear-gradient(135deg, #4f6f45 0%, #3b5936 100%);
+border:1px solid rgba(255,255,255,0.16);
+color:#ffffff;
+font-family:'Poppins', sans-serif;
+font-weight:600;
+font-size:12px;
+letter-spacing:1.1px;
+text-transform:uppercase;
+box-shadow:0 18px 34px rgba(0,0,0,0.18);
+transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .hero-btn:hover{
-background:#1b5e20;
-color:white;
+background:linear-gradient(135deg, #56784c 0%, #2f472b 100%);
+color:#ffffff;
+transform:translateY(-1px);
+box-shadow:0 22px 40px rgba(0,0,0,0.22);
 }
-
 
 @media (max-width: 991px){
   .garden-hero{
-    background-attachment: scroll;
+    min-height:auto;
+    padding:84px 0 72px;
+  }
+
+  .garden-hero__content{
+    max-width:100%;
+    padding:22px 0 0;
+  }
+}
+
+@media (max-width: 767.98px){
+  .garden-hero{
+    padding:72px 0 64px;
+    background-position:center top;
+  }
+
+  .garden-hero__content{
+    text-align:center;
+  }
+
+  .hero-title{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-copy{
+    margin-left:auto;
+    margin-right:auto;
+    font-size:14.5px;
+    line-height:1.7;
+  }
+
+  .hero-btn{
+    width:100%;
+    max-width:320px;
   }
 }
 

@@ -5,6 +5,45 @@
     item.classList.add("active");
   }
 
+  function isTouchWorkCardMode() {
+    return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  }
+
+  function toggleWorkCard(card) {
+    const scope = card.closest(".latest-works") || document;
+    scope.querySelectorAll(".work-card.is-active").forEach((el) => {
+      if (el !== card) {
+        el.classList.remove("is-active");
+      }
+    });
+    card.classList.toggle("is-active");
+  }
+
+  function setGardenCardExpanded(card, expanded) {
+    card.classList.toggle("is-expanded", expanded);
+    const button = card.querySelector(".view-btn");
+    if (button) {
+      button.textContent = expanded ? "VIEW LESS" : "VIEW DETAILS";
+      button.setAttribute("aria-expanded", expanded ? "true" : "false");
+    }
+  }
+
+  function toggleGardenCard(card) {
+    const scope = card.closest(".service-section") || document;
+    scope.querySelectorAll(".garden-card.is-expanded").forEach((el) => {
+      if (el !== card) {
+        setGardenCardExpanded(el, false);
+      }
+    });
+    setGardenCardExpanded(card, !card.classList.contains("is-expanded"));
+  }
+
+  function clearWorkCards(root = document) {
+    root.querySelectorAll(".latest-works .work-card.is-active").forEach((el) => {
+      el.classList.remove("is-active");
+    });
+  }
+
   function handleTeamScroll(button) {
     const value = parseInt(button.getAttribute("data-team-scroll") || "0", 10);
     if (!Number.isFinite(value) || value === 0) return;
@@ -39,6 +78,25 @@
     if (teamScroll) {
       event.preventDefault();
       handleTeamScroll(teamScroll);
+      return;
+    }
+
+    const gardenCard = event.target.closest(".garden-card");
+    if (gardenCard) {
+      toggleGardenCard(gardenCard);
+    }
+
+    const workCard = event.target.closest(".work-card");
+    if (workCard) {
+      if (isTouchWorkCardMode()) {
+        event.preventDefault();
+        toggleWorkCard(workCard);
+      }
+      return;
+    }
+
+    if (isTouchWorkCardMode()) {
+      clearWorkCards();
     }
   });
 
