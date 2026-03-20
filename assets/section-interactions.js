@@ -19,6 +19,16 @@
     card.classList.toggle("is-active");
   }
 
+  function toggleProjectCard(card) {
+    const scope = card.closest(".project-section") || document;
+    scope.querySelectorAll(".project-card.is-active").forEach((el) => {
+      if (el !== card) {
+        el.classList.remove("is-active");
+      }
+    });
+    card.classList.toggle("is-active");
+  }
+
   function setGardenCardExpanded(card, expanded) {
     card.classList.toggle("is-expanded", expanded);
     const button = card.querySelector(".view-btn");
@@ -40,6 +50,12 @@
 
   function clearWorkCards(root = document) {
     root.querySelectorAll(".latest-works .work-card.is-active").forEach((el) => {
+      el.classList.remove("is-active");
+    });
+  }
+
+  function clearProjectCards(root = document) {
+    root.querySelectorAll(".project-section .project-card.is-active").forEach((el) => {
       el.classList.remove("is-active");
     });
   }
@@ -95,8 +111,18 @@
       return;
     }
 
+    const projectCard = event.target.closest(".project-card");
+    if (projectCard) {
+      if (isTouchWorkCardMode()) {
+        event.preventDefault();
+        toggleProjectCard(projectCard);
+      }
+      return;
+    }
+
     if (isTouchWorkCardMode()) {
       clearWorkCards();
+      clearProjectCards();
     }
   });
 

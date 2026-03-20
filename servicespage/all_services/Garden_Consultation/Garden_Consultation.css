@@ -8,12 +8,13 @@ background:#edf1e8;
 }
 
 .garden-hero{
-min-height:520px;
-padding:96px 0;
+height:400px;
+padding:0;
 background-image:url("/planetG/assets/bg3.jpg");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
+background-attachment:fixed;
 display:flex;
 align-items:center;
 position:relative;
@@ -35,7 +36,7 @@ z-index:2;
 
 .garden-hero__content{
 max-width:720px;
-padding:32px 0;
+padding:24px 0;
 }
 
 .hero-pill{
@@ -56,9 +57,9 @@ font-family:'Poppins', sans-serif;
 .hero-title{
 margin:0 0 16px;
 font-family:'Poppins', sans-serif;
-font-size:clamp(36px, 5.6vw, 58px);
+font-size:clamp(30px, 4.6vw, 30px);
 line-height:1.04;
-font-weight:600;
+font-weight:400;
 letter-spacing:1px;
 text-transform:uppercase;
 max-width:620px;
@@ -103,18 +104,21 @@ box-shadow:0 22px 40px rgba(0,0,0,0.22);
 @media (max-width: 991px){
   .garden-hero{
     min-height:auto;
-    padding:84px 0 72px;
+    height:auto;
+    padding:72px 0 64px;
+    background-attachment:scroll;
   }
 
   .garden-hero__content{
     max-width:100%;
-    padding:22px 0 0;
+    padding:0;
   }
 }
 
 @media (max-width: 767.98px){
   .garden-hero{
-    padding:72px 0 64px;
+    height:auto;
+    padding:64px 0 60px;
     background-position:center top;
   }
 

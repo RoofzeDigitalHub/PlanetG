@@ -54,13 +54,19 @@ font-family:var(--gardyn-font-heading);
 color:#fff;
 }
 
+.gardyn-header .navbar-nav{
+display:flex;
+align-items:center;
+gap:22px;
+}
+
 .gardyn-header .navbar-brand{
 font-family:var(--gardyn-font-heading);
 letter-spacing:0.4px;
 font-size:24px;
 display:inline-flex;
 align-items:center;
-gap:8px;
+gap:15px;
 text-decoration:none;
 line-height:0;
 overflow:visible;
@@ -69,11 +75,13 @@ overflow:visible;
 .header-brand-logo{
 display:block;
 width:auto;
-height:88px;
+height:50px;
 object-fit:contain;
 position:relative;
 z-index:2;
-margin-bottom:-40px;
+margin-top:-4px;
+/* margin-bottom:-34px; */
+transform:translateY(-4px);
 /* border: 3px solid rgb(255, 255, 255); */
 }
 
@@ -680,9 +688,10 @@ background:#1f2f1f;
   }
 
   .header-brand-logo{
-    height:64px;
-    margin-top:-10px;
-    margin-bottom:-10px;
+    height:84px;
+    margin-top:4px;
+    margin-bottom:4px;
+    transform:translateY(-4px);
   }
 
   .menu-logo-image{

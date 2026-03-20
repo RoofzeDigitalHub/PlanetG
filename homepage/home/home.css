@@ -350,15 +350,17 @@
 
 
 .gardyn-header .header-brand-logo {
-  height: 36px;
+  height: 32px;
   width: auto;
   display: block;
   object-fit: contain;
+  transform: translateY(-4px);
 }
 
 @media (max-width: 768px) {
   .gardyn-header .header-brand-logo {
-    height: 32px;
+    height: 30px;
+    transform: translateY(-2px);
   }
 }
 

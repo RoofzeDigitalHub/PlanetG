@@ -11,6 +11,32 @@ font-family:'Roboto', sans-serif;
 padding:64px 0;
 }
 
+.service-section .service-section-heading{
+margin-bottom:28px;
+}
+
+.service-section .service-pill{
+display:inline-flex;
+align-items:center;
+padding:6px 14px;
+border-radius:999px;
+background:#e6eadf;
+font-size:11px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#3f4f3c;
+}
+
+.service-section .service-title{
+font-size:clamp(32px,4.5vw,54px);
+letter-spacing:2px;
+text-transform:uppercase;
+margin:16px 0 28px;
+font-weight:500;
+font-family:'Poppins', sans-serif;
+color:#3f4f3c;
+}
+
 .service-section .garden-card{
 position:relative;
 overflow:hidden;
@@ -152,6 +178,15 @@ height:340px;
 @media (max-width: 767.98px){
 .service-section{
 padding:48px 0 56px;
+}
+
+.service-section .service-section-heading{
+margin-bottom:24px;
+}
+
+.service-section .service-title{
+font-size:clamp(30px,8vw,44px);
+margin:14px 0 18px;
 }
 
 .service-section .garden-card{

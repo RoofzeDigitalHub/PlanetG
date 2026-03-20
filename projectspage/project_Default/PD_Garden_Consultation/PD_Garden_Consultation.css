@@ -5,10 +5,12 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 .garden-hero{
-height:500px;
+height:400px;
 background-image:url("/planetG/assets/bg3.jpg");
 background-size:cover;
 background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 display:flex;
 align-items:center;
 position:relative;
@@ -49,5 +51,14 @@ font-weight:500;
 .hero-btn:hover{
 background:#1b5e20;
 color:white;
+}
+
+@media (max-width: 991.98px){
+  .garden-hero{
+    height:auto;
+    min-height:auto;
+    padding:72px 0 64px;
+    background-attachment:scroll;
+  }
 }
 
