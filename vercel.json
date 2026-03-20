@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/homepage/index/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/homepage/index/index.html"
+    },
+    {
+      "source": "/planetG",
+      "destination": "/homepage/index/index.html"
+    },
+    {
+      "source": "/planetG/",
+      "destination": "/homepage/index/index.html"
+    },
+    {
+      "source": "/planetG/(.*)",
+      "destination": "/$1"
+    }
+  ]
+}
