@@ -1,13 +1,22 @@
 (function () {
 
+  // Single service page uses both full-width and split layout sections.
   const sections = [
+    // Shared top bar
     { file: "/planetG/homepage/infobar/infobar.html", target: "root" },
+    // Shared navigation
     { file: "/planetG/homepage/header/header.html", target: "root" },
+    // Page hero
     { file: "/planetG/servicespage/services_single/single_services_hero/single_services_hero.html", target: "root" },
+    // Sidebar service list
     { file: "/planetG/servicespage/services_single/services_list/services_list.html", target: "sidebar" },
-     { file: "/planetG/servicespage/services_single/Garden_Oasis_Showcase/Garden_Oasis_Showcase.html", target: "main" },   
+    // Main content showcase
+    { file: "/planetG/servicespage/services_single/Garden_Oasis_Showcase/Garden_Oasis_Showcase.html", target: "main" },
+    // Main content reasons to choose us
     { file: "/planetG/servicespage/services_single/Why_Choose _Us/Why_Choose _Us.html", target: "main" },
-     { file: "/planetG/servicespage/services_single/latest_project/latest_project.html", target: "main" },
+    // Main content latest project
+    { file: "/planetG/servicespage/services_single/latest_project/latest_project.html", target: "main" },
+    // Shared footer
     { file: "/planetG/homepage/footer/footer.html", target: "root" }
   ];
 
@@ -25,6 +34,17 @@
     if (/^https?:\/\//i.test(url)) return url;
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${cacheBust}`;
+  };
+
+  const appendLayoutOverrides = () => {
+    const href = withCacheBust("/planetG/assets/layout-overrides.css");
+    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
   };
 
   const moveSectionStyles = (wrapper) => {
@@ -128,7 +148,8 @@
       }
     });
 
-    Promise.all(stylePromises).catch(() => {});
+    await Promise.all(stylePromises).catch(() => {});
+    appendLayoutOverrides();
 
   }
 

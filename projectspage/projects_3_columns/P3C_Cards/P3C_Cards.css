@@ -91,3 +91,22 @@ font-size:17px;
 line-height:1.7;
 text-align:left;
 }
+
+/* MOBILE SPACING */
+@media (max-width: 768px){
+  .projects-section{
+    padding:56px 0 64px;
+  }
+
+  .project-card{
+    height:300px;
+  }
+
+  .project-card:hover{
+    padding:28px;
+  }
+
+  .project-card:hover::after{
+    font-size:15px;
+  }
+}

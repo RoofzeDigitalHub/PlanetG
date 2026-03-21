@@ -33,7 +33,7 @@
 
   .choice-title {
     text-align: center;
-    font-size: clamp(30px, 4.5vw, 52px);
+    font-size:clamp(22px,3.5vw,44px);
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 16px 0 36px;
@@ -68,8 +68,8 @@
   }
 
   .choice-card.alt {
-    background: var(--choice-card-alt);
-    color: #eef3ee;
+    background: var(--choice-card);
+    color: var(--choice-card-text);
   }
 
   .choice-index {
@@ -104,11 +104,11 @@
     margin: 0;
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(240, 244, 239, 0.85);
+   
   }
 
   .choice-card.alt p {
-    color: rgba(238, 243, 238, 0.9);
+    color: inherit;
   }
 
   @media (max-width: 991px) {

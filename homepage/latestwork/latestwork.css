@@ -11,6 +11,20 @@ font-family:'Roboto', sans-serif;
 padding:80px 0;
 }
 
+.latest-pill{
+display:inline-flex;
+align-items:center;
+padding:6px 14px;
+border-radius:999px;
+background:#e6eadf;
+font-size:11px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#3f4f3c;
+font-family:'Poppins', sans-serif;
+margin:0 auto;
+}
+
 .plan-title {
 text-align: center;
 font-size: clamp(30px, 4.5vw, 52px);

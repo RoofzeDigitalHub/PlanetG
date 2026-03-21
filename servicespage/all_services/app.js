@@ -1,11 +1,18 @@
 (function () {
 
+  // Services overview page sections are kept in reading order for clarity.
   const sections = [
+    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
+    // Shared navigation
     "/planetG/homepage/header/header.html",
+    // Page hero
     "/planetG/servicespage/all_services/herosection/herosection.html",
+    // Service cards grid
     "/planetG/servicespage/all_services/services_cards/services_cards.html",
+    // Consultation CTA
     "/planetG/servicespage/all_services/Garden_Consultation/Garden_Consultation.html",
+    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
@@ -23,6 +30,17 @@
     if (/^https?:\/\//i.test(url)) return url;
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${cacheBust}`;
+  };
+
+  const appendLayoutOverrides = () => {
+    const href = withCacheBust("/planetG/assets/layout-overrides.css");
+    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
   };
 
   const moveSectionStyles = (wrapper) => {
@@ -97,6 +115,7 @@
     });
 
     Promise.all(stylePromises).catch(() => {});
+    appendLayoutOverrides();
 
   }
 

@@ -14,13 +14,14 @@
 
 .video-section .container {
   width: min(100%, 1160px);
+  display: flex;
+  justify-content: center;
 }
 
 .video-frame {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  min-height: 280px;
+  width: min(100%, 1100px);
+  height: 450px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 30px 60px var(--video-shadow);
@@ -139,6 +140,9 @@ body.video-modal-open {
   }
 
   .video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     min-height: 240px;
     border-radius: 14px;
   }

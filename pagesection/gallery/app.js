@@ -1,10 +1,16 @@
 (function () {
 
+  // Gallery page sections are loaded in the same order they appear on screen.
   const sections = [
+    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
+    // Shared navigation
     "/planetG/homepage/header/header.html",
+    // Gallery hero
     "/planetG/pagesection/gallery/Gy_Hero/Gy_Hero.html",
+    // Gallery grid
     "/planetG/pagesection/gallery/Gy_image/Gy_image.html",
+    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
@@ -22,6 +28,17 @@
     if (/^https?:\/\//i.test(url)) return url;
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${cacheBust}`;
+  };
+
+  const appendLayoutOverrides = () => {
+    const href = withCacheBust("/planetG/assets/layout-overrides.css");
+    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
   };
 
   const moveSectionStyles = (wrapper) => {
@@ -96,6 +113,7 @@
     });
 
     Promise.all(stylePromises).catch(() => {});
+    appendLayoutOverrides();
 
   }
 

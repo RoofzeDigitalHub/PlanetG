@@ -30,15 +30,21 @@
   margin-bottom: 18px;
 }
 
-.ourstory-hero h1{
-  font-size: clamp(30px, 4.4vw, 52px);
+.ourstory-hero .story-heading{
+  font-size: clamp(20px, 3vw, 34px);
   font-weight: 600;
   line-height: 1.05;
   margin: 0 0 18px;
   font-family: 'Poppins', sans-serif;
+  max-width: 460px;
 }
 
-.ourstory-hero h1 span{
+.ourstory-hero .story-heading-line{
+  display:block;
+  white-space:nowrap;
+}
+
+.ourstory-hero .story-heading-accent{
   color: #a8c3a3;
 }
 
@@ -83,6 +89,27 @@
   box-shadow: 0 18px 40px rgba(10, 18, 10, 0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
+}
+
+.ourstory-hero .review-card-link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ourstory-hero .review-card-link:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ourstory-hero .review-card-link:focus-visible{
+  outline: 2px solid rgba(255,255,255,0.9);
+  outline-offset: 4px;
 }
 
 .ourstory-hero .glass-card:hover{
@@ -145,17 +172,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.ourstory-hero .review-card-link h3,
+.ourstory-hero .review-card-link p{
+  margin: 0;
+}
+
 .ourstory-hero .review-logo{
-  height:32px;
+  height:22px;
   width:auto;
   display:inline-block;
-  margin-top:4px;
+  margin-top:2px;
 }
 
 .ourstory-hero .stars{
   color: #f5d36b;
   font-size: 18px;
-  margin: 8px 0;
+  margin: 4px 0;
 }
 
 @media (max-width: 991px){
@@ -170,8 +202,8 @@
     margin-bottom: 30px;
   }
 
-  .ourstory-hero h1{
-    font-size: clamp(28px, 7.5vw, 38px);
+  .ourstory-hero .story-heading{
+    font-size: clamp(22px, 6.2vw, 30px);
   }
 
   .ourstory-hero p{

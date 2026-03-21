@@ -31,6 +31,7 @@ font-size:14px;
 line-height:1.75;
 margin:0;
 color:#d8e7d8;
+overflow-wrap:anywhere;
 }
 
 .footer-brand{
@@ -115,18 +116,35 @@ margin-top:40px;
 padding-top:16px;
 font-size:13px;
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
 gap:12px;
 flex-wrap:wrap;
 position:relative;
 z-index:2;
+text-align:center;
 }
 
-.bottom-bar a{
+.footer-credit{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+justify-content:center;
+gap:4px;
+line-height:1.7;
+}
+
+.bottom-bar .footer-credit-link{
 display:inline;
-margin-left:15px;
-margin-bottom:0;
+margin:0;
+font-weight:600;
+color:#ffffff;
+text-decoration:none;
+}
+
+.bottom-bar .footer-credit-link:hover{
+color:#c7f0c7;
+transform:none;
 }
 
 .grass{
@@ -210,13 +228,8 @@ opacity:0.9;
 
   .bottom-bar{
     flex-direction:column;
-    align-items:flex-start;
+    align-items:center;
     margin-top:28px;
-  }
-
-  .bottom-bar a{
-    margin-left:0;
-    margin-right:12px;
   }
 
   .grass{

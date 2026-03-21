@@ -1,0 +1,456 @@
+html,
+body,
+#page {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+header,
+footer,
+#page > div,
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.gardyn-header .container {
+  min-height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.header-brand-logo {
+  height: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  transform: none;
+}
+
+/* Shared section spacing */
+:where(section:not(.hero):not(.hero-section):not(.gardyn-hero):not(.garden-hero):not(.menu-block)) {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* Homepage spacing tweaks */
+.crafting-section {
+  padding-top: 48px;
+  padding-bottom: 28px;
+}
+
+.service-section {
+  padding-top: 48px;
+  padding-bottom: 20px;
+}
+
+.service-section .container.py-5 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.latest-works {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+.price-section {
+  padding-top: 32px;
+  padding-bottom: 64px;
+}
+
+.plan-section {
+  padding-top: 44px;
+  padding-bottom: 32px;
+}
+
+.quote-section {
+  padding-top: 52px;
+  padding-bottom: 64px;
+}
+
+.why-choose,
+.video-section,
+.oasis-section {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+/* Project and gallery spacing */
+.projects-section,
+.project-section {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+.story-section,
+.team-section {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+.choice-section,
+.services-section {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+.contact-section {
+  padding-top: 52px;
+  padding-bottom: 60px;
+}
+
+/* Consultation blocks share one visual scale */
+.garden-hero {
+  height: 400px;
+  padding: 0;
+  background-image: url("/planetG/assets/bg3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+}
+
+.garden-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 30, 18, 0.62) 0%, rgba(18, 30, 18, 0.48) 100%);
+}
+
+.garden-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.garden-hero .garden-hero__content {
+  max-width: 720px;
+  padding: 24px 0;
+}
+
+.garden-hero .hero-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.garden-hero .hero-title {
+  margin: 0 0 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(30px, 4.6vw, 30px);
+  line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  max-width: 620px;
+  text-wrap: balance;
+}
+
+.garden-hero .hero-copy {
+  max-width: 560px;
+  margin: 0 0 26px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+}
+
+.garden-hero .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4f6f45 0%, #3b5936 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.garden-hero .hero-btn:hover {
+  background: linear-gradient(135deg, #56784c 0%, #2f472b 100%);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.22);
+}
+
+section.hero-section .hero-title,
+section.hero-section h3,
+section.hero h3 {
+  font-size: clamp(17px, 2vw, 20px);
+  letter-spacing: 1.6px;
+}
+
+section.hero-section .hero-subtitle,
+section.hero p {
+  font-size: 15px;
+}
+
+.hero-decoration {
+  display: none !important;
+}
+
+.service-title,
+.plan-title,
+.crafting-title,
+.price-title,
+.choice-title,
+.team-title,
+.story-title,
+.oasis-title {
+  font-size: clamp(20px, 3vw, 34px);
+}
+
+.ourstory-hero .story-heading {
+  font-size: clamp(20px, 3vw, 34px);
+}
+
+/* Project default cards behave like the latest work cards on mobile */
+.project-section .project-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.project-section .project-card img {
+  display: block;
+  width: 100%;
+}
+
+.project-section .project-card .hover-content p {
+  max-width: 320px;
+}
+
+/* Store video card should shrink to mobile width cleanly */
+.store-page .services-section .card-wrapper {
+  width: 100%;
+}
+
+.store-page .services-section .service-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.store-page .services-section .service-card--feature {
+  width: min(760px, 100%);
+  margin-inline: auto;
+}
+
+@media (max-width: 991.98px) {
+  .gardyn-header .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .gardyn-header .container {
+    min-height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .header-brand-logo {
+    height: 50px;
+  }
+
+  .garden-hero {
+    height: auto;
+    min-height: auto;
+    padding: 56px 0 56px;
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  :where(section:not(.hero):not(.hero-section):not(.gardyn-hero):not(.garden-hero):not(.menu-block)) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .crafting-section {
+    padding-top: 44px;
+    padding-bottom: 22px;
+  }
+
+  .service-section {
+    padding-top: 36px;
+    padding-bottom: 16px;
+  }
+
+  .latest-works {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .projects-section,
+  .project-section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .story-section,
+  .team-section,
+  .choice-section,
+  .services-section,
+  .contact-section,
+  .quote-section,
+  .why-choose,
+  .video-section,
+  .oasis-section {
+    padding-top: 48px;
+    padding-bottom: 52px;
+  }
+
+  .plan-section {
+    padding-top: 34px;
+    padding-bottom: 24px;
+  }
+
+  .price-section {
+    padding-top: 28px;
+    padding-bottom: 52px;
+  }
+
+  .gardyn-header .container {
+    min-height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .gardyn-header .navbar-brand {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-brand-logo {
+    height: 50px;
+  }
+
+  .garden-hero {
+    height: auto;
+    min-height: auto;
+    padding: 56px 0 56px;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+
+  .garden-hero .garden-hero__content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .project-section .project-card img {
+    height: 280px;
+  }
+
+  .project-section .project-info {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .project-section .project-info .arrow {
+    align-self: flex-end;
+  }
+
+  .project-section .project-card .hover-content {
+    padding: 30px 18px;
+  }
+
+  .project-section .project-card .hover-content p {
+    font-size: 14px;
+  }
+
+  .store-page .services-section .service-card {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .store-page .services-section .service-overlay {
+    padding: 18px 16px;
+  }
+
+  .store-page .services-section .hover-content {
+    padding: 24px 16px;
+  }
+
+  .store-page .services-section .hover-content p {
+    font-size: 14px;
+  }
+
+  .store-page .services-section .hover-content button {
+    padding: 9px 22px;
+  }
+
+  .service-title,
+  .plan-title,
+  .crafting-title,
+  .price-title,
+  .choice-title,
+  .team-title,
+  .story-title,
+  .oasis-title,
+  .ourstory-hero .story-heading {
+    font-size: clamp(22px, 6.2vw, 30px);
+  }
+}
+
+@media (max-width: 640px) {
+  .project-section .project-card img {
+    height: 264px;
+  }
+
+  .project-section .project-info {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .project-section .project-info h5 {
+    font-size: 16px;
+  }
+
+  .project-section .project-card .hover-content {
+    padding: 24px 16px;
+  }
+
+  .store-page .services-section .service-card {
+    aspect-ratio: 16 / 11;
+  }
+}

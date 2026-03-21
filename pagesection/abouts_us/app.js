@@ -1,12 +1,20 @@
 (function () {
 
+  // About page sections are assembled from shared blocks plus page-specific content.
   const sections = [
+    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
+    // Shared navigation
     "/planetG/homepage/header/header.html",
+    // About hero
     "/planetG/pagesection/abouts_us/Ab_hero/Ab_hero.html",
+    // Our story section
     "/planetG/pagesection/abouts_us/Ab_ourstory/Ab_ourstory.html",
+    // Team section
     "/planetG/pagesection/abouts_us/Ab_ourTeam/Ab_ourTeam.html",
+    // Consultation CTA
     "/planetG/pagesection/abouts_us/Ab_Garden_Consultation/Ab_Garden_Consultation.html",
+    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
@@ -24,6 +32,17 @@
     if (/^https?:\/\//i.test(url)) return url;
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${cacheBust}`;
+  };
+
+  const appendLayoutOverrides = () => {
+    const href = withCacheBust("/planetG/assets/layout-overrides.css");
+    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
   };
 
   const moveSectionStyles = (wrapper) => {
@@ -98,6 +117,7 @@
     });
 
     Promise.all(stylePromises).catch(() => {});
+    appendLayoutOverrides();
 
   }
 

@@ -20,7 +20,7 @@ linear-gradient(rgba(246,246,239,0.88), rgba(246,246,239,0.88));
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-background-attachment:fixed;
+background-attachment:scroll;
 padding: 70px 0 90px;
 font-family:'Roboto',sans-serif;
 }
@@ -63,10 +63,10 @@ border-radius:24px;
 overflow:hidden;
 box-shadow:0 30px 60px rgba(17,30,19,0.18);
 
-background-image:url("/planetG/assets/Firefly_GeminiFlash_Resize this image and improve the quality 568478.png");
+background-image:url("/planetG/assets/Firefly_Resize this image and improve the quality 665329 (1).png");
 background-size:cover;
 background-position:center;
-background-attachment:fixed;
+background-attachment:scroll;
 }
 
 /* SECOND IMAGE CARD */
@@ -81,10 +81,10 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 24px 50px rgba(17,30,19,0.2);
 
-background-image:url("/planetG/assets/pricing-1.jpg");
+background-image:url("/planetG/assets/Firefly_Resize this image and improve the quality 568478 (2).png");
 background-size:cover;
 background-position:center;
-background-attachment:fixed;
+background-attachment:scroll;
 }
 
 /* TEXT */
@@ -105,7 +105,7 @@ font-family:'Poppins',sans-serif;
 
 .crafting-title{
 font-family:'Poppins',sans-serif;
-font-size:clamp(32px,4.5vw,54px);
+font-size:clamp(20px,3vw,34px);
 line-height:1.05;
 margin:0 0 18px;
 color:var(--gardyn-olive-dark);

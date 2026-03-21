@@ -136,12 +136,13 @@
 }
 
 @media (max-width: 768px){
+  /* MOBILE SPACING */
   .project-section{
-    padding:70px 0 90px;
+    padding:56px 0 68px;
   }
 
   .project-card img{
-    height:280px;
+    height:260px;
   }
 
   .project-info{
@@ -150,7 +151,7 @@
   }
 
   .project-card .hover-content{
-    padding:30px 18px;
+    padding:24px 16px;
   }
 
   .project-card .hover-content p{

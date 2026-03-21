@@ -53,11 +53,12 @@ background:#1b5e20;
 color:white;
 }
 
+/* MOBILE SPACING */
 @media (max-width: 991.98px){
   .garden-hero{
     height:auto;
     min-height:auto;
-    padding:72px 0 64px;
+    padding:56px 0 56px;
     background-attachment:scroll;
   }
 }

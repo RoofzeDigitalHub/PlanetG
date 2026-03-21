@@ -1,11 +1,18 @@
 (function () {
 
+  // Projects 3 columns page sections follow the visual flow from top to bottom.
   const sections = [
+    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
+    // Shared navigation
     "/planetG/homepage/header/header.html",
+    // Page hero
     "/planetG/projectspage/projects_3_columns/P3C_hero/P3C_hero.html",
+    // Project cards grid
     "/planetG/projectspage/projects_3_columns/P3C_Cards/P3C_Cards.html",
+    // Consultation CTA
     "/planetG/projectspage/projects_3_columns/P3C_Garden_Consultation/P3C_Garden_Consultation.html",
+    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
@@ -23,6 +30,17 @@
     if (/^https?:\/\//i.test(url)) return url;
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}v=${cacheBust}`;
+  };
+
+  const appendLayoutOverrides = () => {
+    const href = withCacheBust("/planetG/assets/layout-overrides.css");
+    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
   };
 
   const moveSectionStyles = (wrapper) => {
@@ -97,6 +115,7 @@
     });
 
     await Promise.all(stylePromises).catch(() => {});
+    appendLayoutOverrides();
     window.PGRevealRefresh?.();
 
   }

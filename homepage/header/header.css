@@ -26,6 +26,17 @@ font-family:var(--gardyn-font-body);
 transition:background 0.7s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
 }
 
+.gardyn-header .navbar{
+padding-top:0;
+padding-bottom:0;
+}
+
+.gardyn-header .container{
+min-height:50px;
+padding-top:0;
+padding-bottom:0;
+}
+
 .gardyn-header.scrolled{
 position:fixed;
 left:0;
@@ -57,7 +68,7 @@ color:#fff;
 .gardyn-header .navbar-nav{
 display:flex;
 align-items:center;
-gap:22px;
+gap:18px;
 }
 
 .gardyn-header .navbar-brand{
@@ -79,10 +90,9 @@ height:50px;
 object-fit:contain;
 position:relative;
 z-index:2;
-margin-top:-4px;
-/* margin-bottom:-34px; */
-transform:translateY(-4px);
-/* border: 3px solid rgb(255, 255, 255); */
+margin-top:0;
+margin-bottom:0;
+transform:none;
 }
 
 .menu-logo-image{
@@ -377,6 +387,10 @@ margin-top:4px;
 color:#dce8cf;
 }
 
+.menu-contact-item span{
+overflow-wrap:anywhere;
+}
+
 .menu-about-text{
 margin:0;
 font-size:15px;
@@ -579,8 +593,9 @@ background:#1f2f1f;
   }
 
   .gardyn-header .container{
-    padding-top:8px;
-    padding-bottom:8px;
+    min-height:50px;
+    padding-top:0;
+    padding-bottom:0;
   }
 
   .gardyn-header .navbar-brand{
@@ -688,10 +703,10 @@ background:#1f2f1f;
   }
 
   .header-brand-logo{
-    height:84px;
-    margin-top:4px;
-    margin-bottom:4px;
-    transform:translateY(-4px);
+    height:50px;
+    margin-top:0;
+    margin-bottom:0;
+    transform:none;
   }
 
   .menu-logo-image{
