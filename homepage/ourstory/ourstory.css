@@ -222,6 +222,7 @@
   }
 
   .ourstory-hero .green-card--offset{
+    margin-top: 0;
     transform:none;
   }
 
