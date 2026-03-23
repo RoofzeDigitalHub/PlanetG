@@ -31,6 +31,10 @@
     background 0.2s ease;
 }
 
+.pg-wa-fab[hidden] {
+  display: none !important;
+}
+
 .pg-wa-fab.is-ready {
   opacity: 1;
   visibility: visible;

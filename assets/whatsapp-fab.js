@@ -15,7 +15,6 @@
     "</svg>" +
     "</span>";
   let revealObserver = null;
-  let revealFallbackTimer = 0;
 
   const getCssHref = () => {
     const currentScript = document.currentScript;
@@ -114,16 +113,9 @@
     revealObserver = null;
   };
 
-  const clearRevealFallback = () => {
-    if (!revealFallbackTimer) return;
-    window.clearTimeout(revealFallbackTimer);
-    revealFallbackTimer = 0;
-  };
-
   const revealButton = () => {
     const button = ensureButton();
     if (!button) return;
-    clearRevealFallback();
     button.hidden = false;
     button.removeAttribute("hidden");
     button.classList.add("is-ready");
@@ -137,19 +129,6 @@
     revealButton();
     disconnectRevealObserver();
     return true;
-  };
-
-  const scheduleRevealFallback = () => {
-    if (maybeRevealButton()) {
-      return;
-    }
-
-    clearRevealFallback();
-    revealFallbackTimer = window.setTimeout(() => {
-      if (document.readyState !== "loading") {
-        revealButton();
-      }
-    }, 900);
   };
 
   const watchForPageReady = () => {
@@ -175,7 +154,6 @@
 
     window.addEventListener("load", maybeRevealButton, { once: true });
     window.addEventListener("pg:page-ready", maybeRevealButton, { once: true });
-    scheduleRevealFallback();
   };
 
   const ensureButton = () => {
@@ -196,7 +174,7 @@
 
   const init = () => {
     window.requestAnimationFrame(ensureButton);
-    ensureStyles().finally(scheduleRevealFallback);
+    ensureStyles().then(maybeRevealButton);
     watchForPageReady();
   };
 
