@@ -1,3 +1,4 @@
+
 (function () {
   const overlayId = "pg-loader-overlay";
 
@@ -34,6 +35,10 @@
     document.body.classList.remove("pg-loading");
   }
 
+  function getHeaderScrollThreshold() {
+    return window.matchMedia("(max-width: 991.98px)").matches ? 24 : 10;
+  }
+
   function isIgnorableLink(link) {
     const href = link.getAttribute("href");
     if (!href) return true;
@@ -43,6 +48,31 @@
     if (href.startsWith("javascript:")) return true;
     if (link.target && link.target !== "_self") return true;
     if (link.hasAttribute("download")) return true;
+    if (link.dataset.skipLoader === "true") return true;
+
+    try {
+      const url = new URL(link.href, window.location.href);
+      const currentUrl = new URL(window.location.href);
+      if (url.origin !== currentUrl.origin) {
+        return true;
+      }
+      if (
+        url.pathname === currentUrl.pathname &&
+        url.search === currentUrl.search &&
+        (url.hash || "") === (currentUrl.hash || "")
+      ) {
+        return true;
+      }
+      if (
+        url.origin === window.location.origin &&
+        /\/planetG\/homepage\/index\/index\.html$/i.test(url.pathname)
+      ) {
+        return true;
+      }
+    } catch (error) {
+      return false;
+    }
+
     return false;
   }
 
@@ -53,8 +83,8 @@
       showLoader();
     });
 
-    window.addEventListener("beforeunload", showLoader);
     window.addEventListener("pageshow", hideLoader);
+    window.addEventListener("load", hideLoader, { once: true });
   }
 
   function initWaveButtons() {
@@ -153,16 +183,35 @@
       let index = 0;
       const interval = parseInt(hero.getAttribute("data-hero-interval") || "5000", 10);
       const safeInterval = Number.isFinite(interval) ? interval : 5000;
+      const transition = parseInt(hero.getAttribute("data-hero-transition") || "1200", 10);
+      const safeTransition = Number.isFinite(transition) ? transition : 1200;
+      let isTransitioning = false;
 
       const applyImage = (i) => {
-        hero.style.setProperty("--hero-bg", 'url("' + images[i] + '")');
+        const imageValue = 'url("' + images[i] + '")';
+        hero.style.setProperty("--hero-bg-current", imageValue);
+        hero.style.setProperty("--hero-bg-next", imageValue);
       };
 
       applyImage(index);
 
+      if (images.length === 1) return;
+
       const timer = window.setInterval(() => {
+        if (isTransitioning) return;
         index = (index + 1) % images.length;
-        applyImage(index);
+        isTransitioning = true;
+        hero.style.setProperty("--hero-bg-next", 'url("' + images[index] + '")');
+        hero.classList.add("is-crossfading");
+
+        window.setTimeout(() => {
+          hero.style.setProperty("--hero-bg-current", 'url("' + images[index] + '")');
+          hero.classList.remove("is-crossfading");
+          window.setTimeout(() => {
+            hero.style.setProperty("--hero-bg-next", 'url("' + images[index] + '")');
+            isTransitioning = false;
+          }, 60);
+        }, safeTransition);
       }, safeInterval);
 
       hero._heroSliderTimer = timer;
@@ -179,7 +228,7 @@
     function applyHeaderState() {
       const header = document.querySelector(".gardyn-header");
       if (!header) return;
-      if (window.scrollY > 0) {
+      if (window.scrollY > getHeaderScrollThreshold()) {
         header.classList.add("scrolled");
       } else {
         header.classList.remove("scrolled");

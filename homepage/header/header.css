@@ -592,6 +592,12 @@ background:#1f2f1f;
     box-shadow:none;
   }
 
+  .gardyn-header:not(.scrolled){
+    background:transparent !important;
+    backdrop-filter:none;
+    box-shadow:none;
+  }
+
   .gardyn-header .container{
     min-height:50px;
     padding-top:0;

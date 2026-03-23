@@ -41,14 +41,14 @@ opacity:.9;
 margin-bottom:20px;
 }
 
-.hero h3{
+.hero-title{
 font-size:70px;
 font-weight:600;
 letter-spacing:2px;
 margin-bottom:10px;
 }
 
-.hero p{
+.hero-subtitle{
 font-size:20px;
 opacity:.9;
 }

@@ -41,24 +41,31 @@ max-width:520px;
 /* RIGHT GRID */
 
 .story-grid{
+--story-gap:20px;
+--story-image-height:245px;
+--story-happy-card-height:128px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
+gap:var(--story-gap);
+align-items:start;
 }
 
 /* IMAGES */
 
 .story-img{
 width:100%;
+height:var(--story-image-height);
 border-radius:12px;
 object-fit:cover;
+display:block;
 }
 
 /* TALL IMAGE */
 
 .tall-img{
-grid-row:span 2;
-height:100%;
+grid-row:auto;
+height:var(--story-image-height);
+margin-top:calc(-1 * (var(--story-image-height) - var(--story-happy-card-height) - var(--story-gap)));
 }
 
 /* STATS CARDS */
@@ -66,23 +73,91 @@ height:100%;
 .stat-card{
 background:#3e5a3d;
 color:white;
-padding:35px;
+padding:28px 24px;
 border-radius:12px;
 display:flex;
 align-items:center;
-gap:20px;
+gap:16px;
+min-height:150px;
+}
+
+.stat-card--compact{
+padding:22px 20px;
+min-height:128px;
+}
+
+.story-grid .stat-card:first-of-type{
+padding:22px 20px;
+min-height:var(--story-happy-card-height);
+margin-top:var(--story-gap);
 }
 
 .stat-icon{
-font-size:35px;
+width:52px;
+height:52px;
+flex:0 0 52px;
+object-fit:contain;
+display:block;
+}
+
+.story-grid .stat-card:first-of-type .stat-icon{
+background:url("/planetG/assets/happy-60x60.png") center/contain no-repeat;
+font-size:0;
+color:transparent;
+overflow:hidden;
+}
+
+.story-grid .stat-card:nth-of-type(2) .stat-icon{
+background:url("/planetG/assets/tree-60x60.png") center/contain no-repeat;
+font-size:0;
+color:transparent;
+overflow:hidden;
+}
+
+.stat-content{
+min-width:0;
 }
 
 .stat-number{
-font-size:36px;
+font-size:32px;
 font-weight:600;
+line-height:1;
+margin-bottom:6px;
 }
 
 .stat-text{
-font-size:16px;
+font-size:15px;
 opacity:.9;
+line-height:1.3;
+}
+
+.stat-text--nowrap{
+white-space:nowrap;
+}
+
+.story-grid .stat-card:first-of-type .stat-text{
+white-space:nowrap;
+}
+
+@media (max-width:991.98px){
+.story-grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+.story-img,
+.tall-img{
+height:220px;
+margin-top:0;
+}
+
+.stat-card,
+.stat-card--compact{
+min-height:auto;
+}
+
+.story-grid .stat-card:first-of-type{
+min-height:auto;
+margin-top:0;
+}
 }

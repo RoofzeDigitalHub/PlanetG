@@ -153,8 +153,19 @@
     const modal = getGalleryModal();
     const img = modal.querySelector(".gallery-modal-image");
     const caption = modal.querySelector(".gallery-modal-caption");
-    const source = card.getAttribute("data-gallery-image") || card.querySelector("img")?.currentSrc || card.querySelector("img")?.src;
+    const previewImage = card.querySelector("img");
+    const preferredSource = card.getAttribute("data-gallery-image") || "";
+    const fallbackSource = previewImage?.currentSrc || previewImage?.src || "";
+    const source = preferredSource || fallbackSource;
     if (!img || !source) return;
+
+    img.onerror = null;
+    if (preferredSource && fallbackSource && preferredSource !== fallbackSource) {
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = fallbackSource;
+      };
+    }
 
     img.src = source;
     img.alt = card.getAttribute("data-gallery-caption") || card.querySelector("img")?.alt || "Gallery image";

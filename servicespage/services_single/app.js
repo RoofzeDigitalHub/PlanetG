@@ -47,6 +47,11 @@
     document.head.appendChild(link);
   };
 
+  const markPageReady = () => {
+    document.documentElement.dataset.pgPageReady = "true";
+    window.dispatchEvent(new CustomEvent("pg:page-ready"));
+  };
+
   const moveSectionStyles = (wrapper) => {
     const head = document.head;
     if (!head) return Promise.resolve();
@@ -150,7 +155,7 @@
 
     await Promise.all(stylePromises).catch(() => {});
     appendLayoutOverrides();
-
+    markPageReady();
   }
 
   loadSections();

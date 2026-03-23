@@ -1,14 +1,19 @@
 (function () {
-  const header = document.querySelector(".gardyn-header");
-  const topbar = document.querySelector(".gardyn-topbar");
+  const getHeader = () => document.querySelector(".gardyn-header");
+  const getTopbar = () => document.querySelector(".gardyn-topbar");
+  const getHeaderScrollThreshold = () => (
+    window.matchMedia("(max-width: 991.98px)").matches ? 24 : 10
+  );
 
   const setTopbarHeight = () => {
+    const topbar = getTopbar();
     const height = topbar ? topbar.getBoundingClientRect().height : 0;
     document.documentElement.style.setProperty("--gardyn-topbar-height", `${Math.round(height)}px`);
   };
 
   const handleScroll = () => {
-    const scrolled = window.scrollY > 10;
+    const header = getHeader();
+    const scrolled = window.scrollY > getHeaderScrollThreshold();
     document.body.classList.toggle("gardyn-scrolled", scrolled);
     if (header) {
       header.classList.toggle("scrolled", scrolled);

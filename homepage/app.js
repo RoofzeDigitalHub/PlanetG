@@ -60,6 +60,11 @@
     document.head.appendChild(link);
   };
 
+  const markPageReady = () => {
+    document.documentElement.dataset.pgPageReady = "true";
+    window.dispatchEvent(new CustomEvent("pg:page-ready"));
+  };
+
   const moveSectionStyles = (wrapper) => {
     const head = document.head;
     if (!head) return Promise.resolve();
@@ -107,6 +112,63 @@
     });
   };
 
+  const getClientScrollDistance = (track) => {
+    const card = track?.querySelector(".client-logo-card");
+    if (!track || !card) return 0;
+
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || "0");
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const scrollClientTrack = (track, direction = 1) => {
+    if (!track) return;
+
+    const distance = getClientScrollDistance(track);
+    if (!distance) return;
+
+    const isLooping = track.getAttribute("data-client-loop") === "true";
+    const loopWidth = isLooping ? track.scrollWidth / 2 : 0;
+
+    if (isLooping && loopWidth) {
+      if (direction > 0 && track.scrollLeft >= loopWidth - distance) {
+        track.scrollLeft -= loopWidth;
+      } else if (direction < 0 && track.scrollLeft <= distance) {
+        track.scrollLeft += loopWidth;
+      }
+
+      track.scrollTo({
+        left: track.scrollLeft + (distance * direction),
+        behavior: "smooth"
+      });
+      return;
+    }
+
+    const maxScrollLeft = Math.max(0, track.scrollWidth - track.clientWidth);
+    const nextScrollLeft = track.scrollLeft + (distance * direction);
+
+    if (direction > 0 && nextScrollLeft >= maxScrollLeft - 4) {
+      track.scrollTo({
+        left: 0,
+        behavior: "smooth"
+      });
+      return;
+    }
+
+    if (direction < 0 && track.scrollLeft <= 4) {
+      track.scrollTo({
+        left: maxScrollLeft,
+        behavior: "smooth"
+      });
+      return;
+    }
+
+    track.scrollBy({
+      left: distance * direction,
+      behavior: "smooth"
+    });
+  };
+
   function setupInteractions() {
     if (document.documentElement.dataset.pgInteractions === "true") {
       return;
@@ -119,17 +181,7 @@
 
       const section = button.closest(".client-logo-section") || document;
       const track = section.querySelector("[data-client-track]");
-      const card = track?.querySelector(".client-logo-card");
-      if (!track || !card) return;
-
-      const styles = window.getComputedStyle(track);
-      const gap = parseFloat(styles.columnGap || styles.gap || "0");
-      const distance = card.getBoundingClientRect().width + gap;
-
-      track.scrollBy({
-        left: distance * direction,
-        behavior: "smooth"
-      });
+      scrollClientTrack(track, direction);
     };
 
     const openVideoModal = (src) => {
@@ -248,6 +300,70 @@
     }, 3500);
   }
 
+  function initClientLogoSlider() {
+    const section = document.querySelector(".client-logo-section");
+    const track = section?.querySelector("[data-client-track]");
+    if (!section || !track || section.dataset.autoScrollReady === "true") return;
+
+    section.dataset.autoScrollReady = "true";
+
+    let autoScrollFrame = 0;
+    let previousTime = 0;
+
+    const resetLoopPosition = () => {
+      const loopWidth = getLoopWidth();
+      if (!loopWidth) return;
+
+      if (track.scrollLeft >= loopWidth) {
+        track.scrollLeft -= loopWidth;
+      } else if (track.scrollLeft < 0) {
+        track.scrollLeft += loopWidth;
+      }
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollFrame) {
+        window.cancelAnimationFrame(autoScrollFrame);
+        autoScrollFrame = 0;
+      }
+      previousTime = 0;
+    };
+
+    const getLoopWidth = () => (
+      track.getAttribute("data-client-loop") === "true" ? track.scrollWidth / 2 : 0
+    );
+
+    const stepAutoScroll = (time) => {
+      if (!previousTime) previousTime = time;
+      const delta = time - previousTime;
+      previousTime = time;
+
+      const speed = window.matchMedia("(max-width: 640px)").matches ? 68 : 96;
+      track.scrollLeft += (speed * delta) / 1000;
+      resetLoopPosition();
+
+      autoScrollFrame = window.requestAnimationFrame(stepAutoScroll);
+    };
+
+    const startAutoScroll = () => {
+      stopAutoScroll();
+      resetLoopPosition();
+      autoScrollFrame = window.requestAnimationFrame(stepAutoScroll);
+    };
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAutoScroll();
+        return;
+      }
+      startAutoScroll();
+    });
+
+    startAutoScroll();
+    window.addEventListener("load", startAutoScroll, { once: true });
+    window.addEventListener("resize", startAutoScroll);
+  }
+
   async function loadSections() {
     const results = await Promise.all(
       sections.map(async (file) => {
@@ -278,8 +394,10 @@
 
     await Promise.all(stylePromises).catch(() => {});
     appendLayoutOverrides();
+    initClientLogoSlider();
     initTestimonialSlider();
     window.PGRevealRefresh?.();
+    markPageReady();
   }
 
   setupInteractions();
