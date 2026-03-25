@@ -15,9 +15,9 @@ isolation:isolate;
 color:white;
 font-family:'Roboto', sans-serif;
 }
-.Nav-heading{
+.hero .Nav-heading{
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(25px, 3.9vw, 34px);
+  font-size: clamp(29px, 4.3vw, 39px);
   font-weight: 300;
   line-height: 1.02;
   margin: 0 0 18px;
@@ -36,12 +36,13 @@ inset:0;
 }
 
 .hero::before{
-background-image:var(--hero-bg-next, var(--hero-bg-current, url("/planetG/assets/Firefly_GeminiFlash_Resize this image 665329.png")));
+background-image:var(--hero-bg-next, var(--hero-bg-current, url("/planetG/assets/Firefly_Gemini Flash (1).jpg.jpeg")));
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 opacity:0;
-transition:opacity 1.4s ease-in-out;
+transition:opacity 1.8s ease-in-out;
+will-change:opacity;
 z-index:0;
 }
 
@@ -216,8 +217,8 @@ z-index:2;
     letter-spacing: 1px;
   }
 
-  .Nav-heading{
-    font-size: clamp(32px, 10vw, 48px);
+  .hero .Nav-heading{
+    font-size: clamp(35px, 10.2vw, 52px);
     max-width: 100%;
   }
 

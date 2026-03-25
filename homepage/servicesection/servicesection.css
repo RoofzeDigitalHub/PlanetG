@@ -12,19 +12,21 @@ padding:14px 0;
 }
 
 .service-section .service-section-heading{
-margin-bottom:28px;
+margin-bottom:34px;
 }
 
 .service-section .service-pill{
 display:inline-flex;
 align-items:center;
-padding:6px 14px;
+padding:10px 22px;
 border-radius:999px;
 background:#e6eadf;
-font-size:11px;
-letter-spacing:1px;
+font-size:13px;
+letter-spacing:1.4px;
 text-transform:uppercase;
 color:#3f4f3c;
+font-family:'Poppins', sans-serif;
+font-weight:600;
 }
 
 .service-section .service-title{

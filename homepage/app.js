@@ -8,8 +8,6 @@
     "/planetG/homepage/header/header.html",
     // Hero banner
     "/planetG/homepage/herosection/herosection.html",
-    // Client logo showcase
-    "/planetG/homepage/client_logo/client_logo.html",
     // Intro content
     "/planetG/homepage/crafting_living/crafting_living.html",
     // Services preview
@@ -18,6 +16,8 @@
     "/planetG/homepage/Price_List/Price_List.html",
     // Our story feature block
     "/planetG/homepage/ourstory/ourstory.html",
+    // Client logo showcase
+    "/planetG/homepage/client_logo/client_logo.html",
     // Why choose us block
     "/planetG/homepage/whychooseus/whychooseus.html",
     // Pricing plans

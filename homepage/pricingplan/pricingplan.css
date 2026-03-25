@@ -31,14 +31,18 @@ z-index: 1;
 .plan-pill {
 display: inline-flex;
 align-items: center;
-padding: 6px 14px;
+justify-content: center;
+gap: 6px;
+padding: 10px 22px;
 border-radius: 999px;
 background: var(--plan-pill);
-font-size: 11px;
-letter-spacing: 1px;
+font-size: 13px;
+letter-spacing: 1.4px;
 text-transform: uppercase;
 color: var(--plan-ink);
 font-family: 'Poppins', sans-serif;
+font-weight: 600;
+margin-bottom: 34px;
 }
 
 .plan-title {
@@ -202,6 +206,10 @@ background-attachment: scroll;
 @media (max-width: 768px) {
   .plan-section {
     padding: 56px 0 72px;
+  }
+
+  .plan-pill {
+    margin-bottom: 26px;
   }
 
   .plan-title {

@@ -96,12 +96,15 @@ margin:auto;
 .price-pill{
 display:inline-flex;
 align-items:center;
-padding:6px 14px;
+padding:10px 22px;
 border-radius:999px;
 background:var(--price-pill);
-font-size:11px;
-letter-spacing:1px;
+font-size:13px;
+letter-spacing:1.4px;
 text-transform:uppercase;
+font-family:'Poppins', sans-serif;
+font-weight:600;
+margin-bottom:28px;
 }
 
 .price-title{

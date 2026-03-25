@@ -108,12 +108,12 @@ font-family:'Poppins',sans-serif;
 font-size:clamp(20px,3vw,34px);
 line-height:1.05;
 margin:0 0 18px;
-color:var(--gardyn-olive-dark);
+color:#234225;
 font-weight:600;
 }
 
 .crafting-title span{
-color:var(--gardyn-olive);
+color:#234225;
 }
 
 .crafting-text{
