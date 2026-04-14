@@ -118,6 +118,43 @@ height:180px !important;
 resize:none;
 }
 
+.contact-form .form-control:focus{
+border-color:#3e5e3e;
+box-shadow:0 0 0 0.18rem rgba(62, 94, 62, 0.14);
+}
+
+.contact-form .form-control.is-invalid{
+border-color:#b3261e;
+box-shadow:none;
+}
+
+.contact-honeypot{
+position:absolute;
+left:-9999px;
+width:1px;
+height:1px;
+opacity:0;
+pointer-events:none;
+}
+
+.contact-form-status{
+margin:0;
+padding:12px 14px;
+border-radius:12px;
+font-size:14px;
+line-height:1.5;
+}
+
+.contact-form-status.is-success{
+background:rgba(62, 94, 62, 0.12);
+color:#244224;
+}
+
+.contact-form-status.is-error{
+background:rgba(179, 38, 30, 0.12);
+color:#7f1d18;
+}
+
 
 /* BUTTON */
 
@@ -135,6 +172,11 @@ transition:0.3s;
 
 .send-btn:hover{
 background:#3e5e3e;
+}
+
+.send-btn:disabled{
+opacity:0.7;
+cursor:not-allowed;
 }
 
 @media (max-width: 991.98px){

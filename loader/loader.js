@@ -1,6 +1,354 @@
 
 (function () {
   const overlayId = "pg-loader-overlay";
+  const prefetchedPageKey = "pg-prefetched-page";
+  const prefetchedPageMaxAge = 60 * 1000;
+  const pagePrefetchConfig = {
+    home: {
+      paths: [
+        "/",
+        "/index.html",
+        "/planetG",
+        "/planetG/",
+        "/homepage/index/index.html",
+        "/planetG/homepage/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/homepage/herosection/herosection.html",
+        "/planetG/homepage/crafting_living/crafting_living.html",
+        "/planetG/homepage/servicesection/servicesection.html",
+        "/planetG/homepage/Price_List/Price_List.html",
+        "/planetG/homepage/ourstory/ourstory.html",
+        "/planetG/homepage/client_logo/client_logo.html",
+        "/planetG/homepage/whychooseus/whychooseus.html",
+        "/planetG/homepage/pricingplan/pricingplan.html",
+        "/planetG/homepage/videosection/videosection.html",
+        "/planetG/homepage/testimonialslider/testimonialslider.html",
+        "/planetG/homepage/latestwork/latestwork.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    servicesAll: {
+      paths: [
+        "/servicespage/all_services/index/index.html",
+        "/planetG/servicespage/all_services/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/servicespage/all_services/herosection/herosection.html",
+        "/planetG/servicespage/all_services/services_cards/services_cards.html",
+        "/planetG/servicespage/all_services/Garden_Consultation/Garden_Consultation.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    servicesSingle: {
+      paths: [
+        "/servicespage/services_single/index/index.html",
+        "/planetG/servicespage/services_single/index/index.html"
+      ],
+      sections: [
+        { file: "/planetG/homepage/infobar/infobar.html", target: "root" },
+        { file: "/planetG/homepage/header/header.html", target: "root" },
+        { file: "/planetG/servicespage/services_single/single_services_hero/single_services_hero.html", target: "root" },
+        { file: "/planetG/servicespage/services_single/services_list/services_list.html", target: "sidebar" },
+        { file: "/planetG/servicespage/services_single/Garden_Oasis_Showcase/Garden_Oasis_Showcase.html", target: "main" },
+        { file: "/planetG/servicespage/services_single/Why_Choose _Us/Why_Choose _Us.html", target: "main" },
+        { file: "/planetG/servicespage/services_single/latest_project/latest_project.html", target: "main" },
+        { file: "/planetG/homepage/footer/footer.html", target: "root" }
+      ]
+    },
+    projectDefault: {
+      paths: [
+        "/projectspage/project_Default/index/index.html",
+        "/planetG/projectspage/project_Default/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/projectspage/project_Default/PD_hero/PD_hero.html",
+        "/planetG/projectspage/project_Default/PD_Cards/PD_Cards.html",
+        "/planetG/projectspage/project_Default/PD_Garden_Consultation/PD_Garden_Consultation.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    projectColumns: {
+      paths: [
+        "/projectspage/projects_3_columns/index/index.html",
+        "/planetG/projectspage/projects_3_columns/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/projectspage/projects_3_columns/P3C_hero/P3C_hero.html",
+        "/planetG/projectspage/projects_3_columns/P3C_Cards/P3C_Cards.html",
+        "/planetG/projectspage/projects_3_columns/P3C_Garden_Consultation/P3C_Garden_Consultation.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    aboutUs: {
+      paths: [
+        "/pagesection/abouts_us/index/index.html",
+        "/planetG/pagesection/abouts_us/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/pagesection/abouts_us/Ab_hero/Ab_hero.html",
+        "/planetG/pagesection/abouts_us/Ab_ourstory/Ab_ourstory.html",
+        "/planetG/pagesection/abouts_us/Ab_ourTeam/Ab_ourTeam.html",
+        "/planetG/pagesection/abouts_us/Ab_Garden_Consultation/Ab_Garden_Consultation.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    gallery: {
+      paths: [
+        "/pagesection/gallery/index/index.html",
+        "/planetG/pagesection/gallery/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/pagesection/gallery/Gy_Hero/Gy_Hero.html",
+        "/planetG/pagesection/gallery/Gy_image/Gy_image.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    contact: {
+      paths: [
+        "/contactpage/index/index.html",
+        "/planetG/contactpage/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/contactpage/CP_hero/CP_hero.html",
+        "/planetG/contactpage/CP_contactF/CP_contactF.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    store: {
+      paths: [
+        "/storepage/index/index.html",
+        "/planetG/storepage/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/storepage/ST_hero/ST_hero.html",
+        "/planetG/storepage/ST_Video/ST_Video.html",
+        "/planetG/homepage/footer/footer.html"
+      ]
+    },
+    clientLogos: {
+      paths: [
+        "/clientlogopages/index/index.html",
+        "/planetG/clientlogopages/index/index.html"
+      ],
+      sections: [
+        "/planetG/homepage/infobar/infobar.html",
+        "/planetG/homepage/header/header.html",
+        "/planetG/clientlogopages/client-herosection/client-herosection.html",
+        "/planetG/clientlogopages/client-logosection/client-logosection.html",
+        "/planetG/clientlogopages/client-footer/client-footer.html"
+      ]
+    }
+  };
+  const pageRouteMap = new Map();
+
+  Object.entries(pagePrefetchConfig).forEach(([pageId, config]) => {
+    config.paths.forEach((path) => {
+      pageRouteMap.set(normalizePrefetchPath(path), pageId);
+    });
+  });
+
+  function normalizePrefetchPath(pathname) {
+    if (!pathname || pathname === "/") {
+      return "/planetG/homepage/index/index.html";
+    }
+
+    let normalized = pathname;
+    if (normalized !== "/" && normalized.endsWith("/")) {
+      normalized = normalized.slice(0, -1);
+    }
+
+    if (
+      normalized === "/index.html" ||
+      normalized === "/planetG" ||
+      normalized === "/planetG/"
+    ) {
+      return "/planetG/homepage/index/index.html";
+    }
+
+    if (
+      normalized.startsWith("/homepage/") ||
+      normalized.startsWith("/servicespage/") ||
+      normalized.startsWith("/projectspage/") ||
+      normalized.startsWith("/pagesection/") ||
+      normalized.startsWith("/contactpage/") ||
+      normalized.startsWith("/storepage/") ||
+      normalized.startsWith("/clientlogopages/")
+    ) {
+      return `/planetG${normalized}`;
+    }
+
+    return normalized;
+  }
+
+  function getPrefetchPageId(url) {
+    try {
+      const resolved = url instanceof URL ? url : new URL(url, window.location.href);
+      return pageRouteMap.get(normalizePrefetchPath(resolved.pathname)) || null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function fetchSectionDescriptor(section) {
+    const file = typeof section === "string" ? section : section.file;
+    const target = typeof section === "string" ? undefined : section.target;
+
+    return fetch(file, { cache: "no-store" })
+      .then(async (response) => {
+        if (!response.ok) {
+          return { file, target, html: "", ok: false };
+        }
+        const html = await response.text();
+        return { file, target, html, ok: true };
+      })
+      .catch((error) => {
+        console.error("Error loading:", file, error);
+        return { file, target, html: "", ok: false };
+      });
+  }
+
+  function consumePrefetchedPayload(pageId) {
+    try {
+      const raw = window.sessionStorage.getItem(prefetchedPageKey);
+      if (!raw) return null;
+
+      const payload = JSON.parse(raw);
+      const currentPath = normalizePrefetchPath(window.location.pathname);
+      const isFresh = typeof payload.ts === "number" && (Date.now() - payload.ts) < prefetchedPageMaxAge;
+      const pageMatches = payload.pageId === pageId;
+      const pathMatches = payload.path === currentPath;
+
+      if (!isFresh || (!pageMatches && !pathMatches)) {
+        window.sessionStorage.removeItem(prefetchedPageKey);
+        return null;
+      }
+
+      window.sessionStorage.removeItem(prefetchedPageKey);
+      return Array.isArray(payload.results) ? payload.results : null;
+    } catch (error) {
+      window.sessionStorage.removeItem(prefetchedPageKey);
+      return null;
+    }
+  }
+
+  async function prefetchPageForUrl(url) {
+    const resolved = url instanceof URL ? url : new URL(url, window.location.href);
+    const pageId = getPrefetchPageId(resolved);
+    if (!pageId) return false;
+
+    const config = pagePrefetchConfig[pageId];
+    if (!config) return false;
+
+    const results = await Promise.all(config.sections.map(fetchSectionDescriptor));
+    try {
+      window.sessionStorage.setItem(prefetchedPageKey, JSON.stringify({
+        pageId,
+        path: normalizePrefetchPath(resolved.pathname),
+        ts: Date.now(),
+        results
+      }));
+    } catch (error) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function loadSectionsWithPrefetch(pageId, sections) {
+    const prefetched = consumePrefetchedPayload(pageId);
+    if (prefetched) {
+      return Promise.resolve(prefetched);
+    }
+    return Promise.all(sections.map(fetchSectionDescriptor));
+  }
+
+  function handlePrefetchNavigation(event) {
+    if (event.defaultPrevented) return;
+    if (event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+      return;
+    }
+
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+    if (!getPrefetchPageId(url)) return;
+
+    const currentPath = normalizePrefetchPath(window.location.pathname);
+    const nextPath = normalizePrefetchPath(url.pathname);
+    if (currentPath === nextPath && url.search === window.location.search && !url.hash) {
+      return;
+    }
+
+    event.preventDefault();
+    prefetchPageForUrl(url)
+      .catch(() => false)
+      .finally(() => {
+        window.location.assign(url.href);
+      });
+  }
+
+  function handlePrefetchIntent(event) {
+    const link = event.target.closest?.("a[href]");
+    if (!link) return;
+
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+    if (!getPrefetchPageId(url)) return;
+
+    prefetchPageForUrl(url).catch(() => false);
+  }
+
+  function initPrefetchedNavigation() {
+    if (window.__pgPrefetchedNavigationReady === true) {
+      return;
+    }
+
+    window.__pgPrefetchedNavigationReady = true;
+    document.addEventListener("click", handlePrefetchNavigation, true);
+    document.addEventListener("pointerenter", handlePrefetchIntent, true);
+    document.addEventListener("focusin", handlePrefetchIntent, true);
+  }
+
+  window.PGPagePrefetch = {
+    loadSections: loadSectionsWithPrefetch
+  };
 
   function ensureLoader() {
     let overlay = document.getElementById(overlayId);
@@ -78,6 +426,7 @@
 
   function bindNavigationLoader() {
     document.addEventListener("click", function (event) {
+      if (event.defaultPrevented) return;
       const link = event.target.closest("a[href]");
       if (!link || isIgnorableLink(link)) return;
       showLoader();
@@ -261,6 +610,7 @@
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
+      initPrefetchedNavigation();
       ensureLoader();
       bindNavigationLoader();
       initStaggerButtons();
@@ -268,6 +618,7 @@
       initStickyHeader();
     });
   } else {
+    initPrefetchedNavigation();
     ensureLoader();
     bindNavigationLoader();
     initStaggerButtons();

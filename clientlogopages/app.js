@@ -1,23 +1,17 @@
 (function () {
 
-  // Single service page uses both full-width and split layout sections.
+  // Client page sections follow the same shared top-bar and header pattern as other pages.
   const sections = [
     // Shared top bar
-    { file: "/planetG/homepage/infobar/infobar.html", target: "root" },
+    "/planetG/homepage/infobar/infobar.html",
     // Shared navigation
-    { file: "/planetG/homepage/header/header.html", target: "root" },
+    "/planetG/homepage/header/header.html",
     // Page hero
-    { file: "/planetG/servicespage/services_single/single_services_hero/single_services_hero.html", target: "root" },
-    // Sidebar service list
-    { file: "/planetG/servicespage/services_single/services_list/services_list.html", target: "sidebar" },
-    // Main content showcase
-    { file: "/planetG/servicespage/services_single/Garden_Oasis_Showcase/Garden_Oasis_Showcase.html", target: "main" },
-    // Main content reasons to choose us
-    { file: "/planetG/servicespage/services_single/Why_Choose _Us/Why_Choose _Us.html", target: "main" },
-    // Main content latest project
-    { file: "/planetG/servicespage/services_single/latest_project/latest_project.html", target: "main" },
-    // Shared footer
-    { file: "/planetG/homepage/footer/footer.html", target: "root" }
+    "/planetG/clientlogopages/client-herosection/client-herosection.html",
+    // Client logo grid
+    "/planetG/clientlogopages/client-logosection/client-logosection.html",
+    // Shared client footer
+    "/planetG/clientlogopages/client-footer/client-footer.html"
   ];
 
   const root = document.getElementById("page");
@@ -99,56 +93,25 @@
     });
   };
 
-  const layout = document.createElement("div");
-  layout.className = "service-layout";
-
-  const sidebar = document.createElement("aside");
-  sidebar.className = "service-sidebar";
-
-  const main = document.createElement("div");
-  main.className = "service-main";
-
-  layout.appendChild(sidebar);
-  layout.appendChild(main);
-
-  let layoutMounted = false;
-
   async function loadSections() {
-    const results = await window.PGPagePrefetch.loadSections("servicesSingle", sections);
+    const results = await window.PGPagePrefetch.loadSections("clientLogos", sections);
 
     const stylePromises = [];
 
-    results.forEach(({ html, ok, target }) => {
+    results.forEach(({ html, ok }) => {
       if (!ok) return;
-
       const wrapper = document.createElement("div");
       wrapper.innerHTML = html;
       stylePromises.push(moveSectionStyles(wrapper));
-
-      if (target === "root") {
-        root.appendChild(wrapper);
-        return;
-      }
-
-      if (!layoutMounted) {
-        root.appendChild(layout);
-        layoutMounted = true;
-      }
-
-      if (target === "sidebar") {
-        sidebar.appendChild(wrapper);
-      } else {
-        main.appendChild(wrapper);
-      }
+      root.appendChild(wrapper);
     });
 
     await Promise.all(stylePromises).catch(() => {});
     appendLayoutOverrides();
+    window.PGRevealRefresh?.();
     markPageReady();
   }
 
   loadSections();
 
 })();
-
-

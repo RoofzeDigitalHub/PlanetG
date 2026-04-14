@@ -83,17 +83,21 @@ Open in Google Maps
 
 <div class="col-lg-6">
 
-<form class="contact-form">
+<form class="contact-form" action="/planetG/contactpage/contact-submit.php" method="post" data-contact-form novalidate>
 
-<input type="text" class="form-control" placeholder="Your Name">
+<input type="text" class="form-control" name="name" placeholder="Your Name" autocomplete="name" aria-label="Your Name" required>
 
-<input type="email" class="form-control" placeholder="Your Email">
+<input type="email" class="form-control" name="email" placeholder="Your Email" autocomplete="email" aria-label="Your Email" required>
 
-<input type="text" class="form-control" placeholder="Your Phone">
+<input type="text" class="form-control" name="phone" placeholder="Your Phone" autocomplete="tel" aria-label="Your Phone" required>
 
-<textarea class="form-control message-box" placeholder="Your Message"></textarea>
+<textarea class="form-control message-box" name="message" placeholder="Your Message" aria-label="Your Message" required></textarea>
 
-<button class="send-btn">SEND MESSAGE</button>
+<input type="text" class="contact-honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+<p class="contact-form-status" data-contact-status hidden aria-live="polite"></p>
+
+<button class="send-btn" type="submit" data-send-button>SEND MESSAGE</button>
 
 </form>
 

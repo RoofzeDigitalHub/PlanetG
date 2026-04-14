@@ -1,0 +1,182 @@
+body{
+margin:0;
+font-family: "Poppins", sans-serif;
+}
+
+/* HERO SECTION */
+
+.hero-section{
+position:relative;
+height:420px;
+display:flex;
+align-items:center;
+color:white;
+overflow:hidden;
+}
+
+/* BACKGROUND IMAGE */
+
+.hero-section::before{
+content:"";
+position:absolute;
+inset:0;
+background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+.hero-section::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.breadcrumb-text{
+font-size:14px;
+opacity:0.9;
+margin-bottom:15px;
+}
+
+
+
+
+
+
+
+
+.hero-title{
+font-size:20px;
+font-weight:300;
+letter-spacing:2px;
+}
+
+.hero-subtitle{
+margin-top:10px;
+font-size:18px;
+opacity:0.9;
+}
+
+.client-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 430px;
+  padding: 144px 0 96px;
+  color: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.client-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(12, 23, 14, 0.82), rgba(34, 55, 33, 0.45)),
+    url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
+  z-index: -2;
+  transform: scale(1.04);
+}
+
+.client-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(173, 214, 120, 0.2), transparent 34%),
+    linear-gradient(180deg, rgba(7, 13, 9, 0.08), rgba(7, 13, 9, 0.28));
+  z-index: -1;
+}
+
+.client-hero-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.client-hero-breadcrumb {
+  margin-bottom: 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.client-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.client-hero-title {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.client-hero-subtitle {
+  max-width: 640px;
+  margin: 20px 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 991px) {
+  .client-hero-section {
+    min-height: 400px;
+    padding: 132px 0 84px;
+  }
+}
+
+@media (max-width: 767px) {
+  .client-hero-section {
+    min-height: 360px;
+    padding: 120px 0 72px;
+  }
+
+  .client-hero-breadcrumb {
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+
+  .client-hero-pill {
+    margin-bottom: 16px;
+    padding: 7px 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .client-hero-subtitle {
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+}
+

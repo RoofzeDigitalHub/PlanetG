@@ -1,4 +1,5 @@
 .pg-wa-fab {
+  display: none !important;
   position: fixed;
   inset: auto;
   left: auto;

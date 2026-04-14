@@ -34,37 +34,35 @@
   text-transform: uppercase;
 }
 
-/* 3x2 Grid layout - keep 3 columns */
+/* 3x2 Grid layout */
 .client-logo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px 28px;      /* increased gap for larger logos */
+  gap: 32px 28px;
   margin-bottom: 48px;
 }
 
-/* Individual logo card - CONTAINER REMOVED (no border, no background, no shadow) */
+/* Individual logo card */
 .client-logo-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* No border, no background gradient, no box-shadow, no extra padding */
-  padding: 0;           /* remove inner spacing */
+  padding: 0;
   background: transparent;
   border: none;
   box-shadow: none;
   transition: transform 0.2s ease;
-  animation: clientLogoFade 0.45s ease backwards;
+  animation: fadeSlide 0.4s ease backwards;
 }
 
 .client-logo-card:hover {
   transform: translateY(-4px);
-  /* keep no background or border on hover */
 }
 
-/* Logo image - MUCH BIGGER */
+/* Logo image */
 .client-logo-image {
   max-width: 100%;
-  max-height: 110px;     /* increased from 60px */
+  max-height: 110px;
   width: auto;
   height: 110px;
   display: block;
@@ -72,7 +70,7 @@
   transition: filter 0.2s;
 }
 
-/* Button styling - DARK GREEN */
+/* Button styling */
 .client-logo-button-wrapper {
   text-align: center;
   margin-top: 12px;
@@ -83,7 +81,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #3f5638;           /* dark green matching pricing plan button */
+  background: #3f5638;
   border: none;
   padding: 6px 18px;
   border-radius: 999px;
@@ -92,7 +90,7 @@
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #ffffff;                /* white text */
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
@@ -106,7 +104,7 @@
 }
 
 .btn-view-clients:hover {
-  background: #2d4028;           /* darker on hover */
+  background: #2d4028;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(63, 86, 56, 0.3);
   color: #ffffff;
@@ -120,7 +118,7 @@
   transform: translateY(1px);
 }
 
-/* ----- RESPONSIVE: maintain 3 columns until smaller screens, adjust logo size ----- */
+/* Responsive */
 @media (max-width: 991px) {
   .client-logo-section {
     padding: 50px 0 60px;
@@ -151,7 +149,6 @@
 }
 
 @media (max-width: 640px) {
-  /* switch to 2 columns on very small mobiles */
   .client-logo-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px 20px;
@@ -183,17 +180,7 @@
   }
 }
 
-/* Optional fade animation (kept) */
-.client-logo-card {
-  animation: fadeSlide 0.4s ease backwards;
-}
-.client-logo-card:nth-child(1) { animation-delay: 0.02s; }
-.client-logo-card:nth-child(2) { animation-delay: 0.05s; }
-.client-logo-card:nth-child(3) { animation-delay: 0.08s; }
-.client-logo-card:nth-child(4) { animation-delay: 0.11s; }
-.client-logo-card:nth-child(5) { animation-delay: 0.14s; }
-.client-logo-card:nth-child(6) { animation-delay: 0.17s; }
-
+/* Fade slide animation */
 @keyframes fadeSlide {
   from {
     opacity: 0;

@@ -96,18 +96,7 @@
   };
 
   async function loadSections() {
-    const results = await Promise.all(
-      sections.map(async (file) => {
-        try {
-          const response = await fetch(withCacheBust(file), { cache: "no-store" });
-          const html = await response.text();
-          return { file, html, ok: true };
-        } catch (error) {
-          console.error("Error loading:", file, error);
-          return { file, html: "", ok: false };
-        }
-      })
-    );
+    const results = await window.PGPagePrefetch.loadSections("store", sections);
 
     const stylePromises = [];
 

@@ -365,22 +365,7 @@
   }
 
   async function loadSections() {
-    const results = await Promise.all(
-      sections.map(async (file) => {
-        try {
-          const response = await fetch(withCacheBust(file), { cache: "no-store" });
-          if (!response.ok) {
-            console.error("Failed to load:", file, response.status);
-            return { file, html: "", ok: false };
-          }
-          const html = await response.text();
-          return { file, html, ok: true };
-        } catch (error) {
-          console.error("Error loading:", file, error);
-          return { file, html: "", ok: false };
-        }
-      })
-    );
+    const results = await window.PGPagePrefetch.loadSections("home", sections);
 
     const stylePromises = [];
 

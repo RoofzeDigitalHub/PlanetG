@@ -46,6 +46,96 @@
     window.dispatchEvent(new CustomEvent("pg:page-ready"));
   };
 
+  const setupContactForm = () => {
+    const form = document.querySelector("[data-contact-form]");
+    if (!form || form.dataset.contactBound === "true") {
+      return;
+    }
+    form.dataset.contactBound = "true";
+
+    const status = form.querySelector("[data-contact-status]");
+    const submitButton = form.querySelector("[data-send-button]");
+    const defaultButtonText = submitButton ? submitButton.textContent : "";
+
+    const setStatus = (message, type) => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = message;
+      status.classList.remove("is-success", "is-error");
+      if (type) {
+        status.classList.add(type === "success" ? "is-success" : "is-error");
+      }
+    };
+
+    const clearStatus = () => {
+      if (!status) return;
+      status.hidden = true;
+      status.textContent = "";
+      status.classList.remove("is-success", "is-error");
+    };
+
+    const clearFieldErrors = () => {
+      form.querySelectorAll(".form-control").forEach((field) => {
+        field.classList.remove("is-invalid");
+        field.removeAttribute("aria-invalid");
+      });
+    };
+
+    const markInvalidFields = (fields) => {
+      if (!fields) return;
+      Object.keys(fields).forEach((name) => {
+        const field = form.querySelector(`[name="${name}"]`);
+        if (!field) return;
+        field.classList.add("is-invalid");
+        field.setAttribute("aria-invalid", "true");
+      });
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      clearStatus();
+      clearFieldErrors();
+
+      const formData = new FormData(form);
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        const payload = await response.json().catch(() => ({
+          ok: false,
+          message: "Unexpected server response. Please try again."
+        }));
+
+        if (!response.ok || !payload.ok) {
+          markInvalidFields(payload.errors);
+          setStatus(payload.message || "Unable to send your message right now.", "error");
+          return;
+        }
+
+        form.reset();
+        setStatus(payload.message || "Thanks! Your message has been sent.", "success");
+      } catch (error) {
+        setStatus("We could not connect to the mail service. Please try again in a moment.", "error");
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = defaultButtonText;
+        }
+      }
+    });
+  };
+
   const moveSectionStyles = (wrapper) => {
     const head = document.head;
     if (!head) return Promise.resolve();
@@ -94,18 +184,7 @@
   };
 
   async function loadSections() {
-    const results = await Promise.all(
-      sections.map(async (file) => {
-        try {
-          const response = await fetch(withCacheBust(file), { cache: "no-store" });
-          const html = await response.text();
-          return { file, html, ok: true };
-        } catch (error) {
-          console.error("Error loading:", file, error);
-          return { file, html: "", ok: false };
-        }
-      })
-    );
+    const results = await window.PGPagePrefetch.loadSections("contact", sections);
 
     const stylePromises = [];
 
@@ -118,6 +197,7 @@
     });
 
     await Promise.all(stylePromises).catch(() => {});
+    setupContactForm();
     appendLayoutOverrides();
     markPageReady();
   }
