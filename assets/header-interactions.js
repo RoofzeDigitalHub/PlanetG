@@ -20,6 +20,11 @@
     }
   };
 
+  const syncHeaderLayout = () => {
+    setTopbarHeight();
+    handleScroll();
+  };
+
   const openMenuModal = () => {
     const modal = document.querySelector("[data-menu-modal]");
     if (!modal) return;
@@ -61,6 +66,89 @@
     });
   };
 
+  const normalizePath = (pathname) => {
+    const normalized = (pathname || "/").trim().toLowerCase();
+    if (!normalized || normalized === "/") return "/";
+    return normalized.replace(/\/+$/, "") || "/";
+  };
+
+  const isHomePath = (pathname) => {
+    const path = normalizePath(pathname);
+    return [
+      "/",
+      "/index.html",
+      "/planetg",
+      "/planetg/index.html",
+      "/planetg/homepage",
+      "/planetg/homepage/index",
+      "/planetg/homepage/index/index.html"
+    ].includes(path);
+  };
+
+  const getCurrentRoute = () => {
+    const path = normalizePath(window.location.pathname);
+
+    if (isHomePath(path)) return "home";
+    if (path.startsWith("/planetg/servicespage")) return "services";
+    if (path.startsWith("/planetg/pagesection/abouts_us")) return "about";
+    if (path.startsWith("/planetg/projectspage")) return "projects";
+    if (path.startsWith("/planetg/pagesection/gallery")) return "gallery";
+    if (path.startsWith("/planetg/storepage")) return "store";
+    if (path.startsWith("/planetg/contactpage")) return "contact";
+
+    return "";
+  };
+
+  const syncActiveNavLinks = () => {
+    const currentRoute = getCurrentRoute();
+
+    document.querySelectorAll("[data-nav-route]").forEach((link) => {
+      const isActive = !!currentRoute && link.getAttribute("data-nav-route") === currentRoute;
+
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const resetSharedHeaderUi = () => {
+    closeMenuModal();
+    closeSearchModal();
+    closeAllDropdowns();
+    syncHeaderLayout();
+    syncActiveNavLinks();
+  };
+
+  const scheduleSharedHeaderUiReset = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(resetSharedHeaderUi);
+    });
+  };
+
+  const watchForSharedHeader = () => {
+    if (!document.body) return;
+
+    if (document.querySelector(".gardyn-header") || document.querySelector(".gardyn-topbar")) {
+      scheduleSharedHeaderUiReset();
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (!document.querySelector(".gardyn-header") && !document.querySelector(".gardyn-topbar")) {
+        return;
+      }
+
+      scheduleSharedHeaderUiReset();
+      observer.disconnect();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  };
+
   const toggleDropdown = (toggle) => {
     const item = toggle.closest(".nav-item.dropdown");
     if (!item) return;
@@ -69,14 +157,19 @@
     if (menu) menu.classList.toggle("show", isOpen);
   };
 
-  setTopbarHeight();
-  handleScroll();
+  resetSharedHeaderUi();
+  watchForSharedHeader();
 
-  window.addEventListener("resize", setTopbarHeight);
+  window.addEventListener("resize", syncHeaderLayout);
   window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("load", scheduleSharedHeaderUiReset);
+  window.addEventListener("pageshow", scheduleSharedHeaderUiReset);
+  window.addEventListener("hashchange", scheduleSharedHeaderUiReset);
+  window.addEventListener("popstate", scheduleSharedHeaderUiReset);
+  window.addEventListener("pg:page-ready", scheduleSharedHeaderUiReset);
 
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(setTopbarHeight);
+    document.fonts.ready.then(scheduleSharedHeaderUiReset);
   }
 
   document.addEventListener("click", (event) => {

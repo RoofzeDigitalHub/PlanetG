@@ -1,56 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-  :root {
-    --gardyn-topbar: #2f4a2f;
-    --gardyn-topbar-text: #e9f2ea;
-  }
+:root {
+  --gardyn-topbar: #2f4a2f;
+  --gardyn-topbar-text: #e9f2ea;
+}
 
+.gardyn-topbar {
+  background: var(--gardyn-topbar);
+  color: var(--gardyn-topbar-text);
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;  /* Thoda chota font */
+  letter-spacing: 0.2px;
+  min-height: 42px;  /* ✅ 58px se 42px kar diya (chota height) */
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  padding: 6px 0;  /* ✅ Extra padding add kiya for better spacing */
+}
+
+.gardyn-topbar .container.gardyn-topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.gardyn-topbar .gardyn-topbar__info {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.gardyn-topbar .info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;  /* ✅ 8px se 6px kiya */
+  white-space: nowrap;
+  line-height: 1.2;  /* ✅ Thoda tight line-height */
+  min-width: 0;
+}
+
+.gardyn-topbar .info-item .bi {
+  color: rgba(233, 242, 234, 0.9);
+  font-size: 13px;  /* ✅ 15px se 13px kiya */
+  flex: 0 0 auto;
+}
+
+.gardyn-topbar .info-item span {
+  display: inline-block;
+}
+
+.gardyn-topbar a {
+  color: var(--gardyn-topbar-text);
+  text-decoration: none;
+}
+
+.gardyn-topbar a:hover {
+  color: #ffffff;
+}
+
+.gardyn-topbar .social a {
+  width: 26px;  /* ✅ 28px se 26px kiya */
+  height: 26px; /* ✅ 28px se 26px kiya */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--gardyn-topbar-text);
+  transition: background 160ms ease;
+}
+
+.gardyn-topbar .social a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
   .gardyn-topbar {
-    background: var(--gardyn-topbar);
-    color: var(--gardyn-topbar-text);
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.2px;
+    font-size: 10.5px;  /* ✅ Thoda chota */
   }
 
-  .gardyn-topbar .info-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
+  .gardyn-topbar .gardyn-topbar__info {
+    gap: 14px;
   }
+}
 
-  .gardyn-topbar .info-item .bi {
-    color: rgba(233, 242, 234, 0.9);
-    font-size: 14px;
+@media (max-width: 991.98px) {
+  .gardyn-topbar {
+    display: none !important;
   }
-
-  .gardyn-topbar a {
-    color: var(--gardyn-topbar-text);
-    text-decoration: none;
-  }
-
-  .gardyn-topbar a:hover {
-    color: #ffffff;
-  }
-
-  .gardyn-topbar .social a {
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: var(--gardyn-topbar-text);
-    transition: background 160ms ease;
-  }
-
-  .gardyn-topbar .social a:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  @media (max-width: 991.98px) {
-    .gardyn-topbar {
-      display: none !important;
-    }
-  }
+}

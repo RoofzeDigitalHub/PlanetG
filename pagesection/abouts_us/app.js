@@ -1,20 +1,12 @@
 (function () {
 
-  // About page sections are assembled from shared blocks plus page-specific content.
   const sections = [
-    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
-    // Shared navigation
     "/planetG/homepage/header/header.html",
-    // About hero
     "/planetG/pagesection/abouts_us/Ab_hero/Ab_hero.html",
-    // Our story section
     "/planetG/pagesection/abouts_us/Ab_ourstory/Ab_ourstory.html",
-    // Team section
     "/planetG/pagesection/abouts_us/Ab_ourTeam/Ab_ourTeam.html",
-    // Consultation CTA
     "/planetG/pagesection/abouts_us/Ab_Garden_Consultation/Ab_Garden_Consultation.html",
-    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
@@ -25,98 +17,30 @@
     return;
   }
 
-  const cacheBust = Date.now().toString();
-
-  const withCacheBust = (url) => {
-    if (!url) return url;
-    if (/^https?:\/\//i.test(url)) return url;
-    const separator = url.includes("?") ? "&" : "?";
-    return `${url}${separator}v=${cacheBust}`;
-  };
-
-  const appendLayoutOverrides = () => {
-    const href = withCacheBust("/planetG/assets/layout-overrides.css");
-    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
-      return;
-    }
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  };
-
   const markPageReady = () => {
     document.documentElement.dataset.pgPageReady = "true";
     window.dispatchEvent(new CustomEvent("pg:page-ready"));
   };
 
-  const moveSectionStyles = (wrapper) => {
-    const head = document.head;
-    if (!head) return Promise.resolve();
-
-    const links = Array.from(wrapper.querySelectorAll('link[rel="stylesheet"]'));
-    const styles = Array.from(wrapper.querySelectorAll("style"));
-    const newLinks = [];
-
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) {
-        link.remove();
-        return;
-      }
-      if (!/^https?:\/\//i.test(href)) {
-        link.setAttribute("href", withCacheBust(href));
-      }
-      const finalHref = link.getAttribute("href");
-      if (head.querySelector(`link[rel="stylesheet"][href="${finalHref}"]`)) {
-        link.remove();
-        return;
-      }
-      newLinks.push(link);
-    });
-
-    styles.forEach((style) => {
-      if (!head.contains(style)) head.appendChild(style);
-    });
-
-    if (newLinks.length === 0) return Promise.resolve();
-
-    wrapper.style.visibility = "hidden";
-    const loadPromises = newLinks.map(
-      (link) =>
-        new Promise((resolve) => {
-          link.addEventListener("load", resolve, { once: true });
-          link.addEventListener("error", resolve, { once: true });
-        })
-    );
-
-    newLinks.forEach((link) => head.appendChild(link));
-
-    return Promise.all(loadPromises).then(() => {
-      wrapper.style.visibility = "";
-    });
-  };
-
   async function loadSections() {
     const results = await window.PGPagePrefetch.loadSections("aboutUs", sections);
 
-    const stylePromises = [];
+    const fragment = document.createDocumentFragment();
 
     results.forEach(({ html, ok }) => {
       if (!ok) return;
+
       const wrapper = document.createElement("div");
       wrapper.innerHTML = html;
-      stylePromises.push(moveSectionStyles(wrapper));
-      root.appendChild(wrapper);
+
+      fragment.appendChild(wrapper);
     });
 
-    await Promise.all(stylePromises).catch(() => {});
-    appendLayoutOverrides();
+    root.appendChild(fragment);
+
     markPageReady();
   }
 
   loadSections();
 
 })();
-
-

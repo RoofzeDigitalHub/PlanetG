@@ -1,61 +1,78 @@
-body{
-margin:0;
-font-family: "Poppins", sans-serif;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 /* HERO SECTION */
+.hero-section {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  color: white;
+  overflow: hidden;
 
-.hero-section{
-position:relative;
-height:420px;
-display:flex;
-align-items:center;
-color:white;
-overflow:hidden;
+  isolation: isolate;
+  background-color: #000; /* 🔥 fallback so white flash never happens */
 }
 
-/* BACKGROUND IMAGE */
+/* HERO IMAGE LAYER */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-.hero-section::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
-z-index:-2;
+  background-image: url("/planetG/assets/pricing-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+
+  /* 🔥 HARD STABILITY LOCK */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* DARK OVERLAY */
-
-.hero-section::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.55);
-z-index:-1;
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
-/* HERO CONTENT */
-
-.hero-content{
-position:relative;
-z-index:2;
+/* CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-.breadcrumb-text{
-font-size:14px;
-opacity:0.9;
-margin-bottom:15px;
+.breadcrumb-text {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 15px;
 }
 
-.hero-title{
-font-size:20px;
-font-weight:300;
-letter-spacing:2px;
+.hero-title {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
 }
 
-.hero-subtitle{
-margin-top:10px;
-font-size:18px;
-opacity:0.9;
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 56px 0;
+  }
+}

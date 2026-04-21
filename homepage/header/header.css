@@ -3,7 +3,7 @@
 :root{
   --gardyn-font-heading: 'Poppins', sans-serif;
   --gardyn-font-body: 'Roboto', sans-serif;
-  --gardyn-topbar-height: 42px;
+  --gardyn-topbar-height: 58px;
   --gardyn-sticky-bg: #2f4a2f;
 }
 
@@ -18,12 +18,12 @@
 position:absolute;
 left:0;
 right:0;
-top:0;
-margin-top:var(--gardyn-topbar-height);
+top:var(--gardyn-topbar-height);
+margin-top:0;
 z-index:1001;
 background:transparent;
 font-family:var(--gardyn-font-body);
-transition:background 0.7s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+transition:background 0.7s ease, box-shadow 0.3s ease, top 0.3s ease;
 }
 
 .gardyn-header .navbar{
@@ -44,6 +44,7 @@ right:0;
 top:0;
 margin-top:0;
 width:100%;
+z-index:1003;
 background:var(--gardyn-sticky-bg);
 backdrop-filter: blur(4px);
 box-shadow:0 4px 15px rgba(0,0,0,0.2);
@@ -59,10 +60,35 @@ font-size:13px;
 font-weight:600;
 letter-spacing:.5px;
 font-family:var(--gardyn-font-heading);
+position:relative;
+padding-bottom:6px;
+transition:color 0.2s ease;
 }
 
-.gardyn-header .nav-link:hover{
+.gardyn-header .nav-link::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:2px;
+border-radius:999px;
+background:#dce8cf;
+transform:scaleX(0);
+transform-origin:left center;
+transition:transform 0.2s ease;
+}
+
+.gardyn-header .nav-link:hover,
+.gardyn-header .nav-link.is-active,
+.gardyn-header .nav-link[aria-current="page"]{
 color:#fff;
+}
+
+.gardyn-header .nav-link:hover::after,
+.gardyn-header .nav-link.is-active::after,
+.gardyn-header .nav-link[aria-current="page"]::after{
+transform:scaleX(1);
 }
 
 .gardyn-header .navbar-nav{
@@ -424,6 +450,19 @@ font-family:var(--gardyn-font-heading);
 .menu-link:hover{
 color:#ffffff;
 transform:translateX(2px);
+}
+
+.menu-link.is-active,
+.menu-link[aria-current="page"]{
+color:#ffffff;
+transform:translateX(2px);
+}
+
+.menu-link.is-active .menu-link-text,
+.menu-link[aria-current="page"] .menu-link-text{
+text-decoration:underline;
+text-decoration-thickness:2px;
+text-underline-offset:10px;
 }
 
 .menu-link-text{

@@ -8,9 +8,10 @@ background:#edf1e8;
 }
 
 .garden-hero{
-height:400px;
-padding:0;
-background-image:url("/planetG/assets/bg3.jpg");
+min-height:400px;
+padding:48px 0;
+background-color:#172317;
+background-image:url("/planetG/assets/greenhouse-owner-presenting-flowers-options-potential-customer-retailer_158595-7007.png");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -83,17 +84,20 @@ margin-bottom:26px;
 display:inline-flex;
 align-items:center;
 justify-content:center;
+gap:10px;
 min-height:52px;
 padding:12px 28px;
 border-radius:999px;
 background:linear-gradient(135deg, #4f6f45 0%, #3b5936 100%);
 border:1px solid rgba(255,255,255,0.16);
 color:#ffffff;
+text-decoration:none;
 font-family:'Poppins', sans-serif;
 font-weight:600;
 font-size:12px;
 letter-spacing:1.1px;
 text-transform:uppercase;
+white-space:nowrap;
 box-shadow:0 18px 34px rgba(0,0,0,0.18);
 transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }

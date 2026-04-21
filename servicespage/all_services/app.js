@@ -1,120 +1,62 @@
 (function () {
 
-  // Services overview page sections are kept in reading order for clarity.
   const sections = [
-    // Shared top bar
     "/planetG/homepage/infobar/infobar.html",
-    // Shared navigation
     "/planetG/homepage/header/header.html",
-    // Page hero
     "/planetG/servicespage/all_services/herosection/herosection.html",
-    // Service cards grid
     "/planetG/servicespage/all_services/services_cards/services_cards.html",
-    // Consultation CTA
     "/planetG/servicespage/all_services/Garden_Consultation/Garden_Consultation.html",
-    // Shared footer
     "/planetG/homepage/footer/footer.html"
   ];
 
   const root = document.getElementById("page");
 
   if (!root) {
-    console.error("Missing #page container in index.html");
+    console.error("Missing #page container");
     return;
   }
 
-  const cacheBust = Date.now().toString();
-
-  const withCacheBust = (url) => {
-    if (!url) return url;
-    if (/^https?:\/\//i.test(url)) return url;
-    const separator = url.includes("?") ? "&" : "?";
-    return `${url}${separator}v=${cacheBust}`;
-  };
-
-  const appendLayoutOverrides = () => {
-    const href = withCacheBust("/planetG/assets/layout-overrides.css");
-    if (document.head.querySelector(`link[rel="stylesheet"][href="${href}"]`)) {
-      return;
-    }
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  };
-
-  const markPageReady = () => {
-    document.documentElement.dataset.pgPageReady = "true";
+  const markReady = () => {
+    document.documentElement.dataset.pgReady = "true";
     window.dispatchEvent(new CustomEvent("pg:page-ready"));
   };
 
-  const moveSectionStyles = (wrapper) => {
-    const head = document.head;
-    if (!head) return Promise.resolve();
-
-    const links = Array.from(wrapper.querySelectorAll('link[rel="stylesheet"]'));
-    const styles = Array.from(wrapper.querySelectorAll("style"));
-    const newLinks = [];
-
-    links.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) {
-        link.remove();
-        return;
-      }
-      if (!/^https?:\/\//i.test(href)) {
-        link.setAttribute("href", withCacheBust(href));
-      }
-      const finalHref = link.getAttribute("href");
-      if (head.querySelector(`link[rel="stylesheet"][href="${finalHref}"]`)) {
-        link.remove();
-        return;
-      }
-      newLinks.push(link);
-    });
-
-    styles.forEach((style) => {
-      if (!head.contains(style)) head.appendChild(style);
-    });
-
-    if (newLinks.length === 0) return Promise.resolve();
-
-    wrapper.style.visibility = "hidden";
-    const loadPromises = newLinks.map(
-      (link) =>
-        new Promise((resolve) => {
-          link.addEventListener("load", resolve, { once: true });
-          link.addEventListener("error", resolve, { once: true });
-        })
-    );
-
-    newLinks.forEach((link) => head.appendChild(link));
-
-    return Promise.all(loadPromises).then(() => {
-      wrapper.style.visibility = "";
-    });
-  };
-
   async function loadSections() {
-    const results = await window.PGPagePrefetch.loadSections("servicesAll", sections);
 
-    const stylePromises = [];
+    try {
 
-    results.forEach(({ html, ok }) => {
-      if (!ok) return;
-      const wrapper = document.createElement("div");
-      wrapper.innerHTML = html;
-      stylePromises.push(moveSectionStyles(wrapper));
-      root.appendChild(wrapper);
-    });
+      const results = await window.PGPagePrefetch.loadSections("servicesAll", sections);
 
-    await Promise.all(stylePromises).catch(() => {});
-    appendLayoutOverrides();
-    markPageReady();
+      // 🔥 STEP-BY-STEP RENDER (smooth feel)
+      for (const { html, ok } of results) {
+
+        if (!ok || !html) continue;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "pg-section";
+        wrapper.style.opacity = "0";
+        wrapper.innerHTML = html;
+
+        root.appendChild(wrapper);
+
+        // 🔥 smooth fade-in per section
+        requestAnimationFrame(() => {
+          wrapper.style.transition = "opacity 0.4s ease";
+          wrapper.style.opacity = "1";
+        });
+
+        // 🔥 small delay for smoothness
+        await new Promise(res => setTimeout(res, 80));
+      }
+
+      markReady();
+
+    } catch (err) {
+      console.error("Load failed:", err);
+      markReady();
+    }
   }
 
   loadSections();
 
 })();
-
-

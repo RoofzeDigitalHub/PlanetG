@@ -12,26 +12,13 @@ display:flex;
 align-items:center;
 color:white;
 overflow:hidden;
+background:
+linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
 }
-
-/* BACKGROUND IMAGE */
-
-.hero-section::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
-z-index:-2;
-}
-
-/* DARK OVERLAY */
 
 .hero-section::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.55);
-z-index:-1;
+display:none;
 }
 
 /* HERO CONTENT */
