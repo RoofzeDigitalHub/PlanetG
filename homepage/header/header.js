@@ -115,19 +115,19 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  const searchToggle = event.target.closest("[data-search-toggle]");
-  if (searchToggle) {
-    event.preventDefault();
-    openSearchModal();
-    return;
-  }
+  // const searchToggle = event.target.closest("[data-search-toggle]");
+  // if (searchToggle) {
+  //   event.preventDefault();
+  //   openSearchModal();
+  //   return;
+  // }
 
-  const searchClose = event.target.closest("[data-search-close]");
-  if (searchClose) {
-    event.preventDefault();
-    closeSearchModal();
-    return;
-  }
+  // const searchClose = event.target.closest("[data-search-close]");
+  // if (searchClose) {
+  //   event.preventDefault();
+  //   closeSearchModal();
+  //   return;
+  // }
 
   const mobileToggle = event.target.closest("[data-mobile-toggle]");
   if (mobileToggle) {
