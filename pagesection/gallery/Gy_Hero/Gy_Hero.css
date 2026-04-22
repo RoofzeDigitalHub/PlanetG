@@ -12,6 +12,7 @@ display:flex;
 align-items:center;
 color:white;
 overflow:hidden;
+z-index:0;
 }
 
 /* BACKGROUND IMAGE */
@@ -22,7 +23,7 @@ position:absolute;
 inset:0;
 background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
 background-attachment:fixed;
-z-index:-2;
+z-index:0;
 }
 
 /* DARK OVERLAY */

@@ -22,7 +22,7 @@ position:absolute;
 inset:0;
 background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
 background-attachment:fixed;
-z-index:-2;
+z-index:0;
 }
 
 /* DARK OVERLAY */
