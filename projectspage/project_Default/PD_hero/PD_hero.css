@@ -13,7 +13,7 @@ align-items:center;
 color:white;
 overflow:hidden;
 background:
-linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+
 url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
 }
 
