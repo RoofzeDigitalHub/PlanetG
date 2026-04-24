@@ -17,6 +17,22 @@
 
   document.body.classList.add("store-page");
 
+  const extractSectionContent = (html) => {
+    const parsed = new DOMParser().parseFromString(html || "", "text/html");
+    const fragment = document.createDocumentFragment();
+    const blockedTags = new Set(["BASE", "LINK", "META", "SCRIPT", "STYLE", "TITLE"]);
+
+    Array.from(parsed.body.childNodes).forEach((node) => {
+      if (node.nodeType === Node.ELEMENT_NODE && blockedTags.has(node.nodeName)) {
+        return;
+      }
+
+      fragment.appendChild(document.importNode(node, true));
+    });
+
+    return fragment;
+  };
+
   const markPageReady = () => {
     document.documentElement.dataset.pgPageReady = "true";
     window.dispatchEvent(new CustomEvent("pg:page-ready"));
@@ -28,16 +44,15 @@
     const fragment = document.createDocumentFragment();
 
     results.forEach(({ html, ok }) => {
-      if (!ok) return;
+      if (!ok || !html) return;
 
       const wrapper = document.createElement("div");
-      wrapper.innerHTML = html;
-
-      // IMPORTANT: NO CSS HANDLING HERE
+      wrapper.className = "pg-section";
+      wrapper.appendChild(extractSectionContent(html));
       fragment.appendChild(wrapper);
     });
 
-    root.appendChild(fragment);
+    root.replaceChildren(fragment);
 
     markPageReady();
   }

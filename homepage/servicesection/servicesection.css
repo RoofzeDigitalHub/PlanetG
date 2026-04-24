@@ -8,7 +8,12 @@ font-family:'Roboto', sans-serif;
 .service-section{
 background:#f5f5f5;
 font-family:'Roboto', sans-serif;
-padding:14px 0;
+padding:28px 0 24px;
+}
+
+.service-section .container.py-5{
+padding-top:0 !important;
+padding-bottom:0 !important;
 }
 
 .service-section .service-section-heading{
@@ -171,7 +176,7 @@ overflow:hidden;
 
 @media (max-width: 991.98px){
 .service-section{
-padding:56px 0;
+padding:30px 0 26px;
 }
 
 .service-section .garden-card{
@@ -181,7 +186,7 @@ height:340px;
 
 @media (max-width: 767.98px){
 .service-section{
-padding:48px 0 56px;
+padding:24px 0 36px;
 }
 
 .service-section .service-section-heading{

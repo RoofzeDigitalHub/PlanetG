@@ -10,6 +10,21 @@
   ];
 
   const root = document.getElementById("page");
+  const extractSectionContent = (html) => {
+    const parsed = new DOMParser().parseFromString(html || "", "text/html");
+    const fragment = document.createDocumentFragment();
+    const blockedTags = new Set(["BASE", "LINK", "META", "SCRIPT", "STYLE", "TITLE"]);
+
+    Array.from(parsed.body.childNodes).forEach((node) => {
+      if (node.nodeType === Node.ELEMENT_NODE && blockedTags.has(node.nodeName)) {
+        return;
+      }
+
+      fragment.appendChild(document.importNode(node, true));
+    });
+
+    return fragment;
+  };
 
   if (!root) {
     console.error("❌ Missing #page container in index.html");
@@ -53,14 +68,13 @@
       }
 
       const wrapper = document.createElement("div");
-
-      // SAFE injection
-      wrapper.innerHTML = item.html.trim();
+      wrapper.className = "pg-section";
+      wrapper.appendChild(extractSectionContent(item.html));
 
       fragment.appendChild(wrapper);
     }
 
-    root.appendChild(fragment);
+    root.replaceChildren(fragment);
 
     // safe refresh hook
     if (window.PGRevealRefresh) {

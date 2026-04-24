@@ -626,15 +626,22 @@ background:#1f2f1f;
 
 @media (max-width: 991.98px){
   .gardyn-header{
-    background:transparent;
-    backdrop-filter:none;
-    box-shadow:none;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    width:100%;
+    z-index:1003;
+    background:var(--gardyn-sticky-bg);
+    backdrop-filter:blur(4px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
   }
 
-  .gardyn-header:not(.scrolled){
-    background:transparent !important;
-    backdrop-filter:none;
-    box-shadow:none;
+  .gardyn-header:not(.scrolled),
+  .gardyn-header.scrolled{
+    background:var(--gardyn-sticky-bg) !important;
+    backdrop-filter:blur(4px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
   }
 
   .gardyn-header .container{
