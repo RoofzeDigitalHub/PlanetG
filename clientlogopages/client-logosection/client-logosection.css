@@ -97,7 +97,7 @@
 }
 
 .btn-view-clients::after {
-  content: "→";
+  content: "\2192";
   font-size: 1.1rem;
   transition: transform 0.2s;
   color: #ffffff;

@@ -85,7 +85,7 @@ color:rgba(255,255,255,0.82);
 display:inline-flex;
 align-items:center;
 justify-content:center;
-gap:10px;
+gap:8px;
 min-height:42px;
 padding:12px 28px;
 border-radius:999px;
@@ -101,6 +101,11 @@ text-transform:uppercase;
 white-space:nowrap;
 box-shadow:0 18px 34px rgba(0,0,0,0.18);
 transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-btn::after{
+content:"\2192";
+line-height:1;
 }
 
 .hero-btn:hover{

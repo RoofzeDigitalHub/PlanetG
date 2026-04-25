@@ -70,8 +70,12 @@
   justify-content: center;
   transition: 0.3s ease;
   font-family: 'Poppins', sans-serif;
+  gap:8px;
 }
-
+.ourstory-hero .hero-btn::after{
+   content:"\2192";  
+   
+}
 .ourstory-hero .hero-btn:hover{
   background: transparent;
   color: #ffffff;

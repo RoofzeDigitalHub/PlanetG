@@ -61,7 +61,7 @@
 }
 
 .btn-view-clients::after {
-  content: "->";
+  content: "\2192";
   font-size: 1rem;
 }
 

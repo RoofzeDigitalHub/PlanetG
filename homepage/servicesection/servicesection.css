@@ -135,6 +135,15 @@ font-size:12px;
 letter-spacing:0.8px;
 text-transform:uppercase;
 font-family:'Poppins', sans-serif;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+}
+
+.service-section .view-btn::after{
+content:"\2192";
+line-height:1;
 }
 
 .service-section .garden-card:hover img{

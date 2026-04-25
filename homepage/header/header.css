@@ -183,6 +183,15 @@ border-bottom:0;
 position:relative;
 overflow:hidden;
 font-family:var(--gardyn-font-heading);
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+}
+
+.header-wave-btn::after{
+content:"\2192";
+line-height:1;
 }
 
 .header-wave-btn .wave-text{

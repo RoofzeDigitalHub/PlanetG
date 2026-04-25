@@ -146,6 +146,12 @@ border:1px solid rgba(255,255,255,0.22);
 box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);
 padding-left:18px;
 padding-right:18px;
+gap:8px;
+}
+
+.hero-btn::after{
+content:"\2192";
+line-height:1;
 }
 
 .hero-link{

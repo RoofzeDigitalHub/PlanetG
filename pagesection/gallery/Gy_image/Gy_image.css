@@ -63,6 +63,7 @@ padding:24px;
 display:inline-flex;
 align-items:center;
 justify-content:center;
+gap:8px;
 min-width:110px;
 padding:11px 22px;
 border-radius:999px;
@@ -74,6 +75,11 @@ font-weight:600;
 letter-spacing:0.9px;
 text-transform:uppercase;
 backdrop-filter:blur(10px);
+}
+
+.gallery-view-btn::after{
+content:"\2192";
+line-height:1;
 }
 
 .service-card:hover img{

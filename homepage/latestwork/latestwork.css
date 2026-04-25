@@ -50,7 +50,12 @@ letter-spacing:1px;
 text-transform:uppercase;
 font-family:'Poppins', sans-serif;
 margin-top:26px;
+gap:8px;
 transition:background 0.25s ease, transform 0.25s ease;
+}
+.latest-works .work-cta::after {
+   content:"\2192";  
+   
 }
 
 .latest-works .work-cta:hover{

@@ -42,12 +42,12 @@ flex-direction:column;
 
 .contact-map-frame{
 width:100%;
-height:260px;
+height:320px;
 border:0;
 }
 
 /* MAP BUTTON */
-.contact-map-link{
+/* .contact-map-link{
 margin:12px;
 padding:10px;
 border-radius:50px;
@@ -57,7 +57,7 @@ color:#fff;
 text-decoration:none;
 font-size:13px;
 font-weight:600;
-}
+} */
 
 .contact-map-link:hover{
 background:#3e5e3e;
@@ -116,7 +116,16 @@ padding:12px;
 border-radius:50px;
 font-weight:600;
 transition:0.3s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+/* gap:8px; */
 }
+
+/* .send-btn::after{
+content:"\2192";
+line-height:1;
+} */
 
 .send-btn:hover{
 transform:translateY(-2px);

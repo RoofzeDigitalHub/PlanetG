@@ -124,6 +124,7 @@ margin:0 0 26px;
 }
 
 .crafting-btn{
+   
 display:inline-flex;
 align-items:center;
 padding:12px 26px;
@@ -136,8 +137,12 @@ text-transform:uppercase;
 letter-spacing:1px;
 font-family:'Poppins',sans-serif;
 font-weight:600;
+gap:8px;
 }
-
+.crafting-btn::after{
+   content:"\2192";  
+   
+}
 /* MOBILE */
 
 @media (max-width:768px){

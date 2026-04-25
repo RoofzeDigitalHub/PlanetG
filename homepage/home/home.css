@@ -315,6 +315,7 @@
   .crafting-btn {
     display: inline-flex;
     align-items: center;
+    gap: 8px;
     padding: 12px 26px;
     border-radius: 999px;
     background: var(--gardyn-olive-dark);
@@ -323,6 +324,11 @@
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
+  }
+
+  .crafting-btn::after {
+    content: "\2192";
+    line-height: 1;
   }
 
   @media (max-width: 900px) {

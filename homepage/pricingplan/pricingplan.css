@@ -173,6 +173,15 @@ letter-spacing: 1px;
 text-transform: uppercase;
 font-family: 'Poppins', sans-serif;
 font-weight: 600;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+}
+
+.plan-btn::after {
+   content:"\2192";
+   line-height:1;
 }
 
 .plan-card.featured .plan-price span,

@@ -84,7 +84,7 @@ margin-bottom:26px;
 display:inline-flex;
 align-items:center;
 justify-content:center;
-gap:10px;
+gap:8px;
 min-height:52px;
 padding:12px 28px;
 border-radius:999px;
@@ -99,7 +99,13 @@ letter-spacing:1.1px;
 text-transform:uppercase;
 white-space:nowrap;
 box-shadow:0 18px 34px rgba(0,0,0,0.18);
+gap: 8px;
 transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-btn::after{
+content:"\2192";
+
 }
 
 .hero-btn:hover{
