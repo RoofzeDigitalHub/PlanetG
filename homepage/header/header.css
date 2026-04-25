@@ -110,15 +110,17 @@ overflow:visible;
 }
 
 .header-brand-logo{
-display:block;
-width:auto;
-height:90px;
-object-fit:contain;
-position:relative;
-z-index:2;
-margin-top:0;
-margin-bottom:0;
-transform:none;
+    display: block;
+    width: auto;
+    height: 100px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px white;
 }
 
 .menu-logo-image{
