@@ -32,7 +32,7 @@ padding-bottom:0;
 }
 
 .gardyn-header .container{
-min-height:50px;
+/* min-height:50px; */
 padding-top:0;
 padding-bottom:0;
 }
@@ -112,7 +112,7 @@ overflow:visible;
 .header-brand-logo{
 display:block;
 width:auto;
-height:50px;
+height:90px;
 object-fit:contain;
 position:relative;
 z-index:2;
