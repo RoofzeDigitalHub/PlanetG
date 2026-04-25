@@ -46,6 +46,8 @@ width: 100px;
 height: 100px;
 object-fit:contain;
 flex:0 0 auto;
+border-radius: 5px;
+box-shadow: 1px 1px 1px 1px white;
 }
 
 .logo{
