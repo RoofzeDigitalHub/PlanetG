@@ -70,7 +70,7 @@
     button.href = whatsappHref;
     button.target = "_blank";
     button.rel = "noopener noreferrer";
-    button.setAttribute("aria-label", "Chat with PlanetG on WhatsApp");
+    button.setAttribute("aria-label", "Chat with Planet G on WhatsApp");
 
     if (!button.querySelector(".pg-wa-fab__icon")) {
       button.innerHTML = iconMarkup;
