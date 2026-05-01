@@ -61,7 +61,7 @@ object-fit:cover;
 
 /* INFO BOX */
 
-.team-info{
+/* .team-info{
 position:absolute;
 bottom:20px;
 left:20px;
@@ -81,11 +81,11 @@ font-weight:600;
 .team-role{
 font-size:14px;
 color:#777;
-}
+} */
 
 /* SOCIAL */
 
-.team-social{
+/* .team-social{
 width:36px;
 height:36px;
 background:#e6ebe3;
@@ -101,11 +101,11 @@ transition:background 0.3s ease,color 0.3s ease;
 .team-social:hover{
 color:#3c563a;
 background:#d9e2d3;
-}
+} */
 
 /* SCROLL BUTTONS */
 
-.scroll-btn{
+/* .scroll-btn{
 position:absolute;
 top:45%;
 transform:translateY(-50%);
@@ -125,4 +125,4 @@ left:-20px;
 
 .scroll-right{
 right:-20px;
-}
+} */

@@ -42,8 +42,8 @@ margin-bottom:16px;
 }
 
 .footer-logo{
-width: 100px;
-height: 100px;
+width: 70px;
+height: 70px;
 object-fit:contain;
 flex:0 0 auto;
 border-radius: 5px;
@@ -212,6 +212,11 @@ opacity:0.9;
 
   .footer-brand{
     align-items:flex-start;
+  }
+
+  .footer-logo{
+    width:60px;
+    height:60px;
   }
 
   .logo{

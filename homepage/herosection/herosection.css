@@ -3,7 +3,7 @@
 .hero{
 min-height:100vh;
 padding:160px 0 120px;
-background-image: var(--hero-bg-current, url("/planetG/assets/Firefly_GeminiFlash_Resize this image 665329.png"));
+background-image: var(--hero-bg-current, url("/planetG/assets/herosection-homepages.jpeg"));
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -36,7 +36,7 @@ inset:0;
 }
 
 .hero::before{
-background-image:var(--hero-bg-next, var(--hero-bg-current, url("/planetG/assets/Firefly_Gemini Flash (1).jpg.jpeg")));
+background-image:var(--hero-bg-next, var(--hero-bg-current, url("/planetG/assets/Firefly_Gemini Flash (1).jpg")));
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;

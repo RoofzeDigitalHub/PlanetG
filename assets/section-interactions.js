@@ -214,6 +214,23 @@
     slider.scrollBy({ left: value, behavior: "smooth" });
   }
 
+  function openMapTarget(trigger) {
+    const url = trigger.getAttribute("data-map-url") || trigger.getAttribute("href");
+    if (!url) return;
+
+    const target =
+      trigger.getAttribute("data-map-target") ||
+      trigger.getAttribute("target") ||
+      "_self";
+
+    if (target === "_blank") {
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    window.location.assign(url);
+  }
+
   function shouldLazyLoad(img) {
     if (img.closest(".hero, .gardyn-hero, .hero-section, .garden-hero")) return false;
     if (img.closest(".gardyn-header, .gardyn-topbar, header")) return false;
@@ -239,6 +256,13 @@
     if (teamScroll) {
       event.preventDefault();
       handleTeamScroll(teamScroll);
+      return;
+    }
+
+    const mapTrigger = event.target.closest("[data-map-url]");
+    if (mapTrigger) {
+      event.preventDefault();
+      openMapTarget(mapTrigger);
       return;
     }
 
@@ -306,6 +330,13 @@
     }
 
     if ((event.key === "Enter" || event.key === " ") && event.target instanceof Element) {
+      const mapTrigger = event.target.closest("[data-map-url]");
+      if (mapTrigger) {
+        event.preventDefault();
+        openMapTarget(mapTrigger);
+        return;
+      }
+
       const storeVideoCard = event.target.closest(".store-video-card");
       if (storeVideoCard) {
         event.preventDefault();

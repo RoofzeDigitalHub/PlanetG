@@ -51,6 +51,11 @@
   box-shadow:0 26px 60px rgba(20,30,20,0.22);
 }
 
+.project-card:focus-visible{
+  outline:3px solid rgba(47,74,47,0.28);
+  outline-offset:4px;
+}
+
 .project-card:hover::after{
   opacity:0.88;
 }

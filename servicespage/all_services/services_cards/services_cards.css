@@ -43,6 +43,7 @@ transition:transform 0.45s ease, filter 0.45s ease;
 }
 
 .service-card::after{
+  display:none;
 content:"";
 position:absolute;
 left:50%;
@@ -101,28 +102,13 @@ z-index:4;
 
 .hover-content p{
 font-size:15px;
-margin:0 0 22px;
+margin:0;
 line-height:1.7;
 max-width:280px;
 }
 
 .hover-content button{
-border:1px solid rgba(255,255,255,0.9);
-background:transparent;
-color:white;
-padding:10px 24px;
-border-radius:999px;
-font-family:'Poppins', sans-serif;
-font-weight:600;
-font-size:12px;
-letter-spacing:1px;
-transition:background 0.25s ease, color 0.25s ease, transform 0.25s ease;
-}
-
-.hover-content button:hover{
-background:white;
-color:#3e5f3c;
-transform:translateY(-1px);
+display:none;
 }
 
 /* HOVER EFFECT */

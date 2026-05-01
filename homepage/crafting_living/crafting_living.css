@@ -1,193 +1,273 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-:root{
---gardyn-cream:#f6f6ef;
---gardyn-olive:#6f7f6a;
---gardyn-olive-dark:#2f402f;
---gardyn-pill:#e6eadf;
+:root {
+  --gardyn-cream: #f6f6ef;
+  --gardyn-olive: #6f7f6a;
+  --gardyn-olive-dark: #2f402f;
+  --gardyn-pill: #e6eadf;
 }
 
-body{
-margin:0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 
 /* SECTION */
-
-.crafting-section{
-background-color:var(--gardyn-cream);
-background-image:
-linear-gradient(rgba(246,246,239,0.88), rgba(246,246,239,0.88));
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:scroll;
-padding: 70px 0 78px;
-font-family:'Roboto',sans-serif;
+.crafting-section {
+  background-color: var(--gardyn-cream);
+  background-image: linear-gradient(rgba(246, 246, 239, 0.88), rgba(246, 246, 239, 0.88));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 70px 0 78px;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* CONTAINER */
-
-.crafting-section .container{
-max-width:1200px;
-margin:auto;
-padding:0 20px;
+/* CONTAINER - Width thoda bada (1200px se 1260px - 5% increase) */
+.crafting-section .container {
+  max-width: 1260px;  /* Pehle 1200px tha */
+  margin: auto;
+  padding: 0 20px;
 }
 
-/* GRID */
-
-.crafting-section .row{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:48px;
-flex-wrap:wrap;
+/* GRID - Gap aur kam kiya */
+.crafting-section .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;  /* Pehle 30px tha - ab aur kam */
+  flex-wrap: wrap;
 }
 
-.crafting-section .col{
-flex:1;
-min-width:300px;
+.crafting-section .col {
+  flex: 1;
+  min-width: 360px;
 }
 
-/* IMAGE WRAPPER */
-
-.crafting-images{
-position:relative;
+/* SINGLE IMAGE WRAPPER - Left side shift */
+.crafting-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;  /* Pehle center tha - ab left */
 }
 
-/* MAIN IMAGE CARD */
-
-.crafting-image-main{
-width:100%;
-height:360px;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 30px 60px rgba(17,30,19,0.18);
-
-background-image:url("/planetG/assets/garden5.png");
-background-size:cover;
-background-position:center;
-background-attachment:scroll;
+/* SINGLE IMAGE CARD - Width thodi badi */
+.crafting-image-single {
+  width: 100%;
+  max-width: 560px;  /* Pehle 420px tha */
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(17, 30, 19, 0.18);
+  background-image: url("/planetG/assets/crafting-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* SECOND IMAGE CARD */
-
-.crafting-image-secondary{
-position:absolute;
-right:-20px;
-bottom:-60px;
-width:70%;
-height:220px;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 24px 50px rgba(17,30,19,0.2);
-
-background-image:url("/planetG/assets/garden-1.jpeg");   
-background-size:cover;
-background-position:center;
-background-attachment:scroll;
+.crafting-image-single:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 35px 70px rgba(17, 30, 19, 0.25);
 }
 
-/* TEXT */
-
-.crafting-tag{
-display:inline-flex;
-align-items:center;
-padding:8px 18px;
-border-radius:999px;
-background:var(--gardyn-pill);
-color:var(--gardyn-olive-dark);
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
-margin-bottom:16px;
-font-family:'Poppins',sans-serif;
+/* TEXT STYLES - Text thoda bada aur gap adjust */
+.crafting-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;  /* Thoda padding badhaya */
+  border-radius: 999px;
+  background: var(--gardyn-pill);
+  color: var(--gardyn-olive-dark);
+  font-size: 13px;  /* Pehle 12px tha */
+  letter-spacing: 1.2px;  /* Thoda gap */
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 }
 
-.crafting-title{
-font-family:'Poppins',sans-serif;
-font-size:clamp(20px,3vw,34px);
-line-height:1.05;
-margin:0 0 18px;
-color:#234225;
-font-weight:600;
+.crafting-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 3.5vw, 38px);  /* Thoda bada */
+  line-height: 1.15;
+  letter-spacing: -0.3px;  /* Thoda tight but readable */
+  margin: 0 0 16px;
+  color: #234225;
+  font-weight: 600;
 }
 
-.crafting-title span{
-color:#234225;
+.crafting-title span {
+  color: #234225;
 }
 
-.crafting-text{
-color:#5d6b5a;
-font-size:16px;
-line-height:1.7;
-margin:0 0 26px;
+.crafting-text {
+  color: #5d6b5a;
+  font-size: 16px;  /* Pehle 15px tha - wapas 16px */
+  line-height: 1.65;  /* Thoda space between lines */
+  letter-spacing: 0.2px;  /* Thoda sa gap */
+  margin: 0 0 20px;  /* Thoda kam gap */
 }
 
-.crafting-btn{
-   
-display:inline-flex;
-align-items:center;
-padding:12px 26px;
-border-radius:999px;
-background:var(--gardyn-olive-dark);
-color:#fff;
-text-decoration:none;
-font-size:13px;
-text-transform:uppercase;
-letter-spacing:1px;
-font-family:'Poppins',sans-serif;
-font-weight:600;
-gap:8px;
-}
-.crafting-btn::after{
-   content:"\2192";  
-   
-}
-/* MOBILE */
-
-@media (max-width:768px){
-
-.crafting-section{
-padding: 56px 0 58px;
-background-attachment:scroll;
+.crafting-text:last-of-type {
+  margin-bottom: 24px;
 }
 
-.crafting-section .row{
-flex-direction:column;
-gap:32px;
-align-items:flex-start;
+.crafting-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 26px;  /* Thoda balanced */
+  border-radius: 999px;
+  background: var(--gardyn-olive-dark);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.crafting-section .col{
-min-width:0;
-width:100%;
+.crafting-btn::after {
+  content: "\2192";
+  transition: transform 0.3s ease;
 }
 
-.crafting-image-main{
-height:300px;
-background-attachment:scroll;
+.crafting-btn:hover {
+  background: #1f2c1f;
+  transform: translateX(4px);
 }
 
-.crafting-image-secondary{
-height:180px;
-bottom:-26px;
-right:0;
-width:82%;
-background-attachment:scroll;
+.crafting-btn:hover::after {
+  transform: translateX(4px);
 }
 
-.crafting-title{
-font-size:clamp(30px,8vw,40px);
+/* TABLET RESPONSIVE (768px - 1100px) */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .crafting-section .container {
+    max-width: 96%;
+  }
+  
+  .crafting-section .row {
+    gap: 18px;
+  }
+  
+  .crafting-image-single {
+    height: 360px;
+    max-width: 400px;
+  }
+  
+  .crafting-title {
+    font-size: 32px;
+  }
+  
+  .crafting-text {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
 }
 
-.crafting-text{
-font-size:15px;
-margin-bottom:20px;
+/* MOBILE RESPONSIVE (up to 768px) */
+@media (max-width: 768px) {
+  .crafting-section {
+    padding: 50px 0 55px;
+  }
+  
+  .crafting-section .container {
+    max-width: 100%;
+  }
+
+  .crafting-section .row {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .crafting-section .col {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .crafting-image-wrapper {
+    width: 100%;
+    justify-content: center;  /* Mobile mein center */
+  }
+
+  .crafting-image-single {
+    height: 300px;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .crafting-title {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  .crafting-tag {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .crafting-text {
+    font-size: 15px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+
+  .crafting-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 20px;
+  }
 }
 
-.crafting-btn{
-width:100%;
-justify-content:center;
-}
-
+/* SMALL MOBILE (up to 480px) */
+@media (max-width: 480px) {
+  .crafting-section {
+    padding: 40px 0 45px;
+  }
+  
+  .crafting-section .row {
+    gap: 20px;
+  }
+  
+  .crafting-image-single {
+    height: 250px;
+    border-radius: 12px;
+  }
+  
+  .crafting-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  .crafting-text {
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.55;
+  }
+  
+  .crafting-text:last-of-type {
+    margin-bottom: 20px;
+  }
+  
+  .crafting-tag {
+    font-size: 11px;
+    padding: 6px 14px;
+    margin-bottom: 10px;
+  }
+  
+  .crafting-btn {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
 }
