@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- 🔥 External CSS -->
-<link rel="stylesheet" href="/planetG/contactpage/contact.css?v=20260421">
+<link rel="stylesheet" href="/planetG/contactpage/CP_contactF/CP_contactF.css?v=20260502">
 
 
 </head>
@@ -30,12 +30,14 @@
 
 <div class="contact-img">
 <iframe class="contact-map-frame"
-src="https://www.google.com/maps?q=Andheri%20West%20Mumbai&z=14&output=embed">
+src="https://www.google.com/maps?q=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053&z=15&output=embed">
 </iframe>
 
 <a class="contact-map-link"
-href="https://www.google.com/maps?q=Andheri%20West%20Mumbai"
-target="_blank"></a>
+href="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Planet G office location on Google Maps"></a>
 </div>
 
 <div class="contact-info">
@@ -46,7 +48,12 @@ target="_blank"></a>
 
 <div class="info-item">
 <h6>Call</h6>
-<p>9879232854</p>
+<p>098792 32854</p>
+</div>
+
+<div class="info-item">
+<h6>Location</h6>
+<p>Minoo Minar, C-7, Veera Desai Rd, near Courtyard restaurant, Mhada Colony, Jeevan Nagar, Andheri West, Mumbai, Maharashtra 400053</p>
 </div>
 </div>
 
@@ -57,7 +64,7 @@ target="_blank"></a>
 <!-- RIGHT FORM -->
 <div class="col-lg-6">
 
-<form id="contactForm" class="contact-form" action="/planetG/contactpage/contact-submit.php" method="POST">
+<form id="contactForm" class="contact-form" data-contact-form action="/planetG/contactpage/contact-submit.php" method="POST">
 
 <input type="text" class="form-control" name="name" placeholder="Your Name" required>
 
@@ -67,9 +74,9 @@ target="_blank"></a>
 
 <textarea class="form-control message-box" name="message" placeholder="Your Message" required></textarea>
 
-<p id="formStatus" class="contact-form-status" hidden></p>
+<p id="formStatus" class="contact-form-status" data-contact-status hidden></p>
 
-<button class="send-btn" type="submit" id="sendBtn">
+<button class="send-btn" type="submit" id="sendBtn" data-send-button>
 SEND MESSAGE
 </button>
 

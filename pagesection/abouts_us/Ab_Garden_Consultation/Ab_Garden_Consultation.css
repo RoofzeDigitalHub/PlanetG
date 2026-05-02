@@ -15,7 +15,7 @@ background-image:url("/planetG/assets/greenhouse-owner-presenting-flowers-option
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-background-attachment:fixed;
+background-attachment:scroll;
 display:flex;
 align-items:center;
 position:relative;
@@ -103,6 +103,13 @@ gap: 8px;
 transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
+.hero-btn__icon{
+width:18px;
+height:18px;
+flex:0 0 18px;
+object-fit:contain;
+}
+
 .hero-btn::after{
 content:"\2192";
 
@@ -157,4 +164,3 @@ box-shadow:0 22px 40px rgba(0,0,0,0.22);
     max-width:320px;
   }
 }
-

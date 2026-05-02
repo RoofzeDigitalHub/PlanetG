@@ -6,13 +6,11 @@
   window.__pgWhatsAppFabInitialized = true;
 
   const cssBaseHref = "/planetG/assets/whatsapp-fab.css";
+  const iconSrc = "/planetG/assets/whatsapp-icons.png";
   const whatsappHref = "https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services.";
   const iconMarkup =
     '<span class="pg-wa-fab__icon" aria-hidden="true">' +
-    '<svg viewBox="0 0 64 64" focusable="false">' +
-    '<path d="M32 11.5c-11.4 0-20.5 8.8-20.5 19.8 0 3.5.9 6.9 2.7 9.8L12.8 53l10.1-3.2c2.8 1.5 5.9 2.3 9.1 2.3 11.3 0 20.5-8.8 20.5-19.8S43.3 11.5 32 11.5Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>' +
-    '<path d="M25.4 22.8c-.7 0-1.3.3-1.7.9-1.1 1.3-1.7 3-1.5 4.6.5 3.8 2.6 7.2 5.6 9.9 3.2 2.7 6.9 4 10.4 3.6 1.5-.2 2.9-1 3.9-2.2.4-.5.5-1.3.1-1.9l-1.9-3c-.4-.7-1.4-.9-2.1-.4l-2.5 1.5c-.4.3-.9.3-1.4.1-1-.5-2.2-1.3-3.3-2.3-1.1-1-2-2.2-2.5-3.3-.2-.5-.2-1 .1-1.4l1.6-2.3c.5-.7.3-1.7-.4-2.1l-2.9-2c-.3-.2-.8-.4-1.4-.4Z" fill="currentColor"></path>' +
-    "</svg>" +
+    `<img class="pg-wa-fab__image" src="${iconSrc}" alt="" decoding="async">` +
     "</span>";
   let revealObserver = null;
 
@@ -72,7 +70,7 @@
     button.rel = "noopener noreferrer";
     button.setAttribute("aria-label", "Chat with Planet G on WhatsApp");
 
-    if (!button.querySelector(".pg-wa-fab__icon")) {
+    if (!button.querySelector(".pg-wa-fab__image")) {
       button.innerHTML = iconMarkup;
     }
 

@@ -110,25 +110,6 @@
     document.body.classList.remove("store-video-modal-open");
   }
 
-  function setGardenCardExpanded(card, expanded) {
-    card.classList.toggle("is-expanded", expanded);
-    const button = card.querySelector(".view-btn");
-    if (button) {
-      button.textContent = expanded ? "VIEW LESS" : "VIEW DETAILS";
-      button.setAttribute("aria-expanded", expanded ? "true" : "false");
-    }
-  }
-
-  function toggleGardenCard(card) {
-    const scope = card.closest(".service-section") || document;
-    scope.querySelectorAll(".garden-card.is-expanded").forEach((el) => {
-      if (el !== card) {
-        setGardenCardExpanded(el, false);
-      }
-    });
-    setGardenCardExpanded(card, !card.classList.contains("is-expanded"));
-  }
-
   function getGalleryModal() {
     let modal = document.querySelector("[data-gallery-modal]");
     if (modal) return modal;
@@ -292,11 +273,6 @@
       event.preventDefault();
       openGalleryModal(galleryCard);
       return;
-    }
-
-    const gardenCard = event.target.closest(".garden-card");
-    if (gardenCard) {
-      toggleGardenCard(gardenCard);
     }
 
     const workCard = event.target.closest(".work-card");

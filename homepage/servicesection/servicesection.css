@@ -53,6 +53,11 @@ cursor:pointer;
 width:100%;
 box-shadow:0 18px 38px rgba(31, 43, 31, 0.12);
 isolation:isolate;
+display:block;
+text-decoration:none;
+color:inherit;
+background:#dde5d9;
+transition:transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-section .garden-card img{
@@ -62,13 +67,18 @@ object-fit:cover;
 transition:0.5s ease;
 }
 
+.service-section .garden-card:focus-visible{
+outline:3px solid rgba(63, 79, 60, 0.28);
+outline-offset:4px;
+}
+
 .service-section .card-content{
 position:absolute;
 bottom:0;
 left:0;
 width:100%;
 padding:20px;
-background:linear-gradient(to top, #2f4a2f 68%, transparent);
+background:linear-gradient(to top, rgba(47, 74, 47, 0.96) 0%, rgba(47, 74, 47, 0.82) 62%, rgba(47, 74, 47, 0) 100%);
 color:#fff;
 z-index:2;
 text-align:center;
@@ -76,7 +86,9 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:flex-end;
-gap:4px;
+gap:8px;
+min-height:132px;
+transition:padding 0.35s ease, background 0.35s ease;
 }
 
 .service-section .card-content h5,
@@ -104,83 +116,32 @@ display:-webkit-box;
 overflow:hidden;
 max-height:calc(2 * 1.6em);
 transition:max-height 0.35s ease, opacity 0.25s ease;
+width:100%;
 }
 
-.service-section .card-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(180deg, rgba(47, 74, 47, 0.94) 0%, rgba(47, 74, 47, 0.86) 100%);
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:0.4s ease;
-z-index:3;
-padding:24px;
-}
+@media (hover: hover) and (pointer: fine){
+  .service-section .garden-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 46px rgba(31, 43, 31, 0.18);
+  }
 
-.service-section .icon{
-font-size:40px;
-margin-bottom:15px;
-}
+  .service-section .garden-card:hover img{
+    transform:scale(1.06);
+  }
 
-.service-section .view-btn{
-border:1px solid #fff;
-background:transparent;
-color:#fff;
-padding:8px 18px;
-border-radius:30px;
-font-size:12px;
-letter-spacing:0.8px;
-text-transform:uppercase;
-font-family:'Poppins', sans-serif;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-}
+  .service-section .garden-card:hover .card-content,
+  .service-section .garden-card:focus-visible .card-content{
+    padding-top:72px;
+    background:linear-gradient(to top, rgba(47, 74, 47, 0.97) 0%, rgba(47, 74, 47, 0.9) 70%, rgba(47, 74, 47, 0.2) 100%);
+  }
 
-.service-section .view-btn::after{
-content:"\2192";
-line-height:1;
-}
-
-.service-section .garden-card:hover img{
-transform:scale(1.08);
-}
-
-.service-section .garden-card:hover .card-overlay{
-opacity:1;
-}
-
-.service-section .garden-card:hover .card-content{
-opacity:0;
-}
-
-.service-section .garden-card.is-expanded .card-overlay{
-opacity:0;
-pointer-events:none;
-}
-
-.service-section .garden-card.is-expanded .card-content{
-opacity:1;
-}
-
-.service-section .garden-card.is-expanded:hover .card-content{
-opacity:1;
-}
-
-.service-section .garden-card.is-expanded:hover .card-overlay{
-opacity:0;
-pointer-events:none;
-}
-
-.service-section .garden-card.is-expanded .card-content p{
-display:block;
--webkit-line-clamp:unset;
-max-height:12em;
-overflow:hidden;
+  .service-section .garden-card:hover .card-content p,
+  .service-section .garden-card:focus-visible .card-content p{
+    display:block;
+    -webkit-line-clamp:unset;
+    max-height:12em;
+    overflow:hidden;
+  }
 }
 
 @media (max-width: 991.98px){
@@ -223,12 +184,12 @@ font-size:16px;
 .service-section .card-content p{
 font-size:13px;
 }
-
-.service-section .garden-card.is-expanded .card-content p{
-max-height:13em;
 }
 
-.service-section .card-overlay{
-padding:20px;
-}
+@media (hover: none){
+  .service-section .card-content p{
+    display:block;
+    -webkit-line-clamp:unset;
+    max-height:10em;
+  }
 }

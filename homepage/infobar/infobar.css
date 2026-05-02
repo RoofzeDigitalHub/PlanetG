@@ -27,6 +27,10 @@
   flex-wrap: nowrap;
 }
 
+.gardyn-topbar {
+  margin: 0;
+}
+
 .gardyn-topbar .gardyn-topbar__info {
   display: flex;
   align-items: center;
