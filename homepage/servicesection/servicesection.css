@@ -105,6 +105,13 @@ min-height:calc(2 * 1.25em);
 max-height:calc(2 * 1.25em);
 }
 
+.client-logo-button-wrapper {
+  text-align: center;
+margin-top: 25px;
+  /* gap: 8px; */
+      
+}
+
 .service-section .card-content p{
 font-size:14px;
 line-height:1.6;

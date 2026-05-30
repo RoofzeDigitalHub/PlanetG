@@ -96,6 +96,7 @@
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
+  margin: top 17px;
 }
 
 .btn-view-clients::after {

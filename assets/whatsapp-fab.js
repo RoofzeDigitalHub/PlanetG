@@ -6,7 +6,7 @@
   window.__pgWhatsAppFabInitialized = true;
 
   const cssBaseHref = "/planetG/assets/whatsapp-fab.css";
-  const iconSrc = "/planetG/assets/whatsapp-icons.png";
+  const iconSrc = "/planetG/assets/whatsapp-image.png";
   const whatsappHref = "https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services.";
   const iconMarkup =
     '<span class="pg-wa-fab__icon" aria-hidden="true">' +
