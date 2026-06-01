@@ -87,7 +87,7 @@ justify-content:center;
 gap:8px;
 min-height:52px;
 padding:12px 28px;
-border-radius:9px;
+border-radius:999px;
 background:linear-gradient(135deg, #4f6f45 0%, #3b5936 100%);
 border:1px solid rgba(255,255,255,0.16);
 color:#ffffff;

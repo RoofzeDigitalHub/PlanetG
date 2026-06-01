@@ -5,6 +5,7 @@
     "/planetG/homepage/header/header.html",
     "/planetG/pagesection/abouts_us/Ab_hero/Ab_hero.html",
     "/planetG/pagesection/abouts_us/Ab_ourstory/Ab_ourstory.html",
+    "/planetG/pagesection/abouts_us/what_we_do/what_we_do.html",
     "/planetG/pagesection/abouts_us/Ab_ourTeam/Ab_ourTeam.html",
     "/planetG/pagesection/abouts_us/Ab_Garden_Consultation/Ab_Garden_Consultation.html",
     "/planetG/homepage/footer/footer.html"

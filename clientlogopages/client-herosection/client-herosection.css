@@ -81,21 +81,13 @@ opacity:0.9;
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(120deg, rgba(12, 23, 14, 0.82), rgba(34, 55, 33, 0.45)),
-    url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
+  background: url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
   z-index: -2;
   transform: scale(1.04);
 }
 
 .client-hero-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top right, rgba(173, 214, 120, 0.2), transparent 34%),
-    linear-gradient(180deg, rgba(7, 13, 9, 0.08), rgba(7, 13, 9, 0.28));
-  z-index: -1;
+  display: none;
 }
 
 .client-hero-shell {
@@ -110,24 +102,7 @@ opacity:0.9;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.client-hero-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .client-hero-title {
@@ -165,13 +140,6 @@ opacity:0.9;
   .client-hero-breadcrumb {
     margin-bottom: 14px;
     font-size: 13px;
-  }
-
-  .client-hero-pill {
-    margin-bottom: 16px;
-    padding: 7px 14px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
   }
 
   .client-hero-subtitle {

@@ -12,6 +12,7 @@ display:flex;
 align-items:center;
 color:white;
 overflow:hidden;
+z-index:0;
 }
 
 /* BACKGROUND IMAGE */

@@ -64,7 +64,7 @@ position:absolute;
 inset:auto 0 0 0;
 padding:24px 18px 22px;
 color:white;
-background:linear-gradient(180deg, rgba(13, 20, 13, 0.08) 0%, rgba(0, 0, 0, 0.78) 100%);
+background:linear-gradient(to top, rgba(47, 74, 47, 0.96) 0%, rgba(47, 74, 47, 0.82) 62%, rgba(47, 74, 47, 0) 100%);
 transition:opacity 0.35s ease, transform 0.35s ease;
 text-align:center;
 display:flex;
@@ -74,7 +74,8 @@ z-index:3;
 }
 
 .service-overlay h4,
-.service-overlay h5{
+.service-overlay h5,
+.service-overlay h7{
 margin:0;
 font-family:'Poppins', sans-serif;
 font-weight:600;
@@ -86,17 +87,20 @@ letter-spacing:0.3px;
 
 .hover-content{
 position:absolute;
-inset:0;
-background:linear-gradient(180deg, #3f5f3f 0%, #314d31 100%);
+inset:auto 0 0 0;
+width:100%;
+min-height:132px;
+background:linear-gradient(to top, rgba(47, 74, 47, 0.97) 0%, rgba(47, 74, 47, 0.9) 70%, rgba(47, 74, 47, 0.2) 100%);
 color:white;
 display:flex;
 flex-direction:column;
-justify-content:center;
+justify-content:flex-end;
 align-items:center;
 text-align:center;
-padding:36px 24px;
+padding:72px 24px 24px;
 opacity:0;
-transition:opacity 0.35s ease;
+transform:translateY(34px);
+transition:opacity 0.35s ease, transform 0.35s ease, min-height 0.35s ease, padding 0.35s ease, background 0.35s ease;
 z-index:4;
 }
 
@@ -119,8 +123,8 @@ filter:saturate(1.03);
 }
 
 .service-card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 26px 60px rgba(31, 48, 31, 0.22);
+transform:translateY(-6px);
+box-shadow:0 24px 46px rgba(31, 43, 31, 0.18);
 }
 
 .service-card:hover::after{
@@ -136,6 +140,22 @@ transform:translateY(10px);
 
 .service-card:hover .hover-content{
 opacity:1;
+transform:translateY(0);
+min-height:100%;
+padding-top:96px;
+}
+
+@media (hover: none){
+  .hover-content{
+    opacity:1;
+    transform:none;
+    min-height:58%;
+    padding:64px 18px 20px;
+  }
+
+  .service-overlay{
+    opacity:0;
+  }
 }
 
 @media (max-width: 991.98px){
@@ -175,13 +195,14 @@ opacity:1;
   }
 
   .service-overlay h4,
-  .service-overlay h5{
+  .service-overlay h5,
+  .service-overlay h7{
     font-size:18px;
     max-width:240px;
   }
 
   .hover-content{
-    padding:28px 18px;
+    padding:58px 18px 20px;
   }
 
   .hover-content p{

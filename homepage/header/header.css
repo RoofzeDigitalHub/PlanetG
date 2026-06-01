@@ -698,11 +698,16 @@ body.menu-modal-open{
     margin-left:auto;
     border:3px solid transparent;
     background:transparent;
+    color:#ffffff !important;
     border-radius:12px;
     font-size:28px;
     align-items:center;
     justify-content:center;
     cursor:pointer;
+  }
+
+  .header-menu-btn i{
+    color:#ffffff !important;
   }
 
   .header-menu-btn:hover{
