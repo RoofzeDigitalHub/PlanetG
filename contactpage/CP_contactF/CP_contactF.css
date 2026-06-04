@@ -43,39 +43,35 @@ body {
 .contact-text {
   color: #6b776b;
   line-height: 1.7;
+  margin-bottom: 24px;
 }
 
-/* ========== 4 HORIZONTAL CARDS - EQUAL WIDTH & EQUAL HEIGHT ========== */
-/* All cards remain in one horizontal line, same width, same height */
+/* ========== 3 HORIZONTAL CARDS ========== */
 .info-strip {
   margin-bottom: 48px;
 }
 
-/* Card container - forces equal width using flexbox grid */
 .info-strip .row {
   --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
+  --bs-gutter-y: 1.5rem;
   justify-content: center;
-  align-items: stretch;  /* makes all columns equal height */
+  align-items: stretch;
 }
 
-/* Each column gets equal width on all responsive levels */
 .custom-card-col {
-  flex: 1 1 0;          /* Equal width distribution */
-  min-width: 0;         /* Prevents overflow issues */
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
 }
 
-/* Horizontal card design - NO ICONS, CENTERED DETAILS */
 .info-card-horizontal {
   background: #ffffff;
-  border-radius: 5px !important;      /* border radius 5px as requested */
+  border-radius: 5px !important;
   padding: 1.45rem 0.75rem;
   text-align: center;
   width: 100%;
-  /* Fixed equal height: all cards will have same height because parent align-items: stretch + flex column */
-  min-height: 188px;                  /* consistent base height */
-  height: 100%;                       /* fill column height completely */
+  min-height: 188px;
+  height: 100%;
   box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border: none;
@@ -85,7 +81,6 @@ body {
   align-items: center;
 }
 
-/* Slightly taller on desktop but still equal across all 4 */
 @media (min-width: 768px) {
   .info-card-horizontal {
     min-height: 198px;
@@ -104,7 +99,6 @@ body {
   box-shadow: 0 28px 40px -16px rgba(47, 74, 47, 0.2);
 }
 
-/* Card heading styles */
 .info-card-horizontal h5 {
   font-weight: 700;
   font-size: 1.3rem;
@@ -112,7 +106,6 @@ body {
   margin-bottom: 0.8rem;
 }
 
-/* Main detail text */
 .info-card-horizontal p {
   color: #2f4a2f;
   font-size: 1rem;
@@ -121,7 +114,6 @@ body {
   font-weight: 600;
 }
 
-/* Extra detail line inside card */
 .card-detail {
   color: #7a8f7a;
   font-size: 0.85rem;
@@ -130,63 +122,28 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Ensure all four cards stay in one line on all devices */
 @media (max-width: 767px) {
   .info-strip .row {
     flex-wrap: wrap;
   }
   .custom-card-col {
-    flex: 1 1 50%;      /* 2 per row on tablet but still equal width in pairs */
+    flex: 1 1 50%;
     min-width: 180px;
   }
 }
 
-/* For medium screens and up: enforce single horizontal row with equal widths */
 @media (min-width: 768px) {
   .custom-card-col {
-    flex: 1 1 0;        /* All cards equally share the row width */
+    flex: 1 1 0;
     max-width: none;
   }
 }
 
-/* On very small phones, stack but each card still equal width */
-@media (min-width: 992px) {
-  .custom-card-col {
-    flex: 1;            /* Equal width distribution among 4 cards */
-  }
+/* FORM WRAPPER FOR HORIZONTAL CENTERING */
+.center-form-row {
+  justify-content: center;
 }
 
-/* LEFT SIDE — ONLY MAP */
-.contact-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 32px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-}
-
-.map-only-container {
-  width: 100%;
-  position: relative;
-  min-height: 340px;
-}
-
-.contact-map-frame {
-  width: 100%;
-  height: 360px;
-  border: 0;
-  display: block;
-}
-
-.contact-map-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  text-indent: -9999px;
-}
-
-/* Right side form styling */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -257,9 +214,6 @@ body {
 @media (max-width: 991px) {
   .contact-section {
     padding: 50px 0;
-  }
-  .map-only-container .contact-map-frame {
-    height: 320px;
   }
   .cards-main-heading {
     font-size: 32px;
