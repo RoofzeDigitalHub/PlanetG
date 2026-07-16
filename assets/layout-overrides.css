@@ -30,7 +30,7 @@ canvas {
 }
 
 .header-brand-logo {
-  height: 50px;
+  height: 110px;
   margin-top: 0;
   margin-bottom: 0;
   transform: none;
@@ -388,7 +388,7 @@ section.hero .breadcrumb-text {
   }
 
   .header-brand-logo {
-    height: 50px;
+    height: 70px;
   }
 
   .garden-hero {

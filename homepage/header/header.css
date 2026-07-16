@@ -108,7 +108,7 @@
 .header-brand-logo{
   display: block;
   width: auto;
-  height: 95px;
+  height: 110px;
   object-fit: contain;
   position: relative;
   z-index: 2;
@@ -785,7 +785,7 @@ body.menu-modal-open{
 /* Extra small devices */
 @media (max-width: 900px){
   .header-brand-logo{
-    height:56px;
+    height:70px;
   }
 
   .menu-logo-image{
