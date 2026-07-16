@@ -1,22 +1,38 @@
+/* =========================================================
+   CLIENT LOGO SECTION — Planet G
+   Professional "logo wall" style:
+   - Hairline divider grid (looks like a fine table, very clean)
+   - Logos are large, grayscale by default, full colour on hover
+   - Whole section stays on the white + green Planet G palette
+   ========================================================= */
+
 .client-logo-section {
-  --client-stroke: rgba(63, 79, 60, 0.14);
+  --client-stroke: rgba(63, 79, 60, 0.12);   /* hairline green-grey */
   --client-ink: #2d3f2c;
+  --client-green: #3f5638;
+  --client-green-dark: #2d4028;
+  --client-pill-bg: #e7eee0;
+
   background: #ffffff;
-  padding: 56px 0 68px;
+  padding: 64px 0 76px;
   color: var(--client-ink);
 }
 
 .client-logo-section .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* ---------- Heading ---------- */
+
 .client-logo-heading {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-bottom: 32px;
+  gap: 14px;
+  margin-bottom: 44px;
 }
 
 .client-logo-pill {
@@ -25,7 +41,7 @@
   justify-content: center;
   padding: 8px 18px;
   border-radius: 999px;
-  background: #e7eee0;
+  background: var(--client-pill-bg);
   color: #40513d;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
@@ -34,48 +50,73 @@
   text-transform: uppercase;
 }
 
-/* 3x2 Grid layout - keep 3 columns */
+/* Optional one-line subtitle under the pill (see HTML) */
+.client-logo-subtitle {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(45, 63, 44, 0.65);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* ---------- Divider grid ----------
+   The grid background is the hairline colour; a 1px gap between
+   white cells creates fine internal divider lines — no boxy cards,
+   no shadows. Reads as one refined "wall" of clients.            */
+
 .client-logo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px 28px;      /* increased gap for larger logos */
-  margin-bottom: 48px;
+  gap: 1px;
+  background: var(--client-stroke);
+  border-top: 1px solid var(--client-stroke);
+  border-bottom: 1px solid var(--client-stroke);
+  margin-bottom: 52px;
 }
 
-/* Individual logo card - CONTAINER REMOVED (no border, no background, no shadow) */
 .client-logo-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* No border, no background gradient, no box-shadow, no extra padding */
-  padding: 0;           /* remove inner spacing */
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  transition: transform 0.2s ease;
+  background: #ffffff;
+  min-height: 200px;            /* tall cells = room for big logos */
+  padding: 28px 32px;
+  transition: background 0.25s ease;
   animation: clientLogoFade 0.45s ease backwards;
 }
 
 .client-logo-card:hover {
-  transform: translateY(-4px);
-  /* keep no background or border on hover */
+  background: #fbfdf9;          /* whisper of green on hover */
 }
 
-/* Logo image - MUCH BIGGER */
+/* ---------- Logo image — BIG ---------- */
+
 .client-logo-image {
-  max-width: 100%;
-  max-height: 110px;     /* increased from 60px */
-  width: auto;
-  height: 110px;
   display: block;
+  width: auto;
+  max-width: 82%;
+  height: auto;
+  max-height: 130px;            /* up from 110px, with room to breathe */
   object-fit: contain;
-  transition: filter 0.2s;
+
+  /* professional grayscale-to-colour treatment */
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Button styling - DARK GREEN */
+.client-logo-card:hover .client-logo-image {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* ---------- Button ---------- */
+
 .client-logo-button-wrapper {
   text-align: center;
-  margin-top: 12px;
 }
 
 .btn-view-clients {
@@ -83,31 +124,30 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #3f5638;           /* dark green matching pricing plan button */
+  background: var(--client-green);
   border: none;
-  padding: 6px 18px;
+  padding: 12px 30px;
   border-radius: 999px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #ffffff;                /* white text */
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.25s ease;
   text-decoration: none;
-  margin: top 17px;
+  transition: all 0.25s ease;
 }
 
 .btn-view-clients::after {
   content: "\2192";
-  font-size: 1.1rem;
-  transition: transform 0.2s;
+  font-size: 1.05rem;
   color: #ffffff;
+  transition: transform 0.2s ease;
 }
 
 .btn-view-clients:hover {
-  background: #2d4028;           /* darker on hover */
+  background: var(--client-green-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(63, 86, 56, 0.3);
   color: #ffffff;
@@ -121,81 +161,9 @@
   transform: translateY(1px);
 }
 
-/* ----- RESPONSIVE: maintain 3 columns until smaller screens, adjust logo size ----- */
-@media (max-width: 991px) {
-  .client-logo-section {
-    padding: 50px 0 60px;
-  }
-  .client-logo-grid {
-    gap: 24px 20px;
-    margin-bottom: 40px;
-  }
-  .client-logo-image {
-    max-height: 90px;
-    height: 90px;
-  }
-  .btn-view-clients {
-    padding: 10px 28px;
-    font-size: 0.9rem;
-  }
-}
+/* ---------- Entrance animation ---------- */
 
-@media (max-width: 768px) {
-  .client-logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px 16px;
-  }
-  .client-logo-image {
-    max-height: 80px;
-    height: 80px;
-  }
-}
-
-@media (max-width: 640px) {
-  /* switch to 2 columns on very small mobiles */
-  .client-logo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 20px;
-  }
-  .client-logo-image {
-    max-height: 85px;
-    height: 85px;
-  }
-  .client-logo-heading {
-    margin-bottom: 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  .client-logo-grid {
-    gap: 20px;
-  }
-  .client-logo-image {
-    max-height: 70px;
-    height: 70px;
-  }
-  .btn-view-clients {
-    padding: 8px 24px;
-    font-size: 0.85rem;
-  }
-  .client-logo-pill {
-    font-size: 11px;
-    padding: 6px 14px;
-  }
-}
-
-/* Optional fade animation (kept) */
-.client-logo-card {
-  animation: fadeSlide 0.4s ease backwards;
-}
-.client-logo-card:nth-child(1) { animation-delay: 0.02s; }
-.client-logo-card:nth-child(2) { animation-delay: 0.05s; }
-.client-logo-card:nth-child(3) { animation-delay: 0.08s; }
-.client-logo-card:nth-child(4) { animation-delay: 0.11s; }
-.client-logo-card:nth-child(5) { animation-delay: 0.14s; }
-.client-logo-card:nth-child(6) { animation-delay: 0.17s; }
-
-@keyframes fadeSlide {
+@keyframes clientLogoFade {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -203,5 +171,88 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.client-logo-card:nth-child(1) { animation-delay: 0.02s; }
+.client-logo-card:nth-child(2) { animation-delay: 0.05s; }
+.client-logo-card:nth-child(3) { animation-delay: 0.08s; }
+.client-logo-card:nth-child(4) { animation-delay: 0.11s; }
+.client-logo-card:nth-child(5) { animation-delay: 0.14s; }
+.client-logo-card:nth-child(6) { animation-delay: 0.17s; }
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .client-logo-card,
+  .client-logo-image,
+  .btn-view-clients {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 991px) {
+  .client-logo-section {
+    padding: 54px 0 64px;
+  }
+  .client-logo-card {
+    min-height: 170px;
+    padding: 24px 24px;
+  }
+  .client-logo-image {
+    max-height: 108px;
+  }
+}
+
+@media (max-width: 768px) {
+  .client-logo-card {
+    min-height: 148px;
+    padding: 20px 18px;
+  }
+  .client-logo-image {
+    max-height: 92px;
+    max-width: 86%;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 2 columns on small phones */
+  .client-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .client-logo-card {
+    min-height: 140px;
+  }
+  .client-logo-image {
+    max-height: 88px;
+    /* on touch screens show logos in full colour — no hover exists */
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  .client-logo-heading {
+    margin-bottom: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo-card {
+    min-height: 120px;
+    padding: 16px 14px;
+  }
+  .client-logo-image {
+    max-height: 76px;
+  }
+  .btn-view-clients {
+    padding: 10px 24px;
+    font-size: 11px;
+  }
+  .client-logo-pill {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+  .client-logo-subtitle {
+    font-size: 13.5px;
   }
 }
