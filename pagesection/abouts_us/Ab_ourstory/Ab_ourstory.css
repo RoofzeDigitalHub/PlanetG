@@ -161,3 +161,13 @@ min-height:auto;
 margin-top:0;
 }
 }
+
+.story-start{ 
+height:110px;background-color:var(--gardyn-sticky-bg);
+}
+
+@media (max-width:991.98px){
+.story-start{ 
+height:0px !important;background-color:var(--gardyn-sticky-bg);
+}
+}
