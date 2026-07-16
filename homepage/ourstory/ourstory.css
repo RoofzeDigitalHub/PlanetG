@@ -126,7 +126,7 @@
   border-radius: 14px;
   padding: 20px 22px;
   text-align: left;
-  height: 50%;
+  height: auto;
   color: #ffffff;
   box-shadow: 0 18px 40px rgba(10, 18, 10, 0.28);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
