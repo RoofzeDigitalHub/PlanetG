@@ -1,0 +1,352 @@
+/* =========================================================
+   CLIENT REVIEWS SECTION — Planet G
+   Same design language as the client logo section:
+   - White background, green pill heading, Poppins
+   - Hairline divider grid (no boxy cards, no shadows)
+   - Dark green pill button
+   ========================================================= */
+
+.client-reviews-section {
+  --review-stroke: rgba(63, 79, 60, 0.12);
+  --review-ink: #2d3f2c;
+  --review-ink-soft: rgba(45, 63, 44, 0.68);
+  --review-green: #3f5638;
+  --review-green-dark: #2d4028;
+  --review-pill-bg: #e7eee0;
+  --review-star: #e8a33d;
+
+  background: #ffffff;
+  padding: 64px 0 76px;
+  color: var(--review-ink);
+  font-family: "Poppins", sans-serif;
+}
+
+.client-reviews-section .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Heading ---------- */
+
+.client-reviews-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.client-reviews-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--review-pill-bg);
+  color: #40513d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.client-reviews-subtitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--review-ink-soft);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ---------- Summary strip (rating + count) ---------- */
+
+.client-reviews-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 18px 0;
+  border-top: 1px solid var(--review-stroke);
+  border-bottom: 1px solid var(--review-stroke);
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.reviews-summary-score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.reviews-summary-score strong {
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--review-ink);
+  line-height: 1;
+}
+
+.reviews-summary-score span {
+  font-size: 13px;
+  color: var(--review-ink-soft);
+}
+
+.reviews-summary-stars {
+  color: var(--review-star);
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.reviews-summary-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--review-stroke);
+}
+
+.reviews-summary-source {
+  font-size: 13px;
+  color: var(--review-ink-soft);
+}
+
+.reviews-summary-source strong {
+  color: var(--review-ink);
+  font-weight: 600;
+}
+
+/* ---------- Divider grid of reviews ----------
+   Same trick as the logo wall: grid background is the hairline
+   colour, 1px gaps create fine internal divider lines.        */
+
+.client-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--review-stroke);
+  border-bottom: 1px solid var(--review-stroke);
+  margin-bottom: 52px;
+}
+
+.client-review-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 30px 28px;
+  transition: background 0.25s ease;
+  animation: reviewFade 0.45s ease backwards;
+}
+
+.client-review-card:hover {
+  background: #fbfdf9;
+}
+
+/* Stars */
+.review-stars {
+  color: var(--review-star);
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  margin-bottom: 14px;
+}
+
+/* Review text */
+.review-text {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--review-ink);
+  flex-grow: 1;   /* pushes author block to the bottom, keeps rows aligned */
+}
+
+/* Author row */
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--review-pill-bg);
+  color: var(--review-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.review-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-author-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--review-ink);
+}
+
+.review-author-meta {
+  font-size: 12px;
+  color: var(--review-ink-soft);
+}
+
+/* Optional owner reply */
+.review-owner-reply {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--review-green);
+  background: #f6f9f2;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--review-ink-soft);
+  border-radius: 0 6px 6px 0;
+}
+
+.review-owner-reply strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--review-green);
+  margin-bottom: 4px;
+}
+
+/* ---------- Button ---------- */
+
+.client-reviews-button-wrapper {
+  text-align: center;
+}
+
+.btn-view-reviews {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--review-green);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-view-reviews::after {
+  content: "\2192";
+  font-size: 1.05rem;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.btn-view-reviews:hover {
+  background: var(--review-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(63, 86, 56, 0.3);
+  color: #ffffff;
+}
+
+.btn-view-reviews:hover::after {
+  transform: translateX(5px);
+}
+
+.btn-view-reviews:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Entrance animation ---------- */
+
+@keyframes reviewFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.client-review-card:nth-child(1) { animation-delay: 0.02s; }
+.client-review-card:nth-child(2) { animation-delay: 0.05s; }
+.client-review-card:nth-child(3) { animation-delay: 0.08s; }
+.client-review-card:nth-child(4) { animation-delay: 0.11s; }
+.client-review-card:nth-child(5) { animation-delay: 0.14s; }
+.client-review-card:nth-child(6) { animation-delay: 0.17s; }
+.client-review-card:nth-child(7) { animation-delay: 0.20s; }
+.client-review-card:nth-child(8) { animation-delay: 0.23s; }
+.client-review-card:nth-child(9) { animation-delay: 0.26s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .client-review-card,
+  .btn-view-reviews {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 991px) {
+  .client-reviews-section {
+    padding: 54px 0 64px;
+  }
+  .client-reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .client-review-card {
+    padding: 26px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .client-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .client-reviews-heading {
+    margin-bottom: 28px;
+  }
+  .client-reviews-summary {
+    gap: 18px;
+    padding: 16px 0;
+  }
+  .reviews-summary-score strong {
+    font-size: 28px;
+  }
+  .reviews-summary-divider {
+    display: none;
+  }
+  .review-text {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-review-card {
+    padding: 22px 18px;
+  }
+  .btn-view-reviews {
+    padding: 10px 24px;
+    font-size: 11px;
+  }
+  .client-reviews-pill {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+  .client-reviews-subtitle {
+    font-size: 13.5px;
+  }
+}
