@@ -1,19 +1,16 @@
-/* =========================================================
-   CLIENT LOGO SECTION — Planet G
-   Professional "logo wall" style:
-   - Hairline divider grid (looks like a fine table, very clean)
-   - Logos are large, grayscale by default, full colour on hover
-   - Whole section stays on the white + green Planet G palette
+﻿/* =========================================================
+   CLIENT LOGO SECTION – Planet G
+   Clean light panels on subtle contrasting background
    ========================================================= */
 
 .client-logo-section {
-  --client-stroke: rgba(63, 79, 60, 0.12);   /* hairline green-grey */
+  --client-stroke: rgba(63, 79, 60, 0.12);
   --client-ink: #2d3f2c;
   --client-green: #3f5638;
   --client-green-dark: #2d4028;
-  --client-pill-bg: #e7eee0;
+  --client-pill-bg: #e2ead9;
 
-  background: #ffffff;
+  background: #f4f6f1; /* Subtle contrasting soft tone */
   padding: 64px 0 76px;
   color: var(--client-ink);
 }
@@ -32,7 +29,7 @@
   align-items: center;
   text-align: center;
   gap: 14px;
-  margin-bottom: 44px;
+  margin-bottom: 40px;
 }
 
 .client-logo-pill {
@@ -50,30 +47,23 @@
   text-transform: uppercase;
 }
 
-/* Optional one-line subtitle under the pill (see HTML) */
 .client-logo-subtitle {
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: rgba(45, 63, 44, 0.65);
-  max-width: 520px;
+  color: rgba(45, 63, 44, 0.75);
+  max-width: 540px;
   line-height: 1.6;
 }
 
-/* ---------- Divider grid ----------
-   The grid background is the hairline colour; a 1px gap between
-   white cells creates fine internal divider lines — no boxy cards,
-   no shadows. Reads as one refined "wall" of clients.            */
+/* ---------- Logo Grid & Clean Panels ---------- */
 
 .client-logo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--client-stroke);
-  border-top: 1px solid var(--client-stroke);
-  border-bottom: 1px solid var(--client-stroke);
-  margin-bottom: 52px;
+  gap: 20px;
+  margin-bottom: 48px;
 }
 
 .client-logo-card {
@@ -81,36 +71,37 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  min-height: 200px;            /* tall cells = room for big logos */
-  padding: 28px 32px;
-  transition: background 0.25s ease;
+  border-radius: 12px;
+  border: 1px solid rgba(63, 79, 60, 0.12);
+  box-shadow: 0 4px 16px rgba(45, 63, 44, 0.04);
+  min-height: 160px;
+  padding: 24px 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   animation: clientLogoFade 0.45s ease backwards;
 }
 
 .client-logo-card:hover {
-  background: #fbfdf9;          /* whisper of green on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(45, 63, 44, 0.10);
+  border-color: rgba(63, 79, 60, 0.24);
 }
 
-/* ---------- Logo image — BIG ---------- */
+/* ---------- Logo image – Distinct, Full Proportions, Clear Contrast ---------- */
 
 .client-logo-image {
   display: block;
   width: auto;
-  max-width: 82%;
+  max-width: 85%;
   height: auto;
-  max-height: 130px;            /* up from 110px, with room to breathe */
+  max-height: 90px;
   object-fit: contain;
-
-  /* professional grayscale-to-colour treatment */
-  filter: grayscale(1);
-  opacity: 0.72;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  filter: none;
+  transition: transform 0.25s ease;
 }
 
 .client-logo-card:hover .client-logo-image {
-  filter: grayscale(0);
-  opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 /* ---------- Button ---------- */
@@ -181,7 +172,6 @@
 .client-logo-card:nth-child(5) { animation-delay: 0.14s; }
 .client-logo-card:nth-child(6) { animation-delay: 0.17s; }
 
-/* Respect users who prefer no motion */
 @media (prefers-reduced-motion: reduce) {
   .client-logo-card,
   .client-logo-image,
@@ -197,62 +187,47 @@
   .client-logo-section {
     padding: 54px 0 64px;
   }
+  .client-logo-grid {
+    gap: 16px;
+  }
   .client-logo-card {
-    min-height: 170px;
-    padding: 24px 24px;
+    min-height: 140px;
+    padding: 20px 22px;
   }
   .client-logo-image {
-    max-height: 108px;
+    max-height: 80px;
   }
 }
 
 @media (max-width: 768px) {
-  .client-logo-card {
-    min-height: 148px;
-    padding: 20px 18px;
-  }
-  .client-logo-image {
-    max-height: 92px;
-    max-width: 86%;
-  }
-}
-
-@media (max-width: 640px) {
-  /* 2 columns on small phones */
   .client-logo-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
   .client-logo-card {
-    min-height: 140px;
+    min-height: 130px;
+    padding: 18px 18px;
   }
   .client-logo-image {
-    max-height: 88px;
-    /* on touch screens show logos in full colour — no hover exists */
-    filter: grayscale(0);
-    opacity: 1;
-  }
-  .client-logo-heading {
-    margin-bottom: 34px;
+    max-height: 75px;
+    max-width: 88%;
   }
 }
 
 @media (max-width: 480px) {
+  .client-logo-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
   .client-logo-card {
-    min-height: 120px;
-    padding: 16px 14px;
+    min-height: 110px;
+    padding: 16px 20px;
   }
   .client-logo-image {
-    max-height: 76px;
+    max-height: 70px;
   }
   .btn-view-clients {
     padding: 10px 24px;
     font-size: 11px;
-  }
-  .client-logo-pill {
-    font-size: 11px;
-    padding: 6px 14px;
-  }
-  .client-logo-subtitle {
-    font-size: 13.5px;
   }
 }

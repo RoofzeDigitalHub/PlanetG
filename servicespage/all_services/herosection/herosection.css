@@ -1,4 +1,4 @@
-body {
+﻿body {
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
@@ -6,14 +6,15 @@ body {
 /* HERO SECTION */
 .hero-section {
   position: relative;
-  height: 420px;
+  min-height: 380px;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
   overflow: hidden;
-
   isolation: isolate;
-  background-color: #000; /* 🔥 fallback so white flash never happens */
+  background-color: #1a2918;
+  text-align: center;
 }
 
 /* HERO IMAGE LAYER */
@@ -21,19 +22,14 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-
   background-image: url("/planetG/assets/pricing-1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   z-index: 0;
-
-  /* 🔥 HARD STABILITY LOCK */
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateZ(0);
-  will-change: transform;
 }
 
 /* DARK OVERLAY */
@@ -41,7 +37,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.58);
   z-index: 1;
 }
 
@@ -49,35 +45,28 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-}
-
-.breadcrumb-text {
-  font-size: 14px;
-  opacity: 0.9;
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-title {
-  font-size: 64px;
-  font-weight: 600;
+  font-size: clamp(44px, 7vw, 76px);
+  font-weight: 700;
   letter-spacing: 2px;
-}
-
-.hero-subtitle {
-  margin-top: 10px;
-  font-size: 18px;
-  opacity: 0.9;
+  margin: 0;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
   .hero-section {
-    height: auto;
-    padding: 56px 0;
+    min-height: 280px;
+    padding: 60px 0;
   }
 
   .hero-title {
-    font-size: 42px;
+    font-size: clamp(36px, 9vw, 48px);
     letter-spacing: 1px;
   }
 }

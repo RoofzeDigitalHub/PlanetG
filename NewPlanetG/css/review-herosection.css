@@ -1,0 +1,72 @@
+body{
+  margin:0;
+  font-family: "Poppins", sans-serif;
+}
+
+.client-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  padding: 80px 0;
+  color: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #1a2918;
+  text-align: center;
+}
+
+.client-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/pricing-1.webp") center/cover no-repeat;
+  z-index: -2;
+  transform: scale(1.02);
+}
+
+.client-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: -1;
+  display: block !important;
+}
+
+.client-hero-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.client-hero-title {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 991px) {
+  .client-hero-section {
+    min-height: 340px;
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .client-hero-section {
+    min-height: 280px;
+    padding: 60px 0;
+  }
+
+  .client-hero-title {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+}

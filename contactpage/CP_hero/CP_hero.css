@@ -1,74 +1,67 @@
-body{
-margin:0;
-font-family:"Poppins",sans-serif;
+﻿body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
 }
 
 /* HERO SECTION */
-
 .hero-section{
-position:relative;
-height:420px;
-display:flex;
-align-items:center;
-color:white;
-overflow:hidden;
-z-index:0;
+  position:relative;
+  min-height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  overflow:hidden;
+  isolation:isolate;
+  background-color:#1a2918;
+  text-align:center;
 }
 
 /* BACKGROUND IMAGE */
-
 .hero-section::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
-background-attachment:fixed;
-z-index:0;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("/planetG/assets/pricing-1.jpg") center/cover no-repeat;
+  z-index:0;
+  opacity:1;
 }
 
 /* DARK OVERLAY */
-
 .hero-section::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.55);
-z-index:-1;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.58);
+  z-index:1;
+  display:block !important;
 }
 
 /* HERO CONTENT */
-
 .hero-content{
-position:relative;
-z-index:2;
-}
-
-.breadcrumb-text{
-font-size:14px;
-opacity:0.9;
-margin-bottom:15px;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .hero-title{
-font-size:64px;
-font-weight:600;
-letter-spacing:2px;
+  font-size:clamp(44px, 7vw, 76px);
+  font-weight:700;
+  letter-spacing:2px;
+  margin:0;
+  text-shadow:0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
-.hero-subtitle{
-margin-top:10px;
-font-size:18px;
-opacity:0.9;
+@media (max-width: 768px){
+  .hero-section{
+    min-height:280px;
+    padding:60px 0;
+  }
+
+  .hero-title{
+    font-size:clamp(36px, 9vw, 48px);
+    letter-spacing:1px;
+  }
 }
-
-/* RIGHT DECORATION */
-
-.hero-decoration{
-position:absolute;
-right:-60px;
-top:50%;
-transform:translateY(-50%);
-font-size:260px;
-color:rgba(255,255,255,0.15);
-}
-

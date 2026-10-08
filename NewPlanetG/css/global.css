@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Global layout stability */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f6f2ea;
+  overflow-x: hidden !important;
+  overscroll-behavior-x: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #f6f2ea;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Font setup */
+body,
+p,
+li,
+a,
+span,
+input,
+textarea,
+select {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.btn,
+.navbar-brand,
+.menu-link,
+.menu-logo,
+.header-wave-btn,
+.hero-btn,
+.hero-link,
+.crafting-btn,
+.plan-btn,
+.price-cta,
+.view-btn {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Layout */
+#page {
+  width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+header,
+footer,
+section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section > .container,
+section > .container-fluid {
+  width: min(100%, 1200px);
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Images */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hero watermark */
+.hero,
+.hero-section,
+.gardyn-hero,
+.garden-hero {
+  position: relative;
+}
+
+.hero::after,
+.hero-section::after,
+.gardyn-hero::after,
+.garden-hero::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 120px;
+  height: 120px;
+  background: url("../assets/logo-wm.webp") no-repeat center/contain;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.hero > .container,
+.hero-section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   PLANET G - FLUID & BOTANICAL ANIMATIONS SYSTEM
+   ========================================================================== */
+
+/* 1. SCROLL-REVEAL ENTRANCE ANIMATIONS */
+.reveal-item {
+  opacity: 0;
+  transition: opacity var(--reveal-duration, 0.7s) cubic-bezier(0.16, 1, 0.3, 1),
+              transform var(--reveal-duration, 0.7s) cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(24px);
+}
+
+.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal-right {
+  transform: translateX(28px);
+}
+
+.reveal-zoom,
+.reveal-card {
+  transform: scale(0.96) translateY(18px);
+}
+
+.reveal-hero {
+  transform: scale(0.97) translateY(14px);
+}
+
+.reveal-btn {
+  transform: translateY(14px);
+}
+
+/* When parent section or item is visible, smoothly reveal */
+.is-visible .reveal-item,
+.reveal-item.is-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* 2. CARD HOVER & BOTANICAL MICRO-INTERACTIONS */
+.garden-card,
+.project-card,
+.work-card,
+.category-card,
+.stat-card,
+.choice-card,
+.green-card,
+.client-review-card,
+.client-logo-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.garden-card:hover,
+.project-card:hover,
+.work-card:hover,
+.category-card:hover,
+.stat-card:hover,
+.choice-card:hover,
+.green-card:hover,
+.client-review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(35, 55, 35, 0.12);
+}
+
+.client-review-card:hover .review-stars,
+.glass-card:hover .stars {
+  filter: drop-shadow(0 0 4px rgba(232, 163, 61, 0.5));
+  transition: filter 0.25s ease;
+}
+
+/* Card images smooth zoom on hover */
+.garden-card img,
+.project-card img,
+.work-card img,
+.category-card img,
+.story-img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.garden-card:hover img,
+.project-card:hover img,
+.work-card:hover img,
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+/* 3. SECTION PILL BADGES SHINE & HOVER */
+.service-pill,
+.client-logo-pill,
+.why-choose-pill,
+.latestwork-pill,
+.client-reviews-pill,
+.category-pill,
+.story-tag,
+.crafting-tag,
+.tag {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.service-pill:hover,
+.client-logo-pill:hover,
+.why-choose-pill:hover,
+.latestwork-pill:hover,
+.client-reviews-pill:hover,
+.category-pill:hover,
+.story-tag:hover,
+.crafting-tag:hover,
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 63, 44, 0.12);
+}
+
+/* 4. BOTANICAL FLOATING ACCENTS */
+@keyframes pg-subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.pg-floating-badge {
+  animation: pg-subtle-float 4s ease-in-out infinite;
+}
+
+/* 5. INTERACTIVE BUTTONS HOVER GLIDE */
+.header-wave-btn,
+.hero-btn,
+.hero-link,
+.crafting-btn,
+.btn-view-clients,
+.btn-view-reviews,
+.btn-custom {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.header-wave-btn:hover,
+.hero-btn:hover,
+.crafting-btn:hover,
+.btn-view-clients:hover,
+.btn-view-reviews:hover {
+  transform: translateY(-2px);
+}
+
+/* 6. WHATSAPP FLOATING BUTTON GENTLE PULSE */
+@keyframes pg-wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6), 0 16px 34px rgba(8, 56, 25, 0.28);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), 0 16px 34px rgba(8, 56, 25, 0.28);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 16px 34px rgba(8, 56, 25, 0.28);
+  }
+}
+
+.pg-wa-fab.is-ready {
+  animation: pg-wa-pulse 3s infinite ease-in-out;
+}
+
+/* 7. ACCESSIBILITY: REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item,
+  .garden-card,
+  .project-card,
+  .work-card,
+  .category-card,
+  .stat-card,
+  .pg-floating-badge,
+  .pg-wa-fab.is-ready {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* ========================================================================== */
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+
+  .hero-section,
+  .hero,
+  .garden-hero {
+    height: auto;
+    min-height: 320px;
+    padding: 80px 0 60px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+
+  .hero::after,
+  .hero-section::after,
+  .gardyn-hero::after,
+  .garden-hero::after {
+    width: 80px;
+    height: 80px;
+    right: 16px;
+    bottom: 16px;
+  }
+}

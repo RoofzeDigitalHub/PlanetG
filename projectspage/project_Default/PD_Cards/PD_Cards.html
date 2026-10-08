@@ -1,186 +1,307 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects Section - Planet G</title>
-
-<!-- Bootstrap Grid only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css" rel="stylesheet">
-
-<!-- Main CSS file -->
-<link rel="stylesheet" href="project-cards.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/planetG/projectspage/project_Default/PD_Cards/PD_Cards.css">
 </head>
 <body>
 
-<!-- PROJECTS SECTION WITH SPACING FROM TOP AND BOTTOM SECTIONS -->
-<div class="projects-wrapper">
-  <div class="row g-3">
-    <!-- CARD 1 - Happy Nest Residency -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/Happy-Nest-Residency2.jpg"
-             alt="Happy Nest Residency"
-             loading="eager"
-             fetchpriority="high"
-             decoding="async">
-        <div class="hover-content">
-          <p>Happy Nest Residency - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
+<div class="projects-section-container" id="projectsContainer">
+  <div class="container py-4">
+
+    <!-- VIEW 1: CATEGORY OVERVIEW -->
+    <div id="categoryOverviewView" class="category-overview-view">
+      <div class="category-header text-center mb-5">
+        <span class="category-pill">Our Portfolio</span>
+        <h2 class="category-main-heading">Project Categories</h2>
+        <p class="category-subheading">Explore our specialized garden transformations and landscaping disciplines.</p>
+      </div>
+
+      <div class="row g-4" id="categoryCardsGrid">
+        <!-- Card 1: Outdoor Gardens & Lawns -->
+        <div class="col-lg-6 col-md-6">
+          <a class="category-card" href="?category=outdoor-gardens-lawns" data-category="outdoor-gardens-lawns" aria-label="Explore Outdoor Gardens & Lawns Projects">
+            <div class="category-card__media">
+              <img src="/planetG/assets/optimized/home-garden.jpg" alt="Outdoor Gardens & Lawns" loading="lazy" decoding="async">
+              <div class="category-card__badge">3 Projects</div>
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Outdoor Gardens &amp; Lawns</h3>
+              <p class="category-card__desc">Expansive lawns, boundary shrubbery, villa garden landscapes, and restful outdoor living spaces.</p>
+              <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2: Terrace & Balcony Gardens -->
+        <div class="col-lg-6 col-md-6">
+          <a class="category-card" href="?category=terrace-balcony-gardens" data-category="terrace-balcony-gardens" aria-label="Explore Terrace & Balcony Gardens Projects">
+            <div class="category-card__media">
+              <img src="/planetG/assets/optimized/Eco-Balcony-Living.jpg" alt="Terrace & Balcony Gardens" loading="lazy" decoding="async">
+              <div class="category-card__badge">3 Projects</div>
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Terrace &amp; Balcony Gardens</h3>
+              <p class="category-card__desc">Compact oasis transformations, rooftop green lounges, and apartment balcony garden styling in urban settings.</p>
+              <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3: Indoor Garden Transformations -->
+        <div class="col-lg-6 col-md-6">
+          <a class="category-card" href="?category=indoor-garden-transformations" data-category="indoor-garden-transformations" aria-label="Explore Indoor Garden Transformations Projects">
+            <div class="category-card__media">
+              <img src="/planetG/assets/optimized/urban-gardan.jpg" alt="Indoor Garden Transformations" loading="lazy" decoding="async">
+              <div class="category-card__badge">2 Projects</div>
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Indoor Garden Transformations</h3>
+              <p class="category-card__desc">Atrium landscaping, vertical living walls, interior planters, and curated air-purifying plant arrangements.</p>
+              <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 4: Office & Commercial Landscaping -->
+        <div class="col-lg-6 col-md-6">
+          <a class="category-card" href="?category=office-commercial-landscaping" data-category="office-commercial-landscaping" aria-label="Explore Office & Commercial Landscaping Projects">
+            <div class="category-card__media">
+              <img src="/planetG/assets/optimized/factory-gardeen.jpg" alt="Office & Commercial Landscaping" loading="lazy" decoding="async">
+              <div class="category-card__badge">2 Projects</div>
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Office &amp; Commercial Landscaping</h3>
+              <p class="category-card__desc">Corporate campus greenery, industrial facility eco-gardens, society landscapes, and welcoming entryways.</p>
+              <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- CARD 2 - House Garden -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/house-garden.jpg"
-             alt="House Garden"
-             loading="eager"
-             fetchpriority="high"
-             decoding="async">
-        <div class="hover-content">
-          <p>House Garden - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
-        </div>
+    <!-- VIEW 2: CATEGORY GALLERY VIEW (DYNAMIC) -->
+    <div id="categoryGalleryView" class="category-gallery-view" style="display: none;">
+      <!-- Breadcrumb & Back navigation -->
+      <div class="gallery-nav-bar d-flex flex-wrap justify-content-between align-items-center mb-4">
+        <nav aria-label="Breadcrumb">
+          <ol class="gallery-breadcrumb">
+            <li><a href="#" id="breadcrumbBackBtn">Projects</a></li>
+            <li class="separator">&rsaquo;</li>
+            <li class="active" id="galleryBreadcrumbTitle">Category</li>
+          </ol>
+        </nav>
+        <button type="button" class="btn-back-overview" id="backToOverviewBtn">
+          <i class="bi bi-arrow-left"></i> Back to Projects Overview
+        </button>
+      </div>
+
+      <!-- Category Heading -->
+      <div class="gallery-heading-box mb-4">
+        <h2 class="gallery-heading-title" id="galleryCategoryTitle">Category Title</h2>
+        <p class="gallery-heading-desc" id="galleryCategoryDesc">Category description goes here.</p>
+      </div>
+
+      <!-- Filtered Project Grid -->
+      <div class="row g-4" id="galleryProjectsGrid">
+        <!-- Rendered by JS -->
       </div>
     </div>
 
-    <!-- CARD 3 - Urban Garden -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/urban-gardan.jpg"
-             alt="Urban Garden"
-             loading="lazy"
-             fetchpriority="low"
-             decoding="async">
-        <div class="hover-content">
-          <p>Urban Garden - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 4 - Home Garden (LINE 2) -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/home-garden.jpg"
-             alt="Home Garden"
-             loading="lazy"
-             fetchpriority="low"
-             decoding="async">
-        <div class="hover-content">
-          <p>Home Garden - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 5 - Royal Greenscape -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/Royal-Greenscape.jpg"
-             alt="Royal Greenscape"
-             loading="lazy"
-             fetchpriority="low"
-             decoding="async">
-        <div class="hover-content">
-          <p>Royal Greenscape - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 6 - Eco Garden -->
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="project-card"
-           data-map-url="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-           data-map-target="_blank"
-           tabindex="0"
-           role="link"
-           aria-label="Open Planet G project location in Google Maps">
-        <img src="/planetG/assets/optimized/factory-gardeen.jpg"
-             alt="Eco Garden"
-             loading="lazy"
-             fetchpriority="low"
-             decoding="async">
-        <div class="hover-content">
-          <p>Eco Garden - Explore this project and see how the landscape was shaped with greenery, balance, and practical design.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 <script>
-  (function() {
-    const cards = document.querySelectorAll('.project-card');
-
-    cards.forEach(card => {
-      // Google Maps redirection on click
-      card.addEventListener('click', function(e) {
-        const mapUrl = this.getAttribute('data-map-url');
-        const target = this.getAttribute('data-map-target') || '_blank';
-        if (mapUrl && mapUrl !== '#' && mapUrl !== '') {
-          window.open(mapUrl, target);
+(function() {
+  const categoryData = {
+    "outdoor-gardens-lawns": {
+      name: "Outdoor Gardens & Lawns",
+      desc: "Expansive green lawns, boundary shrubbery, villa garden landscapes, and restful outdoor living spaces across Mumbai and Vapi.",
+      projects: [
+        {
+          title: "Home Garden Landscape",
+          location: "Vapi, Gujarat",
+          image: "/planetG/assets/optimized/home-garden.jpg",
+          desc: "Lush private garden designed with layered shrubbery, green lawn carpets, and ornamental foliage."
+        },
+        {
+          title: "Royal Greenscape Villa",
+          location: "Mumbai",
+          image: "/planetG/assets/optimized/Royal-Greenscape.jpg",
+          desc: "Bespoke outdoor lawn landscaping with structured borders, flowering accents, and stone pathways."
+        },
+        {
+          title: "House Garden Retreat",
+          location: "Andheri West, Mumbai",
+          image: "/planetG/assets/optimized/house-garden.jpg",
+          desc: "Serene residential garden harmonizing natural stone pavers with native, climate-resilient plants."
         }
-      });
-
-      // Keyboard accessibility (Enter / Space)
-      card.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const mapUrl = this.getAttribute('data-map-url');
-          const target = this.getAttribute('data-map-target') || '_blank';
-          if (mapUrl && mapUrl !== '#') {
-            window.open(mapUrl, target);
-          }
+      ]
+    },
+    "terrace-balcony-gardens": {
+      name: "Terrace & Balcony Gardens",
+      desc: "Turn urban balconies and terraces into refreshing green retreats with bespoke planters, vertical features, and shade design.",
+      projects: [
+        {
+          title: "Eco Balcony Living",
+          location: "Andheri West, Mumbai",
+          image: "/planetG/assets/optimized/Eco-Balcony-Living.jpg",
+          desc: "Custom urban balcony garden incorporating vertical plant accents, lightweight planters, and wooden textures."
+        },
+        {
+          title: "Terrace Green Oasis",
+          location: "Bandra, Mumbai",
+          image: "/planetG/assets/terrace-garden.jpg.jpeg",
+          desc: "Complete rooftop transformation providing shade, lush perimeter greenery, and an inviting outdoor seating lounge."
+        },
+        {
+          title: "Happy Nest Residency Terrace",
+          location: "Mumbai",
+          image: "/planetG/assets/optimized/Happy-Nest-Residency.jpg",
+          desc: "Vibrant terrace garden installation with flowering shrubs and automated micro-irrigation."
         }
-      });
-
-      // For touch devices: toggle active class for hover content
-      if ('ontouchstart' in window) {
-        card.addEventListener('touchstart', function(e) {
-          e.stopPropagation();
-          if (this.classList.contains('is-active')) {
-            this.classList.remove('is-active');
-          } else {
-            document.querySelectorAll('.project-card.is-active').forEach(c => c.classList.remove('is-active'));
-            this.classList.add('is-active');
-          }
-        });
-      }
-    });
-
-    // Close active card when tapping outside (for mobile)
-    if ('ontouchstart' in window) {
-      document.body.addEventListener('touchstart', function(e) {
-        if (!e.target.closest('.project-card')) {
-          document.querySelectorAll('.project-card.is-active').forEach(c => c.classList.remove('is-active'));
+      ]
+    },
+    "indoor-garden-transformations": {
+      name: "Indoor Garden Transformations",
+      desc: "Atrium landscaping, vertical living walls, interior planters, and light-loving plant arrangements that bring nature indoors.",
+      projects: [
+        {
+          title: "Urban Indoor Garden",
+          location: "Juhu, Mumbai",
+          image: "/planetG/assets/optimized/urban-gardan.jpg",
+          desc: "Refined indoor green installation featuring curated air-purifying plants in elegant minimalist planters."
+        },
+        {
+          title: "Courtyard Green Space",
+          location: "Vapi",
+          image: "/planetG/assets/optimized/house-garden.jpg",
+          desc: "Semi-indoor courtyard garden connecting interior architecture with refreshing nature."
         }
-      });
+      ]
+    },
+    "office-commercial-landscaping": {
+      name: "Office & Commercial Landscaping",
+      desc: "Corporate campus greenery, industrial facility eco-gardens, society landscapes, and welcoming entryways.",
+      projects: [
+        {
+          title: "Factory & Industrial Eco Garden",
+          location: "GIDC, Vapi",
+          image: "/planetG/assets/optimized/factory-gardeen.jpg",
+          desc: "Industrial facility landscape promoting environmental sustainability, dust filtration, and cooling green belts."
+        },
+        {
+          title: "Happy Nest Residency Grounds",
+          location: "Mumbai",
+          image: "/planetG/assets/optimized/Happy-Nest-Residency2.jpg",
+          desc: "Master-planned residential society landscaping with broad walkways, lawn expanses, and community greenery."
+        }
+      ]
     }
-  })();
+  };
+
+  const overviewView = document.getElementById("categoryOverviewView");
+  const galleryView = document.getElementById("categoryGalleryView");
+  const galleryTitle = document.getElementById("galleryCategoryTitle");
+  const galleryDesc = document.getElementById("galleryCategoryDesc");
+  const breadcrumbTitle = document.getElementById("galleryBreadcrumbTitle");
+  const projectsGrid = document.getElementById("galleryProjectsGrid");
+  const backBtn = document.getElementById("backToOverviewBtn");
+  const breadcrumbBack = document.getElementById("breadcrumbBackBtn");
+
+  function renderCategory(catId) {
+    const data = categoryData[catId];
+    if (!data) {
+      showOverview();
+      return;
+    }
+
+    galleryTitle.textContent = data.name;
+    galleryDesc.textContent = data.desc;
+    breadcrumbTitle.textContent = data.name;
+
+    projectsGrid.innerHTML = data.projects.map(p => `
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="project-item-card">
+          <div class="project-item-card__media">
+            <img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async">
+            <div class="project-item-card__overlay">
+              <span class="project-location"><i class="bi bi-geo-alt"></i> ${p.location}</span>
+            </div>
+          </div>
+          <div class="project-item-card__body">
+            <h4 class="project-item-card__title">${p.title}</h4>
+            <p class="project-item-card__desc">${p.desc}</p>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    overviewView.style.display = "none";
+    galleryView.style.display = "block";
+
+    const topElem = document.getElementById("projectsContainer");
+    if (topElem) {
+      topElem.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function showOverview() {
+    galleryView.style.display = "none";
+    overviewView.style.display = "block";
+    const url = new URL(window.location.href);
+    url.searchParams.delete("category");
+    window.history.pushState({}, "", url.toString());
+  }
+
+  // Bind category overview clicks
+  document.querySelectorAll("[data-category]").forEach(el => {
+    el.addEventListener("click", function(e) {
+      e.preventDefault();
+      const catId = this.getAttribute("data-category");
+      const url = new URL(window.location.href);
+      url.searchParams.set("category", catId);
+      window.history.pushState({ category: catId }, "", url.toString());
+      renderCategory(catId);
+    });
+  });
+
+  if (backBtn) {
+    backBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      showOverview();
+    });
+  }
+
+  if (breadcrumbBack) {
+    breadcrumbBack.addEventListener("click", function(e) {
+      e.preventDefault();
+      showOverview();
+    });
+  }
+
+  window.addEventListener("popstate", function(e) {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("category");
+    if (cat && categoryData[cat]) {
+      renderCategory(cat);
+    } else {
+      showOverview();
+    }
+  });
+
+  // Initial load check
+  const params = new URLSearchParams(window.location.search);
+  const initialCat = params.get("category");
+  if (initialCat && categoryData[initialCat]) {
+    renderCategory(initialCat);
+  }
+})();
 </script>
+
 </body>
 </html>
