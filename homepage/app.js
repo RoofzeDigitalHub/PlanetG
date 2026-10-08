@@ -6,13 +6,9 @@
     "/planetG/homepage/herosection/herosection.html",
     "/planetG/homepage/crafting_living/crafting_living.html",
     "/planetG/homepage/ourstory/ourstory.html",
-    "/planetG/homepage/Price_List/Price_List.html",  
     "/planetG/homepage/client_logo/client_logo.html",
-     "/planetG/homepage/servicesection/servicesection.html",
+    "/planetG/homepage/servicesection/servicesection.html",
     "/planetG/homepage/whychooseus/whychooseus.html",
-    "/planetG/homepage/pricingplan/pricingplan.html",
-    "/planetG/homepage/videosection/videosection.html",
-    "/planetG/homepage/testimonialslider/testimonialslider.html",
     "/planetG/homepage/latestwork/latestwork.html",
     "/planetG/homepage/footer/footer.html"
   ];

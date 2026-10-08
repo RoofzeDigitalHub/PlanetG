@@ -5,204 +5,182 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Section - Planet G</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Google Fonts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- External CSS - separate file -->
-<link rel="stylesheet" href="CP_contactF.css">
+<link rel="stylesheet" href="/planetG/contactpage/CP_contactF/CP_contactF.css">
 </head>
 <body>
 
-<section class="contact-section">
-<div class="container">
-
-  <!-- Section Heading Above Cards -->
-  <div class="cards-heading-wrapper">
-    <h2 class="cards-main-heading">Get in Touch</h2>
-  </div>
-
-  <!-- 4 Cards: equal width, equal height, horizontal line, border radius 5px, NO ICONS, CENTERED DETAILS -->
-  <div class="info-strip">
-    <div class="row g-4">
-      <!-- Card 1: Opening Hours -->
-      <div class="custom-card-col d-flex">
-        <div class="info-card-horizontal w-100">
-          <h5>Call us Directly</h5>
-          <p>098792 32854</p>
-        </div>
-      </div>
-      <!-- Card 2: Call Us -->
-      <div class="custom-card-col d-flex">
-        <div class="info-card-horizontal w-100">
-          <h5>Message us at</h5>
-          <p>098792 32854</p>
-        </div>
-      </div>
-      <!-- Card 3: Email -->
-      <div class="custom-card-col d-flex">
-        <div class="info-card-horizontal w-100">
-          <h5>Email</h5>
-          <p> office@planetg.co.in</p>
-        </div>
-      </div>
-      <!-- Card 4: Visit Us -->
-      <!-- <div class="custom-card-col d-flex">
-        <div class="info-card-horizontal w-100">
-          <h5>Visit Us</h5>
-          <p>Minoo Minar, C-7, Veera Desai Rd, near Courtyard restaurant, Mhada Colony, Jeevan Nagar, Andheri West, Mumbai, Maharashtra 400053
-
-</p>
-          <span class="card-detail">Get Direction →</span>
-        </div> -->
-      </div>
+<section class="contact-details-section">
+  <div class="container">
+    <!-- Section Heading Above Cards -->
+    <div class="cards-heading-wrapper text-center">
+      <span class="contact-pill">Get In Touch</span>
+      <h2 class="cards-main-heading">We’re Here to Help</h2>
+      <p class="cards-sub-heading">Reach out to us directly for consultations, quotes, or any garden queries.</p>
     </div>
-  </div>
 
-  <!-- <div class="row g-5 align-items-start"> -->
-    <!-- LEFT SIDE: ONLY MAP -->
-    <!-- <div class="col-lg-6">
-      <div class="contact-card">
-        <div class="map-only-container">
-          <iframe class="contact-map-frame"
-            src="https://www.google.com/maps?q=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053&z=15&output=embed"
-            title="Planet G Office Location Map"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-          <a class="contact-map-link"
-            href="https://www.google.com/maps/search/?api=1&query=Minoo%20Minar%2C%20C-7%2C%20Veera%20Desai%20Rd%2C%20near%20Courtyard%20restaurant%2C%20Mhada%20Colony%2C%20Jeevan%20Nagar%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open full map location for Planet G">
+    <!-- Contact Cards Row -->
+    <div class="info-strip">
+      <div class="row g-4 justify-content-center">
+        <!-- Card 1: Call Us -->
+        <div class="col-lg-4 col-md-6 d-flex">
+          <a href="tel:+919879232854" class="info-card-link w-100" aria-label="Call Planet G at +91 9879232854">
+            <div class="info-card-horizontal">
+              <div class="info-card__icon"><i class="bi bi-telephone-fill"></i></div>
+              <h5 class="info-card__title">Call Us</h5>
+              <p class="info-card__val">+91 9879232854</p>
+              <span class="info-card__sub">Mon–Fri | 10:00 AM–6:00 PM</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2: Message Us -->
+        <div class="col-lg-4 col-md-6 d-flex">
+          <a href="https://wa.me/919879232854" target="_blank" rel="noopener noreferrer" class="info-card-link w-100" aria-label="Message Planet G on WhatsApp">
+            <div class="info-card-horizontal">
+              <div class="info-card__icon"><i class="bi bi-whatsapp"></i></div>
+              <h5 class="info-card__title">Message Us</h5>
+              <p class="info-card__val">+91 9879232854</p>
+              <span class="info-card__sub">Chat directly on WhatsApp</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3: Email -->
+        <div class="col-lg-4 col-md-6 d-flex">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=office%40planetg.co.in" target="_blank" rel="noopener noreferrer" class="info-card-link w-100" aria-label="Send email to office@planetg.co.in">
+            <div class="info-card-horizontal">
+              <div class="info-card__icon"><i class="bi bi-envelope-fill"></i></div>
+              <h5 class="info-card__title">Email</h5>
+              <p class="info-card__val">office@planetg.co.in</p>
+              <span class="info-card__sub">Click to compose in Gmail</span>
+            </div>
           </a>
         </div>
       </div>
-    </div> -->
-
-  <div class="row center-form-row">
-    <!-- RIGHT FORM -->
-    <div class="col-lg-6">
-      <h2 class="contact-title">Send Your Message</h2>
-      <p class="contact-text">We'd love to hear from you. Reach out anytime.</p>
-      
-      <form id="contactForm" class="contact-form" action="/planetG/contactpage/contact-submit.php" method="POST">
-        <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-        <input type="text" class="form-control" name="phone" placeholder="Your Phone" required>
-        <textarea class="form-control message-box" name="message" placeholder="Your Message" required></textarea>
-        <p id="formStatus" class="contact-form-status" hidden></p>
-        <button class="send-btn" type="submit" id="sendBtn">SEND MESSAGE</button>
-      </form>
     </div>
   </div>
-</div>
 </section>
 
-<!-- Form Handling JavaScript -->
-<script>
-  (function() {
-    const form = document.getElementById("contactForm");
-    const statusBox = document.getElementById("formStatus");
-    const sendBtn = document.getElementById("sendBtn");
+<!-- ENQUIRY FORM SECTION -->
+<section class="enquiry-form-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-xl-8">
+        <div class="contact-form-box">
+          <div class="form-header text-center mb-4">
+            <span class="form-badge"><i class="bi bi-chat-left-dots-fill me-1"></i> Send Us a Message</span>
+            <h3 class="form-main-heading">Let's Discuss Your Green Vision</h3>
+            <p class="form-sub-heading">Share a few details about your garden, terrace makeover, or maintenance needs, and our experts will get back to you shortly.</p>
+          </div>
 
-    if (!form) return;
+          <!-- Status Alert Box -->
+          <div id="formStatus" class="contact-form-status" style="display: none;" role="alert"></div>
 
-    async function handleSubmit(e) {
-      e.preventDefault();
+          <form id="contactForm" class="contact-form-grid" action="/planetG/contactpage/contact-submit.php" method="POST" novalidate>
+            <div class="row g-3">
+              <!-- Field: Name (required) -->
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label for="contactName" class="form-label-custom">
+                    <span>Your Name <span class="required-mark">*</span></span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="bi bi-person input-icon"></i>
+                    <input type="text" id="contactName" class="form-control-custom" name="name" placeholder="Enter your full name" required autocomplete="name">
+                  </div>
+                  <div class="invalid-feedback-custom">Please enter your name.</div>
+                </div>
+              </div>
 
-      const nameInput = form.querySelector("[name='name']");
-      const emailInput = form.querySelector("[name='email']");
-      const phoneInput = form.querySelector("[name='phone']");
-      const messageInput = form.querySelector("[name='message']");
+              <!-- Field: Email (required) -->
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label for="contactEmail" class="form-label-custom">
+                    <span>Email Address <span class="required-mark">*</span></span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="bi bi-envelope input-icon"></i>
+                    <input type="email" id="contactEmail" class="form-control-custom" name="email" placeholder="example@email.com" required autocomplete="email">
+                  </div>
+                  <div class="invalid-feedback-custom">Please enter a valid email address.</div>
+                </div>
+              </div>
 
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const phone = phoneInput.value.trim();
-      const message = messageInput.value.trim();
+              <!-- Field: Phone (optional) -->
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label for="contactPhone" class="form-label-custom">
+                    <span>Phone Number</span>
+                    <span class="optional-tag">Optional</span>
+                  </label>
+                  <div class="input-icon-wrap">
+                    <i class="bi bi-telephone input-icon"></i>
+                    <input type="tel" id="contactPhone" class="form-control-custom" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
+                  </div>
+                </div>
+              </div>
 
-      statusBox.hidden = false;
-      statusBox.style.backgroundColor = "#f8faf6";
+              <!-- Field: Service of Interest (optional dropdown) -->
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label for="contactService" class="form-label-custom">
+                    <span>Service of Interest</span>
+                    <span class="optional-tag">Optional</span>
+                  </label>
+                  <div class="input-icon-wrap select-icon-wrap">
+                    <i class="bi bi-tree input-icon"></i>
+                    <select class="form-control-custom form-select-custom" id="contactService" name="service">
+                      <option value="" selected>Select a Service...</option>
+                      <option value="Landscape Design & Architecture">Landscape Design &amp; Architecture</option>
+                      <option value="Terrace & Rooftop Transformations">Terrace &amp; Rooftop Transformations</option>
+                      <option value="Garden Installation & Makeovers">Garden Installation &amp; Makeovers</option>
+                      <option value="Garden Care & Maintenance">Garden Care &amp; Maintenance</option>
+                      <option value="Irrigation & Smart Watering Systems">Irrigation &amp; Smart Watering Systems</option>
+                      <option value="Organic Kitchen Garden Setup">Organic Kitchen Garden Setup</option>
+                      <option value="Garden Essentials Supplier">Garden Essentials Supplier</option>
+                      <option value="Exotic Mini Gardens Supplier">Exotic Mini Gardens Supplier</option>
+                      <option value="General Consultation / Other">General Consultation / Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-      if (!name || !email || !phone || !message) {
-        statusBox.style.color = "#b9472e";
-        statusBox.style.backgroundColor = "#fff1ef";
-        statusBox.innerText = "❌ Please fill in all fields.";
-        return;
-      }
+              <!-- Field: Message (required) -->
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label for="contactMessage" class="form-label-custom">
+                    <span>Your Message <span class="required-mark">*</span></span>
+                  </label>
+                  <div class="input-icon-wrap textarea-icon-wrap">
+                    <i class="bi bi-chat-text input-icon textarea-icon"></i>
+                    <textarea id="contactMessage" class="form-control-custom form-textarea-custom" name="message" placeholder="Describe your garden space, location (e.g. Mumbai, Vapi), or specific requirements..." required rows="4"></textarea>
+                  </div>
+                  <div class="invalid-feedback-custom">Please tell us about your requirements.</div>
+                </div>
+              </div>
 
-      const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
-      if (!emailPattern.test(email)) {
-        statusBox.style.color = "#b9472e";
-        statusBox.style.backgroundColor = "#fff1ef";
-        statusBox.innerText = "❌ Please enter a valid email address.";
-        return;
-      }
+              <!-- Submit Button & Trust Note -->
+              <div class="col-12 text-center mt-3">
+                <button class="btn btn-submit-custom" type="submit" id="sendBtn">
+                  <span id="btnText">Send Message</span>
+                  <i class="bi bi-arrow-right-short submit-arrow"></i>
+                  <span id="btnSpinner" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true" style="display: none;"></span>
+                </button>
 
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length < 8) {
-        statusBox.style.color = "#b9472e";
-        statusBox.style.backgroundColor = "#fff1ef";
-        statusBox.innerText = "❌ Please enter a valid phone number (at least 8 digits).";
-        return;
-      }
+                <div class="form-trust-note">
+                  <i class="bi bi-shield-check"></i>
+                  <span>We respect your privacy. No spam guaranteed. Fast reply within 24 hours.</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      let formData = new FormData(form);
-      sendBtn.disabled = true;
-      sendBtn.innerText = "Sending...";
-
-      try {
-        let response = await fetch(form.action, {
-          method: "POST",
-          body: formData
-        });
-
-        let data;
-        try {
-          data = await response.json();
-        } catch (err) {
-          if (response.ok) {
-            data = { status: "success", message: "✓ Message sent successfully! We'll get back soon." };
-          } else {
-            data = { status: "error", message: "⚠️ Server error. Please try later." };
-          }
-        }
-
-        statusBox.hidden = false;
-        statusBox.style.backgroundColor = "#f0f8ea";
-        if (data.status === "success") {
-          statusBox.style.color = "#1f7a3b";
-          statusBox.innerText = data.message || "✓ Your message has been sent. Thank you!";
-          form.reset();
-          setTimeout(() => {
-            if (statusBox.innerText.includes("Thank you") || statusBox.innerText.includes("successfully")) {
-              setTimeout(() => {
-                if (statusBox && !statusBox.innerText.includes("error")) {
-                  statusBox.hidden = true;
-                }
-              }, 3000);
-            }
-          }, 3500);
-        } else {
-          statusBox.style.color = "#c23b1e";
-          statusBox.style.backgroundColor = "#feeceb";
-          statusBox.innerText = data.message || "⚠️ Submission failed. Please try again.";
-        }
-      } catch (error) {
-        statusBox.hidden = false;
-        statusBox.style.color = "#c0392b";
-        statusBox.style.backgroundColor = "#feeceb";
-        statusBox.innerText = "⚠️ Network error. Please check your connection and try again.";
-        console.error("Form fetch error:", error);
-      } finally {
-        sendBtn.disabled = false;
-        sendBtn.innerText = "SEND MESSAGE";
-      }
-    }
-
-    form.addEventListener("submit", handleSubmit);
-  })();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

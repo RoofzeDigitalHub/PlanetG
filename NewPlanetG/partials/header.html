@@ -1,0 +1,182 @@
+    <!-- 1. INFOBAR -->
+    <div class="gardyn-topbar">
+      <div class="container gardyn-topbar__inner">
+        <div class="gardyn-topbar__info" aria-label="Business information">
+          <div class="info-item">
+            <i class="bi bi-clock"></i>
+            <span>Mon–Fri | 10:00 AM–6:00 PM</span>
+          </div>
+          <div class="info-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>Andheri West, Mumbai</span>
+          </div>
+          <div class="info-item">
+            <i class="bi bi-telephone"></i>
+            <a href="tel:+919879232854" style="color: inherit; text-decoration: none;">+91 9879232854</a>
+          </div>
+        </div>
+
+        <div class="social" aria-label="Social links">
+          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="X"><i class="bi bi-x"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. HEADER -->
+    <header class="gardyn-header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container d-flex align-items-center justify-content-between">
+          <a class="navbar-brand gardyn-brand text-white" href="index.html">
+            <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="header-brand-logo">
+          </a>
+
+          <!-- Mobile Hamburger Toggle Button (Always visible on mobile, triggers drawer) -->
+          <button class="header-menu-btn d-lg-none" type="button" aria-label="Open mobile navigation menu" data-menu-toggle>
+            <i class="bi bi-list"></i>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_HOME}}" data-nav-route="home" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_SERVICES}}" data-nav-route="services" href="services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_ABOUT}}" data-nav-route="about" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_PROJECTS}}" data-nav-route="projects" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_TESTIMONIALS}}" data-nav-route="testimonials" href="testimonials.html">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ACTIVE_CONTACT}}" data-nav-route="contact" href="contact.html">Contact</a>
+              </li>
+            </ul>
+
+            <div class="header-actions">
+              <a class="btn btn-outline-light rounded-pill header-wave-btn" href="contact.html">
+                <span class="wave-text">Get In Touch</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MENU MODAL (DESKTOP & MOBILE DRAWER) -->
+    <div class="menu-modal" data-menu-modal aria-hidden="true">
+      <div class="menu-modal-backdrop" data-menu-close></div>
+
+      <!-- DESKTOP PANEL -->
+      <div class="menu-modal-panel menu-modal-panel--desktop" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="menu-modal-header">
+          <div class="menu-logo">
+            <img src="assets/planetG-logo.webp" alt="Planet G" class="menu-logo-image">
+          </div>
+          <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="menu-divider"></div>
+
+        <div class="menu-desktop-stack">
+          <section class="menu-block">
+            <div class="menu-block-title">Our Services</div>
+            <ul class="menu-service-list" aria-label="Our services">
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &amp; Architecture</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &amp; Makeovers</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care &amp; Maintenance</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation &amp; Smart Watering Systems</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens Supplier</a></li>
+            </ul>
+          </section>
+
+          <section class="menu-block">
+            <div class="menu-block-title">Contact Us</div>
+            <ul class="menu-contact-list" aria-label="Contact information">
+              <li class="menu-contact-item"><i class="bi bi-clock"></i><span>Mon–Fri | 10:00 AM–6:00 PM</span></li>
+              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854" style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
+              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in" style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU PANEL -->
+      <div class="menu-modal-panel menu-modal-panel--mobile" role="dialog" aria-modal="true" aria-label="Mobile site menu">
+        <div class="menu-modal-header">
+          <div class="menu-logo">
+            <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="menu-logo-image">
+          </div>
+          <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="menu-divider"></div>
+
+        <nav class="menu-nav" aria-label="Mobile site navigation">
+          <a class="menu-link {{ACTIVE_HOME}}" data-nav-route="home" href="index.html">
+            <span class="menu-link-text">HOME</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+          <a class="menu-link {{ACTIVE_SERVICES}}" data-nav-route="services" href="services.html">
+            <span class="menu-link-text">SERVICES</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+          <a class="menu-link {{ACTIVE_ABOUT}}" data-nav-route="about" href="about.html">
+            <span class="menu-link-text">ABOUT US</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+          <a class="menu-link {{ACTIVE_PROJECTS}}" data-nav-route="projects" href="projects.html">
+            <span class="menu-link-text">PROJECTS</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+          <a class="menu-link {{ACTIVE_TESTIMONIALS}}" data-nav-route="testimonials" href="testimonials.html">
+            <span class="menu-link-text">TESTIMONIALS</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+          <a class="menu-link {{ACTIVE_CONTACT}}" data-nav-route="contact" href="contact.html">
+            <span class="menu-link-text">CONTACT</span>
+            <i class="bi bi-chevron-right menu-caret"></i>
+          </a>
+        </nav>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-mobile-extra mt-2">
+          <a class="btn btn-outline-light rounded-pill w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-3" href="contact.html">
+            <span>Get In Touch</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <div class="d-flex flex-column gap-2 mb-3 text-white-50" style="font-size: 13.5px;">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-clock text-white"></i>
+              <span>Mon–Fri | 10:00 AM–6:00 PM</span>
+            </div>
+            <a href="tel:+919879232854" class="text-white text-decoration-none d-flex align-items-center gap-2">
+              <i class="bi bi-telephone-fill" style="color: #a4d09c;"></i>
+              <span>+91 9879232854</span>
+            </a>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-white"></i>
+              <span>Mumbai &amp; Vapi, Gujarat</span>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3 pt-1">
+            <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
