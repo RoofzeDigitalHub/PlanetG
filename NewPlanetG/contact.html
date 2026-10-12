@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -120,6 +120,171 @@
   <link rel="stylesheet" href="css/CP_hero.css" />
   <link rel="stylesheet" href="css/CP_contactF.css" />
   <link rel="stylesheet" href="css/footer.css" />
+
+  <!-- Planet G Toast Notification System Styles -->
+  <style>
+    .pg-toast-container {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 105000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+      width: calc(100vw - 36px);
+      pointer-events: none;
+    }
+    @media (max-width: 576px) {
+      .pg-toast-container {
+        top: 16px;
+        right: 18px;
+        left: 18px;
+        width: auto;
+      }
+    }
+    .pg-toast {
+      pointer-events: auto;
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 18px 16px 16px;
+      box-shadow: 0 20px 40px -10px rgba(18, 43, 20, 0.22), 0 0 0 1px rgba(31, 58, 31, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      animation: pgToastSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .pg-toast.pg-toast-hiding {
+      animation: pgToastSlideOut 0.32s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    }
+    @keyframes pgToastSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(45px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+    @keyframes pgToastSlideOut {
+      from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(45px) scale(0.92);
+      }
+    }
+    .pg-toast__icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+    }
+    .pg-toast--success .pg-toast__icon-wrap {
+      background: #edf7e7;
+      color: #2e7d32;
+      border: 1px solid #bde3b3;
+    }
+    .pg-toast--error .pg-toast__icon-wrap {
+      background: #fdf1f0;
+      color: #c53030;
+      border: 1px solid #f9c9c3;
+    }
+    .pg-toast--warning .pg-toast__icon-wrap {
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+    .pg-toast--info .pg-toast__icon-wrap {
+      background: #eef8ff;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+    }
+    .pg-toast__content {
+      flex: 1;
+      min-width: 0;
+    }
+    .pg-toast__title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #172b17;
+      margin: 0 0 3px 0;
+      line-height: 1.35;
+    }
+    .pg-toast__message {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13.5px;
+      color: #445941;
+      margin: 0;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+    .pg-toast__close {
+      background: transparent;
+      border: none;
+      color: #7a8e77;
+      font-size: 18px;
+      line-height: 1;
+      padding: 4px;
+      margin-top: -2px;
+      margin-right: -4px;
+      cursor: pointer;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .pg-toast__close:hover {
+      color: #1f3a1f;
+      background: rgba(31, 58, 31, 0.08);
+    }
+    .pg-toast__progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3.5px;
+      width: 100%;
+      transform-origin: left;
+    }
+    .pg-toast--success .pg-toast__progress {
+      background: linear-gradient(90deg, #2e7d32, #8ec339);
+    }
+    .pg-toast--error .pg-toast__progress {
+      background: linear-gradient(90deg, #dc2626, #f87171);
+    }
+    .pg-toast--warning .pg-toast__progress {
+      background: linear-gradient(90deg, #d97706, #fbbf24);
+    }
+    .pg-toast--info .pg-toast__progress {
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+    }
+    .pg-lead-ref-badge {
+      display: inline-block;
+      font-family: monospace;
+      font-weight: 700;
+      background: #1f3a1f;
+      color: #bde3b3;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      margin: 0 2px;
+    }
+  </style>
 </head>
 
 <body>
@@ -185,23 +350,34 @@
   </div>
   <script>
     (function () {
+      try {
+        if (sessionStorage.getItem('planetg_visited') === 'true') {
+          var el = document.getElementById('pg-loader-overlay');
+          if (el) {
+            el.style.display = 'none';
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+          return;
+        }
+        sessionStorage.setItem('planetg_visited', 'true');
+      } catch (e) {}
       var l = document.getElementById('pg-loader-overlay');
       if (!l) return;
       var hide = function () {
         if (!l.classList.contains('is-hidden')) {
           l.classList.add('is-hidden');
-          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 500);
+          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 350);
         }
       };
       l.addEventListener('click', hide);
       l.addEventListener('touchstart', hide, { passive: true });
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        setTimeout(hide, 350);
+        setTimeout(hide, 150);
       } else {
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 350); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 180); });
       }
-      window.addEventListener('load', function () { setTimeout(hide, 200); });
-      setTimeout(hide, 700);
+      window.addEventListener('load', function () { setTimeout(hide, 100); });
+      setTimeout(hide, 450);
     })();
   </script>
 
@@ -553,7 +729,7 @@
                 <div id="contactFormSuccess" class="alert alert-custom alert-success d-none" role="alert">
                   <i class="bi bi-check-circle-fill alert-icon"></i>
                   <div>
-                    <strong>Thank you!</strong> Your message has been received. Our team will contact you shortly.
+                    <strong>Thank you!</strong> Your message has been received. Our team will contact you soon.
                   </div>
                 </div>
                 <div id="contactFormError" class="alert alert-custom alert-danger d-none" role="alert">
@@ -565,7 +741,7 @@
 
                 <form id="siteContactForm" class="contact-form-grid" novalidate>
                   <div class="row g-3">
-                    <!-- Name (required) -->
+                    <!-- Row 1: Name (required) -->
                     <div class="col-md-6">
                       <div class="form-group-custom">
                         <label for="contactName" class="form-label-custom">
@@ -579,45 +755,45 @@
                       </div>
                     </div>
 
-                    <!-- Email (required) -->
+                    <!-- Row 1: Phone Number (required) -->
+                    <div class="col-md-6">
+                      <div class="form-group-custom">
+                        <label for="contactPhone" class="form-label-custom">
+                          <span>Phone Number <span class="required-mark">*</span></span>
+                        </label>
+                        <div class="input-icon-wrap">
+                          <i class="bi bi-telephone input-icon"></i>
+                          <input type="tel" class="form-control-custom" id="contactPhone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+                        </div>
+                        <div class="invalid-feedback-custom">Please enter your phone number.</div>
+                      </div>
+                    </div>
+
+                    <!-- Row 2: Email Address (optional) -->
                     <div class="col-md-6">
                       <div class="form-group-custom">
                         <label for="contactEmail" class="form-label-custom">
-                          <span>Email Address <span class="required-mark">*</span></span>
+                          <span>Email Address</span>
+                          <span class="optional-tag">Optional</span>
                         </label>
                         <div class="input-icon-wrap">
                           <i class="bi bi-envelope input-icon"></i>
-                          <input type="email" class="form-control-custom" id="contactEmail" name="email" placeholder="example@email.com" required autocomplete="email">
+                          <input type="email" class="form-control-custom" id="contactEmail" name="email" placeholder="example@email.com" autocomplete="email">
                         </div>
                         <div class="invalid-feedback-custom">Please enter a valid email address.</div>
                       </div>
                     </div>
 
-                    <!-- Phone (optional) -->
-                    <div class="col-md-6">
-                      <div class="form-group-custom">
-                        <label for="contactPhone" class="form-label-custom">
-                          <span>Phone Number</span>
-                          <span class="optional-tag">Optional</span>
-                        </label>
-                        <div class="input-icon-wrap">
-                          <i class="bi bi-telephone input-icon"></i>
-                          <input type="tel" class="form-control-custom" id="contactPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel">
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Service of Interest (optional dropdown) -->
+                    <!-- Row 2: Service of Interest (required dropdown) -->
                     <div class="col-md-6">
                       <div class="form-group-custom">
                         <label for="contactService" class="form-label-custom">
-                          <span>Service of Interest</span>
-                          <span class="optional-tag">Optional</span>
+                          <span>Service of Interest <span class="required-mark">*</span></span>
                         </label>
                         <div class="input-icon-wrap select-icon-wrap">
                           <i class="bi bi-tree input-icon"></i>
-                          <select class="form-control-custom form-select-custom" id="contactService" name="service">
-                            <option value="" selected>Select a Service...</option>
+                          <select class="form-control-custom form-select-custom" id="contactService" name="service" required>
+                            <option value="" disabled selected>Select a Service...</option>
                             <option value="Landscape Design & Architecture">Landscape Design &amp; Architecture</option>
                             <option value="Terrace & Rooftop Transformations">Terrace &amp; Rooftop Transformations</option>
                             <option value="Garden Installation & Makeovers">Garden Installation &amp; Makeovers</option>
@@ -629,10 +805,11 @@
                             <option value="General Consultation / Other">General Consultation / Other</option>
                           </select>
                         </div>
+                        <div class="invalid-feedback-custom">Please select a service of interest.</div>
                       </div>
                     </div>
 
-                    <!-- Message (required) -->
+                    <!-- Row 3: Message (required) -->
                     <div class="col-12">
                       <div class="form-group-custom">
                         <label for="contactMessage" class="form-label-custom">
@@ -747,8 +924,7 @@
             <i class="bi bi-telephone-fill"></i>
             <div>
               <span class="contact-label">Call Us</span>
-              <a href="tel:+919664570668" class="contact-phone-link">+91 9664570668</a>
-              <a href="tel:+919879232854" class="contact-phone-sub">+91 9879232854 (Office)</a>
+              <a href="tel:+919879232854" class="contact-phone-link">+91 9879232854</a>
             </div>
           </div>
 
@@ -764,7 +940,7 @@
             <i class="bi bi-geo-alt-fill"></i>
             <div>
               <span class="contact-label">Offices</span>
-              <span class="contact-value">Andheri West, Mumbai &middot; Vapi, Gujarat</span>
+              <span class="contact-value">Andheri West, Mumbai<br>Vapi, Gujarat</span>
             </div>
           </div>
         </div>
@@ -813,7 +989,10 @@
   <script src="js/section-interactions.js"></script>
   <script src="js/whatsapp-fab.js"></script>
 
-  <!-- Contact Form Submit Script -->
+  <!-- Toast Notification Container -->
+  <div id="pgToastContainer" class="pg-toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Contact Form Submit Script (Google Apps Script Integration) -->
   <script>
     (function () {
       const form = document.getElementById("siteContactForm");
@@ -822,6 +1001,84 @@
       const successBox = document.getElementById("contactFormSuccess");
       const errorBox = document.getElementById("contactFormError");
       const submitBtn = document.getElementById("btnSubmitContact");
+      const toastContainer = document.getElementById("pgToastContainer");
+
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwM0Py-5gaczalRBj8EuBUmoA2vRcav1KTLCRiX0txXbk1n8QwltiJOIDmhx0cCsMDx/exec";
+
+      /**
+       * Toast Notification Engine
+       * Types: 'success' | 'error' | 'warning' | 'info'
+       */
+      function showToast({ type = "info", title = "", message = "", duration = 5500 }) {
+        if (!toastContainer) return null;
+
+        const toast = document.createElement("div");
+        toast.className = `pg-toast pg-toast--${type}`;
+        toast.setAttribute("role", type === "error" ? "alert" : "status");
+
+        let iconClass = "bi-info-circle-fill";
+        if (type === "success") iconClass = "bi-check-circle-fill";
+        else if (type === "error") iconClass = "bi-exclamation-triangle-fill";
+        else if (type === "warning") iconClass = "bi-exclamation-circle-fill";
+
+        toast.innerHTML = `
+          <div class="pg-toast__icon-wrap">
+            <i class="bi ${iconClass}"></i>
+          </div>
+          <div class="pg-toast__content">
+            <h5 class="pg-toast__title">${title}</h5>
+            <p class="pg-toast__message">${message}</p>
+          </div>
+          <button type="button" class="pg-toast__close" aria-label="Close notification">
+            <i class="bi bi-x-lg"></i>
+          </button>
+          ${duration > 0 ? '<div class="pg-toast__progress"></div>' : ''}
+        `;
+
+        toastContainer.appendChild(toast);
+
+        let timerId = null;
+        let progressAnim = null;
+
+        const dismiss = () => {
+          if (toast.classList.contains("pg-toast-hiding")) return;
+          toast.classList.add("pg-toast-hiding");
+          setTimeout(() => {
+            if (toast.parentNode) {
+              toast.parentNode.removeChild(toast);
+            }
+          }, 320);
+        };
+
+        const closeBtn = toast.querySelector(".pg-toast__close");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", dismiss);
+        }
+
+        if (duration > 0) {
+          const progressBar = toast.querySelector(".pg-toast__progress");
+          if (progressBar) {
+            progressAnim = progressBar.animate(
+              [{ transform: "scaleX(1)" }, { transform: "scaleX(0)" }],
+              { duration: duration, easing: "linear", fill: "forwards" }
+            );
+          }
+
+          timerId = setTimeout(dismiss, duration);
+
+          toast.addEventListener("mouseenter", () => {
+            if (timerId) clearTimeout(timerId);
+            if (progressAnim) progressAnim.pause();
+          });
+
+          toast.addEventListener("mouseleave", () => {
+            if (progressAnim) progressAnim.play();
+            timerId = setTimeout(dismiss, 1800);
+          });
+        }
+
+        return { dismiss };
+      }
 
       // Clear invalid states as user types
       form.querySelectorAll("input, textarea, select").forEach(el => {
@@ -832,75 +1089,177 @@
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        successBox.classList.add("d-none");
-        errorBox.classList.add("d-none");
+        // Clear previous inline alerts
+        if (successBox) successBox.classList.add("d-none");
+        if (errorBox) errorBox.classList.add("d-none");
 
         const nameInput = form.name;
         const emailInput = form.email;
+        const phoneInput = form.phone;
+        const serviceInput = form.service;
         const messageInput = form.message;
 
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-        const service = form.service ? form.service.value.trim() : "";
+        const name = nameInput ? nameInput.value.trim() : "";
+        const email = emailInput ? emailInput.value.trim() : "";
+        const phone = phoneInput ? phoneInput.value.trim() : "";
+        const service = serviceInput ? serviceInput.value.trim() : "";
+        const message = messageInput ? messageInput.value.trim() : "";
 
         let hasError = false;
+        let errorDetail = [];
 
+        // 1. Name (required)
         if (!name) {
-          nameInput.classList.add("is-invalid");
+          if (nameInput) nameInput.classList.add("is-invalid");
           hasError = true;
+          errorDetail.push("your name");
         }
 
+        // 2. Phone Number (required)
+        const phoneDigits = phone.replace(/\D/g, "");
+        if (!phone || phoneDigits.length < 7) {
+          if (phoneInput) phoneInput.classList.add("is-invalid");
+          hasError = true;
+          errorDetail.push("a valid phone number");
+        }
+
+        // 3. Email Address (optional, validate format if provided)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) {
-          emailInput.classList.add("is-invalid");
+        if (email && !emailRegex.test(email)) {
+          if (emailInput) emailInput.classList.add("is-invalid");
           hasError = true;
+          errorDetail.push("a valid email address");
         }
 
-        if (!message) {
-          messageInput.classList.add("is-invalid");
+        // 4. Service of Interest (required)
+        if (!service) {
+          if (serviceInput) serviceInput.classList.add("is-invalid");
           hasError = true;
+          errorDetail.push("a service of interest");
+        }
+
+        // 5. Message (required)
+        if (!message) {
+          if (messageInput) messageInput.classList.add("is-invalid");
+          hasError = true;
+          errorDetail.push("your message or requirement");
         }
 
         if (hasError) {
           const firstInvalid = form.querySelector(".is-invalid");
           if (firstInvalid) firstInvalid.focus();
+
+          showToast({
+            type: "warning",
+            title: "Required Information Missing",
+            message: `Please provide ${errorDetail.join(", ")} before submitting.`,
+            duration: 5000
+          });
           return;
         }
 
+        // Lock submit button & indicate loading state
         const origBtnHtml = submitBtn.innerHTML;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending... <span class="spinner-border spinner-border-sm ms-2"></span>';
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span><span>Submitting...</span>';
 
-        const formData = new FormData(form);
-        if (service) {
-          formData.set("message", `[Service: ${service}]\n\n${message}`);
-        }
+        // Display in-progress feedback toast
+        const submittingToast = showToast({
+          type: "info",
+          title: "Submitting Inquiry...",
+          message: "Connecting to Planet G and recording your details securely.",
+          duration: 0
+        });
+
+        // Map payload exactly to Google Apps Script doPost properties
+        const payload = {
+          name: name,
+          email: email || "Not provided",
+          phone: phone,
+          service: service || "General Consultation / Other",
+          message: message
+        };
 
         try {
-          const resp = await fetch("contact-submit.php", {
+          const resp = await fetch(SCRIPT_URL, {
             method: "POST",
-            body: formData
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
           });
 
-          const data = await resp.json().catch(() => null);
+          let data = null;
+          try {
+            data = await resp.json();
+          } catch (jsonErr) {
+            // Non-JSON or opaque response fallback
+          }
 
-          if (resp.ok && data && data.status === "success") {
-            const successText = (data && data.message) ? data.message : "Thank you! Your message has been received. Our team will contact you shortly.";
-            successBox.querySelector("div").innerHTML = `<strong>Thank you!</strong> ${successText}`;
-            successBox.classList.remove("d-none");
+          if (submittingToast) submittingToast.dismiss();
+
+          if (resp.ok && data && data.success) {
+            // 1. Success Toast (internal reference ID hidden from visitor)
+            showToast({
+              type: "success",
+              title: "Inquiry Sent Successfully!",
+              message: `Thank you, <strong>${name}</strong>! Your consultation request has been received. Our team will contact you soon.`,
+              duration: 7500
+            });
+
+            // 2. Inline confirmation message (internal reference ID hidden; updated wording)
+            if (successBox) {
+              const successContent = successBox.querySelector("div");
+              if (successContent) {
+                successContent.innerHTML = `<strong>Thank you, ${name}!</strong> Your consultation request has been received. Our team will contact you soon.`;
+              }
+              successBox.classList.remove("d-none");
+              successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+
+            // 3. Reset form and clear any lingering classes
             form.reset();
-            successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            form.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+
           } else {
-            const errMsg = (data && data.message) ? data.message : "Unable to send your message right now. Please call or WhatsApp us at +91 9879232854.";
-            errorBox.querySelector("div").innerHTML = errMsg;
+            const errMsg = (data && data.message)
+              ? data.message
+              : "Unable to complete your request at this moment. Please call or WhatsApp us directly at +91 9879232854.";
+
+            showToast({
+              type: "error",
+              title: "Submission Error",
+              message: errMsg,
+              duration: 7000
+            });
+
+            if (errorBox) {
+              const errContent = errorBox.querySelector("div");
+              if (errContent) {
+                errContent.innerHTML = `${errMsg} <br><a href="tel:+919879232854" class="alert-link" style="color: inherit; font-weight: 600;">Call +91 9879232854</a> or <a href="https://wa.me/919879232854" target="_blank" rel="noopener noreferrer" class="alert-link" style="color: inherit; font-weight: 600;">WhatsApp Us</a>.`;
+              }
+              errorBox.classList.remove("d-none");
+              errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+          }
+        } catch (fetchErr) {
+          if (submittingToast) submittingToast.dismiss();
+
+          showToast({
+            type: "error",
+            title: "Network Error",
+            message: "Unable to reach the server. Please check your connection or contact us directly via WhatsApp / phone.",
+            duration: 8000
+          });
+
+          if (errorBox) {
+            const errContent = errorBox.querySelector("div");
+            if (errContent) {
+              errContent.innerHTML = "Unable to deliver your message right now due to a network error. Please call or WhatsApp us directly at <a href='tel:+919879232854' class='alert-link' style='color: inherit; font-weight: 600;'>+91 9879232854</a>, or email <a href='mailto:office@planetg.co.in' class='alert-link' style='color: inherit; font-weight: 600;'>office@planetg.co.in</a>.";
+            }
             errorBox.classList.remove("d-none");
             errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }
-        } catch (err) {
-          errorBox.querySelector("div").innerHTML = "Unable to deliver your message right now. Please call or WhatsApp us directly at <a href='tel:+919879232854' class='alert-link'>+91 9879232854</a>, or email <a href='mailto:office@planetg.co.in' class='alert-link'>office@planetg.co.in</a>.";
-          errorBox.classList.remove("d-none");
-          errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
         } finally {
           submitBtn.disabled = false;
           submitBtn.innerHTML = origBtnHtml;

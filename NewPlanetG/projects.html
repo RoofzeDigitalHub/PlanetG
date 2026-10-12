@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -163,23 +163,34 @@
   </div>
   <script>
     (function () {
+      try {
+        if (sessionStorage.getItem('planetg_visited') === 'true') {
+          var el = document.getElementById('pg-loader-overlay');
+          if (el) {
+            el.style.display = 'none';
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+          return;
+        }
+        sessionStorage.setItem('planetg_visited', 'true');
+      } catch (e) {}
       var l = document.getElementById('pg-loader-overlay');
       if (!l) return;
       var hide = function () {
         if (!l.classList.contains('is-hidden')) {
           l.classList.add('is-hidden');
-          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 500);
+          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 350);
         }
       };
       l.addEventListener('click', hide);
       l.addEventListener('touchstart', hide, { passive: true });
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        setTimeout(hide, 350);
+        setTimeout(hide, 150);
       } else {
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 350); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 180); });
       }
-      window.addEventListener('load', function () { setTimeout(hide, 200); });
-      setTimeout(hide, 700);
+      window.addEventListener('load', function () { setTimeout(hide, 100); });
+      setTimeout(hide, 450);
     })();
   </script>
 
@@ -479,76 +490,106 @@
 
           <div class="row g-4" id="categoryCardsGrid">
             <!-- Card 1: Outdoor Gardens & Lawns -->
-            <div class="col-lg-6 col-md-6">
-              <a class="category-card" href="?category=outdoor-gardens-lawns" data-category="outdoor-gardens-lawns" aria-label="Explore Outdoor Gardens & Lawns Projects">
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=outdoor-gardens-lawns" data-category="outdoor-gardens-lawns" aria-label="Explore Outdoor Gardens & Lawns Photos">
                 <div class="category-card__media">
-                  <img src="assets/optimized/home-garden.webp" alt="Outdoor Gardens & Lawns" loading="lazy" decoding="async">
-                  <div class="category-card__badge">3 Projects</div>
+                  <img src="assets/gallery/outdoor-gardens-lawns/01_2acd49cc-2a07-425a-b6de-5a823894a62d_JPG.webp" alt="Outdoor Gardens & Lawns" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-outdoor-gardens-lawns">42 Photos</div>
                 </div>
                 <div class="category-card__content">
                   <h3 class="category-card__title">Outdoor Gardens &amp; Lawns</h3>
                   <p class="category-card__desc">Expansive lawns, boundary shrubbery, villa garden landscapes, and restful outdoor living spaces.</p>
-                  <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
                 </div>
               </a>
             </div>
 
             <!-- Card 2: Terrace & Balcony Gardens -->
-            <div class="col-lg-6 col-md-6">
-              <a class="category-card" href="?category=terrace-balcony-gardens" data-category="terrace-balcony-gardens" aria-label="Explore Terrace & Balcony Gardens Projects">
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=terrace-balcony-gardens" data-category="terrace-balcony-gardens" aria-label="Explore Terrace & Balcony Gardens Photos">
                 <div class="category-card__media">
-                  <img src="assets/optimized/Eco-Balcony-Living.webp" alt="Terrace & Balcony Gardens" loading="lazy" decoding="async">
-                  <div class="category-card__badge">3 Projects</div>
+                  <img src="assets/gallery/terrace-balcony-gardens/01_101_DJI_20260401102828_0315_D_jpg.webp" alt="Terrace & Balcony Gardens" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-terrace-balcony-gardens">10 Photos</div>
                 </div>
                 <div class="category-card__content">
                   <h3 class="category-card__title">Terrace &amp; Balcony Gardens</h3>
                   <p class="category-card__desc">Compact oasis transformations, rooftop green lounges, and apartment balcony garden styling in urban settings.</p>
-                  <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
                 </div>
               </a>
             </div>
 
             <!-- Card 3: Indoor Garden Transformations -->
-            <div class="col-lg-6 col-md-6">
-              <a class="category-card" href="?category=indoor-garden-transformations" data-category="indoor-garden-transformations" aria-label="Explore Indoor Garden Transformations Projects">
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=indoor-garden-transformations" data-category="indoor-garden-transformations" aria-label="Explore Indoor Garden Transformations Photos">
                 <div class="category-card__media">
-                  <img src="assets/optimized/urban-gardan.webp" alt="Indoor Garden Transformations" loading="lazy" decoding="async">
-                  <div class="category-card__badge">2 Projects</div>
+                  <img src="assets/gallery/indoor-garden-transformations/01_DSC00018_2_JPEG.webp" alt="Indoor Garden Transformations" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-indoor-garden-transformations">13 Photos</div>
                 </div>
                 <div class="category-card__content">
                   <h3 class="category-card__title">Indoor Garden Transformations</h3>
                   <p class="category-card__desc">Air-purifying residential indoor foliage, executive interior plant placement, and vertical indoor accents.</p>
-                  <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
                 </div>
               </a>
             </div>
 
             <!-- Card 4: Office & Commercial Landscaping -->
-            <div class="col-lg-6 col-md-6">
-              <a class="category-card" href="?category=office-commercial-landscaping" data-category="office-commercial-landscaping" aria-label="Explore Office & Commercial Landscaping Projects">
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=office-commercial-landscaping" data-category="office-commercial-landscaping" aria-label="Explore Office & Commercial Landscaping Photos">
                 <div class="category-card__media">
-                  <img src="assets/optimized/factory-gardeen.webp" alt="Office & Commercial Landscaping" loading="lazy" decoding="async">
-                  <div class="category-card__badge">3 Projects</div>
+                  <img src="assets/gallery/office-commercial-landscaping/01_062_DJI_20260401095333_0255_D_jpg.webp" alt="Office & Commercial Landscaping" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-office-commercial-landscaping">8 Photos</div>
                 </div>
                 <div class="category-card__content">
                   <h3 class="category-card__title">Office &amp; Commercial Landscaping</h3>
                   <p class="category-card__desc">Prestigious corporate complexes, industrial plantscapes, commercial lobbies, and campus grounds.</p>
-                  <span class="category-card__cta">View Category Projects <i class="bi bi-arrow-right"></i></span>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 5: Vegetable Gardens -->
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=vegetable-gardens" data-category="vegetable-gardens" aria-label="Explore Vegetable Gardens Photos">
+                <div class="category-card__media">
+                  <img src="assets/gallery/vegetable-gardens/01_6d365815-f8b0-424e-ad57-85eaaba36f44_JPG.webp" alt="Vegetable Gardens" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-vegetable-gardens">17 Photos</div>
+                </div>
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Vegetable Gardens</h3>
+                  <p class="category-card__desc">Organic kitchen gardens, terrace vegetable beds, homegrown edible herbs, and fresh sustainable greens.</p>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 6: Mini Gardens -->
+            <div class="col-lg-4 col-md-6">
+              <a class="category-card" href="?category=mini-gardens" data-category="mini-gardens" aria-label="Explore Mini Gardens Photos">
+                <div class="category-card__media">
+                  <img src="assets/gallery/mini-gardens/01_2e993f49a5e75a589464c1b11aa68f9f_still_HEIC.webp" alt="Mini Gardens" loading="lazy" decoding="async">
+                  <div class="category-card__badge" id="badge-mini-gardens">17 Photos</div>
+                </div>
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Mini Gardens</h3>
+                  <p class="category-card__desc">Exotic miniature landscape trays, handcrafted succulent terrariums, and artistic tabletop greenery.</p>
+                  <span class="category-card__cta"><span class="category-card__cta-desktop">Click to view</span><span class="category-card__cta-mobile">Tap to view</span> <i class="bi bi-arrow-right"></i></span>
                 </div>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- VIEW 2: CATEGORY GALLERY VIEW (INTERACTIVE FILTER) -->
+        <!-- VIEW 2: CATEGORY GALLERY VIEW (INTERACTIVE PHOTO GALLERY) -->
         <div id="categoryGalleryView" class="category-gallery-view" style="display: none;">
           <div class="gallery-nav-bar mb-4">
             <button type="button" class="btn-back-overview" id="btnBackToOverview">
               <i class="bi bi-arrow-left"></i>
-              <span>Back to Projects Overview</span>
+              <span>Back to Categories</span>
             </button>
             <div class="gallery-category-breadcrumb">
-              <span>Projects</span>
+              <span>Categories</span>
               <i class="bi bi-chevron-right"></i>
               <strong id="breadcrumbCategoryName">Category</strong>
             </div>
@@ -557,10 +598,26 @@
           <div class="gallery-header mb-4">
             <h2 class="gallery-title" id="galleryCategoryTitle">Category Title</h2>
             <p class="gallery-desc" id="galleryCategoryDesc">Category Description</p>
+            <div class="gallery-count-pill" id="galleryPhotoCountBadge">
+              <i class="bi bi-images"></i> <span id="galleryPhotoCountText">0 Photos</span>
+            </div>
           </div>
 
-          <div class="row g-4" id="galleryCardsGrid">
-            <!-- Project cards rendered dynamically or filtered -->
+          <!-- Empty State (Shown when 0 photos in category) -->
+          <div id="galleryEmptyState" class="gallery-empty-state" style="display: none;">
+            <div class="gallery-empty-state__icon">
+              <i class="bi bi-camera"></i>
+            </div>
+            <h3 class="gallery-empty-state__title">Photos Coming Soon</h3>
+            <p class="gallery-empty-state__desc">We are currently curating and documenting our project portfolio for this category. Check back shortly!</p>
+            <button type="button" class="gallery-empty-state__btn" id="btnEmptyBackToOverview">
+              <i class="bi bi-arrow-left"></i> View Other Categories
+            </button>
+          </div>
+
+          <!-- Image-only Responsive Photo Grid -->
+          <div class="row g-3 g-md-4" id="galleryCardsGrid">
+            <!-- Project photo tiles rendered dynamically by JavaScript -->
           </div>
         </div>
 
@@ -672,8 +729,7 @@
             <i class="bi bi-telephone-fill"></i>
             <div>
               <span class="contact-label">Call Us</span>
-              <a href="tel:+919664570668" class="contact-phone-link">+91 9664570668</a>
-              <a href="tel:+919879232854" class="contact-phone-sub">+91 9879232854 (Office)</a>
+              <a href="tel:+919879232854" class="contact-phone-link">+91 9879232854</a>
             </div>
           </div>
 
@@ -689,7 +745,7 @@
             <i class="bi bi-geo-alt-fill"></i>
             <div>
               <span class="contact-label">Offices</span>
-              <span class="contact-value">Andheri West, Mumbai &middot; Vapi, Gujarat</span>
+              <span class="contact-value">Andheri West, Mumbai<br>Vapi, Gujarat</span>
             </div>
           </div>
         </div>
@@ -738,99 +794,147 @@
   <script src="js/section-interactions.js"></script>
   <script src="js/whatsapp-fab.js"></script>
 
-  <!-- Interactive Project Category Filter Script -->
+  <!-- Lightbox Modal for Image-Only Project Galleries -->
+  <div class="pg-lightbox" id="pgLightbox" role="dialog" aria-modal="true" aria-label="Project Photo Lightbox">
+    <button type="button" class="pg-lightbox__close" id="pgLightboxClose" aria-label="Close lightbox">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <button type="button" class="pg-lightbox__nav pg-lightbox__prev" id="pgLightboxPrev" aria-label="Previous photo">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button type="button" class="pg-lightbox__nav pg-lightbox__next" id="pgLightboxNext" aria-label="Next photo">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+    <div class="pg-lightbox__content" id="pgLightboxContent">
+      <img src="" alt="Planet G Project Photo" class="pg-lightbox__image" id="pgLightboxImg">
+    </div>
+    <div class="pg-lightbox__counter" id="pgLightboxCounter">1 / 1</div>
+  </div>
+
+    <!-- Interactive Project Category Gallery & Lightbox Script -->
   <script>
     (function () {
-      const projectsData = [
-        {
-          id: 1,
-          category: 'outdoor-gardens-lawns',
-          title: 'Villa Lawn and Garden',
-          description: 'A sprawling private residence garden in Vapi featuring manicured Bermuda grass, perimeter tropical planting, and flagstone walking paths.',
-          image: 'assets/Firefly_Gemini Flash_improve the quality 402680.webp',
-          location: 'Vapi, Gujarat'
-        },
-        {
-          id: 2,
-          category: 'outdoor-gardens-lawns',
-          title: 'Residential Society Landscape',
-          description: 'Large-scale residential society garden revitalization including automated sprinklers, central lawn, and native perennial flowering borders.',
-          image: 'assets/optimized/home-garden.webp',
-          location: 'Valsad, Gujarat'
-        },
-        {
-          id: 3,
-          category: 'outdoor-gardens-lawns',
-          title: 'Private Estate Landscape',
-          description: 'Turnkey landscaping project featuring specimen trees, architectural gravel garden beds, and custom outdoor seating zones.',
-          image: 'assets/Firefly_improve the quality of this image like make it look clear and nice and also resize it 402680.webp',
-          location: 'Mumbai'
-        },
-        {
-          id: 4,
-          category: 'terrace-balcony-gardens',
-          title: 'Sky Terrace Retreat',
-          description: 'Transforming a high-rise rooftop terrace into a vibrant private sky lounge with customized lightweight FRP planters and automated micro-drip.',
-          image: 'assets/optimized/Eco-Balcony-Living.webp',
-          location: 'South Mumbai'
-        },
-        {
-          id: 5,
-          category: 'terrace-balcony-gardens',
-          title: 'Penthouse Garden Makeover',
-          description: 'Urban terrace oasis with shaded pergolas, lush foliage barriers for privacy, and aromatic flowering plants.',
-          image: 'assets/terrace-garden.webp',
-          location: 'Bandra, Mumbai'
-        },
-        {
-          id: 6,
-          category: 'terrace-balcony-gardens',
-          title: 'Compact Balcony Garden',
-          description: 'Maximizing small apartment balconies with vertical wall climbers, tiered planter stands, and mood lighting.',
-          image: 'assets/Firefly_Resize this image and improve the quality 568478.webp',
-          location: 'Powai, Mumbai'
-        },
-        {
-          id: 7,
-          category: 'indoor-garden-transformations',
-          title: 'Biophilic Office Atrium',
-          description: 'Air-purifying indoor plants and elegant architectural planter arrangements throughout a corporate reception atrium.',
-          image: 'assets/optimized/urban-gardan.webp',
-          location: 'Mumbai'
-        },
-        {
-          id: 8,
-          category: 'indoor-garden-transformations',
-          title: 'Courtyard Living Wall',
-          description: 'Indoor courtyard green wall installation with automated moisture monitoring and low-light tropical plants.',
-          image: 'assets/Firefly_GeminiFlash_Resize this image 665329.webp',
-          location: 'Vapi'
-        },
-        {
-          id: 9,
-          category: 'office-commercial-landscaping',
-          title: 'Manufacturing Campus Grounds',
-          description: 'Eco-conscious green belts, shady tree avenues, and pristine lawns across a major industrial facility.',
-          image: 'assets/optimized/factory-gardeen.webp',
-          location: 'Vapi Industrial Area'
-        },
-        {
-          id: 10,
-          category: 'office-commercial-landscaping',
-          title: 'Corporate Headquarters Plaza',
-          description: 'Modern entrance courtyard landscaping with geometric lawns, paved walkways, and low-maintenance native foliage.',
-          image: 'assets/Firefly_Resize this image 705249.webp',
-          location: 'Mumbai'
-        },
-        {
-          id: 11,
-          category: 'office-commercial-landscaping',
-          title: 'Hospitality Garden Courtyard',
-          description: 'Soothing landscape styling with bubbling water fountain, outdoor cafe lawns, and ambient lighting.',
-          image: 'assets/terrace-garden.webp',
-          location: 'Daman'
-        }
-      ];
+      const categoryPhotos = {
+        "outdoor-gardens-lawns": [
+                "assets/gallery/outdoor-gardens-lawns/01_2acd49cc-2a07-425a-b6de-5a823894a62d_JPG.webp",
+                "assets/gallery/outdoor-gardens-lawns/02_006_DJI_20260401085430_0188_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/03_6ae533fd-bb6f-4e1b-8a13-a8a0e4bb6500_JPG.webp",
+                "assets/gallery/outdoor-gardens-lawns/04_007_DJI_20260401085439_0189_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/05_009_DJI_20260401085501_0191_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/06_022_DJI_20260401092913_0207_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/07_023_DJI_20260401092932_0208_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/08_033_DJI_20260401093153_0218_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/09_034_DJI_20260401093159_0219_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/10_039_DJI_20260401093403_0226_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/11_044_DJI_20260401093531_0231_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/12_049_DJI_20260401093611_0236_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/13_64bf7684-7b23-4069-8422-9ba12058bd8a_JPG.webp",
+                "assets/gallery/outdoor-gardens-lawns/14_080_DJI_20260401100719_0279_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/15_085_DJI_20260401100845_0284_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/16_086_DJI_20260401100855_0285_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/17_087_DJI_20260401101052_0293_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/18_091_DJI_20260401101130_0297_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/19_110_DJI_20260401113450_0326_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/20_123_DJI_20260401113809_0340_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/21_124_DJI_20260401113826_0341_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/22_129_DJI_20260401113914_0346_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/23_136_DJI_20260401144905_0355_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/24_139_DJI_20260401144935_0358_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/25_141_DJI_20260401144949_0360_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/26_150_DJI_20260401150553_0374_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/27_151_DJI_20260401150557_0375_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/28_160_DJI_20260401150822_0384_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/29_164_DJI_20260401150859_0388_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/30_168_DJI_20260401151353_0393_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/31_170_DJI_20260401151412_0395_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/32_173_DJI_20260401154219_0399_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/33_174_DJI_20260401154234_0400_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/34_176_DJI_20260401154412_0404_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/35_185_DJI_20260401154621_0413_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/36_186_DJI_20260401154713_0414_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/37_189_DJI_20260401154745_0417_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/38_191_DJI_20260401154758_0419_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/39_193_DJI_20260401154819_0421_D_jpg.webp",
+                "assets/gallery/outdoor-gardens-lawns/40_285ddfe2-86fa-4289-a46c-5730e371b724_JPG.webp",
+                "assets/gallery/outdoor-gardens-lawns/41_IMG_4868_still_HEIC.webp",
+                "assets/gallery/outdoor-gardens-lawns/42_IMG_6918_still_2_HEIC.webp"
+        ],
+        "terrace-balcony-gardens": [
+                "assets/gallery/terrace-balcony-gardens/01_101_DJI_20260401102828_0315_D_jpg.webp",
+                "assets/gallery/terrace-balcony-gardens/02_102_DJI_20260401102834_0316_D_jpg.webp",
+                "assets/gallery/terrace-balcony-gardens/03_105_DJI_20260401102903_0319_D_jpg.webp",
+                "assets/gallery/terrace-balcony-gardens/04_106_DJI_20260401102908_0320_D_jpg.webp",
+                "assets/gallery/terrace-balcony-gardens/05_107_DJI_20260401102935_0321_D_jpg.webp",
+                "assets/gallery/terrace-balcony-gardens/06_DSC00818_JPEG.webp",
+                "assets/gallery/terrace-balcony-gardens/07_IMG_1708_JPG.webp",
+                "assets/gallery/terrace-balcony-gardens/08_IMG_1709_JPG.webp",
+                "assets/gallery/terrace-balcony-gardens/09_IMG_6152_HEIC.webp",
+                "assets/gallery/terrace-balcony-gardens/10_IMG_9403_still_HEIC.webp"
+        ],
+        "indoor-garden-transformations": [
+                "assets/gallery/indoor-garden-transformations/01_DSC00018_2_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/02_DSC00134_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/03_DSC00281_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/04_DSC00288_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/05_DSC00847_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/06_DSC01174_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/07_DSC01181_JPEG.webp",
+                "assets/gallery/indoor-garden-transformations/08_IMG_0947_JPG.webp",
+                "assets/gallery/indoor-garden-transformations/09_IMG_1408_final_still_HEIC.webp",
+                "assets/gallery/indoor-garden-transformations/10_IMG_1417_final_still_HEIC.webp",
+                "assets/gallery/indoor-garden-transformations/11_IMG_8983_still_HEIC.webp",
+                "assets/gallery/indoor-garden-transformations/12_IMG_9001_still_HEIC.webp",
+                "assets/gallery/indoor-garden-transformations/13_IMG_9006_still_HEIC.webp"
+        ],
+        "office-commercial-landscaping": [
+                "assets/gallery/office-commercial-landscaping/01_062_DJI_20260401095333_0255_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/02_065_DJI_20260401095359_0258_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/03_072_DJI_20260401095613_0267_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/04_194_DJI_20260401160808_0422_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/05_198_DJI_20260401160845_0426_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/06_208_DJI_20260401161221_0440_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/07_216_DJI_20260401164550_0448_D_jpg.webp",
+                "assets/gallery/office-commercial-landscaping/08_221_DJI_20260401164629_0453_D_jpg.webp"
+        ],
+        "vegetable-gardens": [
+                "assets/gallery/vegetable-gardens/01_6d365815-f8b0-424e-ad57-85eaaba36f44_JPG.webp",
+                "assets/gallery/vegetable-gardens/02_271cb014-ae3d-4f6a-b7c3-fbd67537dfcf_JPG.webp",
+                "assets/gallery/vegetable-gardens/03_a10e8fd9-cfd9-4175-a300-a7653134571a_JPG.webp",
+                "assets/gallery/vegetable-gardens/04_IMG_0556_HEIC.webp",
+                "assets/gallery/vegetable-gardens/05_IMG_0557_HEIC.webp",
+                "assets/gallery/vegetable-gardens/06_IMG_0559_still_HEIC.webp",
+                "assets/gallery/vegetable-gardens/07_IMG_1279_HEIC.webp",
+                "assets/gallery/vegetable-gardens/08_IMG_2379_HEIC.webp",
+                "assets/gallery/vegetable-gardens/09_IMG_2380_HEIC.webp",
+                "assets/gallery/vegetable-gardens/10_IMG_2392_HEIC.webp",
+                "assets/gallery/vegetable-gardens/11_IMG_2431_HEIC.webp",
+                "assets/gallery/vegetable-gardens/12_IMG_2669_HEIC.webp",
+                "assets/gallery/vegetable-gardens/13_IMG_2708_HEIC.webp",
+                "assets/gallery/vegetable-gardens/14_IMG_5425_HEIC.webp",
+                "assets/gallery/vegetable-gardens/15_IMG_9061_jpg.webp",
+                "assets/gallery/vegetable-gardens/16_IMG_9062_jpg.webp",
+                "assets/gallery/vegetable-gardens/17_IMG_9474_JPG.webp"
+        ],
+        "mini-gardens": [
+                "assets/gallery/mini-gardens/01_2e993f49a5e75a589464c1b11aa68f9f_still_HEIC.webp",
+                "assets/gallery/mini-gardens/02_A12FE8F5-EA5E-41C4-B61A-C715877C44AD_JPG.webp",
+                "assets/gallery/mini-gardens/03_ffffaaf9da570ced297e80394db260ab_still_HEIC.webp",
+                "assets/gallery/mini-gardens/04_FullSizeRender_heic.webp",
+                "assets/gallery/mini-gardens/05_IMG_1183_jpg.webp",
+                "assets/gallery/mini-gardens/06_IMG_1186_jpg.webp",
+                "assets/gallery/mini-gardens/07_IMG_1781_still_HEIC.webp",
+                "assets/gallery/mini-gardens/08_IMG_2236_still_HEIC.webp",
+                "assets/gallery/mini-gardens/09_IMG_2916_heic.webp",
+                "assets/gallery/mini-gardens/10_IMG_2932_still_HEIC.webp",
+                "assets/gallery/mini-gardens/11_IMG_3328_still_HEIC.webp",
+                "assets/gallery/mini-gardens/12_IMG_8453_heic.webp",
+                "assets/gallery/mini-gardens/13_IMG_8502_still_2_HEIC.webp",
+                "assets/gallery/mini-gardens/14_IMG_8798_still_HEIC.webp",
+                "assets/gallery/mini-gardens/15_IMG_9571_HEIC.webp",
+                "assets/gallery/mini-gardens/16_IMG_9628_still_HEIC.webp",
+                "assets/gallery/mini-gardens/17_IMG_9637_still_HEIC.webp"
+        ]
+};
 
       const categoryMeta = {
         'outdoor-gardens-lawns': {
@@ -848,6 +952,14 @@
         'office-commercial-landscaping': {
           title: 'Office & Commercial Landscaping',
           desc: 'Master-planned green landscapes for corporate offices, manufacturing campuses, residential societies, and institutional sites.'
+        },
+        'vegetable-gardens': {
+          title: 'Vegetable Gardens',
+          desc: 'Organic kitchen gardens, terrace vegetable beds, homegrown edible herbs, and fresh sustainable green harvests.'
+        },
+        'mini-gardens': {
+          title: 'Mini Gardens',
+          desc: 'Exotic miniature landscape trays, handcrafted succulent terrariums, and artistic tabletop greenery.'
         }
       };
 
@@ -857,12 +969,110 @@
       const galleryDesc = document.getElementById('galleryCategoryDesc');
       const breadcrumbName = document.getElementById('breadcrumbCategoryName');
       const cardsGrid = document.getElementById('galleryCardsGrid');
+      const emptyState = document.getElementById('galleryEmptyState');
+      const photoCountText = document.getElementById('galleryPhotoCountText');
       const backBtn = document.getElementById('btnBackToOverview');
+      const emptyBackBtn = document.getElementById('btnEmptyBackToOverview');
+
+      /* Lightbox Elements */
+      const lightbox = document.getElementById('pgLightbox');
+      const lightboxImg = document.getElementById('pgLightboxImg');
+      const lightboxCounter = document.getElementById('pgLightboxCounter');
+      const lightboxClose = document.getElementById('pgLightboxClose');
+      const lightboxPrev = document.getElementById('pgLightboxPrev');
+      const lightboxNext = document.getElementById('pgLightboxNext');
+      const lightboxContent = document.getElementById('pgLightboxContent');
+
+      let currentGalleryItems = [];
+      let currentLightboxIndex = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      // Dynamically calculate and update each card badge with actual photo count
+      Object.keys(categoryMeta).forEach(slug => {
+        const badge = document.getElementById(`badge-${slug}`);
+        if (badge) {
+          const count = (categoryPhotos[slug] || []).length;
+          badge.textContent = `${count} Photos`;
+        }
+      });
+
+      function openLightbox(index) {
+        if (!currentGalleryItems.length || index < 0 || index >= currentGalleryItems.length) return;
+        currentLightboxIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function updateLightboxImage() {
+        const src = currentGalleryItems[currentLightboxIndex];
+        if (!src) return;
+        lightboxImg.style.opacity = '0';
+        lightboxImg.src = src;
+        lightboxImg.onload = function () {
+          lightboxImg.style.opacity = '1';
+        };
+        lightboxCounter.textContent = (currentLightboxIndex + 1) + ' / ' + currentGalleryItems.length;
+      }
+
+      function prevLightbox() {
+        if (!currentGalleryItems.length) return;
+        currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+        updateLightboxImage();
+      }
+
+      function nextLightbox() {
+        if (!currentGalleryItems.length) return;
+        currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryItems.length;
+        updateLightboxImage();
+      }
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
+      if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target === lightboxContent) {
+            closeLightbox();
+          }
+        });
+
+        /* Phone touch swipe support */
+        lightbox.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchEndX - touchStartX;
+          if (Math.abs(diff) > 45) {
+            if (diff > 0) {
+              prevLightbox(); /* Swipe right -> previous */
+            } else {
+              nextLightbox(); /* Swipe left -> next */
+            }
+          }
+        }, { passive: true });
+      }
+
+      /* Desktop keyboard navigation */
+      window.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') prevLightbox();
+        else if (e.key === 'ArrowRight') nextLightbox();
+      });
 
       function showCategory(slug) {
         if (!slug || !categoryMeta[slug]) {
-          overviewView.style.display = 'block';
-          galleryView.style.display = 'none';
+          showOverview();
           return;
         }
 
@@ -871,21 +1081,49 @@
         galleryDesc.textContent = meta.desc;
         breadcrumbName.textContent = meta.title;
 
-        const filtered = projectsData.filter(p => p.category === slug);
-        cardsGrid.innerHTML = filtered.map(item => `
-          <div class="col-lg-4 col-md-6">
-            <div class="gallery-card">
-              <div class="gallery-card__media">
-                <img src="${item.image}" alt="${item.title}" loading="lazy">
-                <div class="gallery-card__location"><i class="bi bi-geo-alt"></i> ${item.location}</div>
+        currentGalleryItems = categoryPhotos[slug] || [];
+        const count = currentGalleryItems.length;
+
+        if (photoCountText) {
+          photoCountText.textContent = `${count} Photos`;
+        }
+
+        if (count === 0) {
+          if (cardsGrid) cardsGrid.style.display = 'none';
+          if (emptyState) emptyState.style.display = 'block';
+        } else {
+          if (emptyState) emptyState.style.display = 'none';
+          if (cardsGrid) {
+            cardsGrid.style.display = 'flex';
+            cardsGrid.innerHTML = currentGalleryItems.map((imgSrc, idx) => `
+              <div class="col-xl-3 col-lg-4 col-md-6 col-6">
+                <div class="gallery-photo-tile" data-index="${idx}" tabindex="0" role="button" aria-label="View photo ${idx + 1}">
+                  <img src="${imgSrc}" alt="${meta.title} photo ${idx + 1}" loading="lazy" decoding="async">
+                  <div class="gallery-photo-tile__zoom">
+                    <div class="gallery-photo-tile__zoom-btn">
+                      <i class="bi bi-arrows-fullscreen"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="gallery-card__content">
-                <h4 class="gallery-card__title">${item.title}</h4>
-                <p class="gallery-card__desc">${item.description}</p>
-              </div>
-            </div>
-          </div>
-        `).join('');
+            `).join('');
+
+            /* Attach click & keydown listener to each photo tile */
+            cardsGrid.querySelectorAll('.gallery-photo-tile').forEach(tile => {
+              tile.addEventListener('click', () => {
+                const idx = parseInt(tile.getAttribute('data-index'), 10);
+                openLightbox(idx);
+              });
+              tile.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  const idx = parseInt(tile.getAttribute('data-index'), 10);
+                  openLightbox(idx);
+                }
+              });
+            });
+          }
+        }
 
         overviewView.style.display = 'none';
         galleryView.style.display = 'block';
@@ -893,8 +1131,8 @@
       }
 
       function showOverview() {
-        overviewView.style.display = 'block';
         galleryView.style.display = 'none';
+        overviewView.style.display = 'block';
         const url = new URL(window.location.href);
         url.searchParams.delete('category');
         window.history.pushState({}, '', url);
@@ -914,6 +1152,13 @@
 
       if (backBtn) {
         backBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showOverview();
+        });
+      }
+
+      if (emptyBackBtn) {
+        emptyBackBtn.addEventListener('click', (e) => {
           e.preventDefault();
           showOverview();
         });

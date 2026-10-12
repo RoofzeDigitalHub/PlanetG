@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -94,8 +94,8 @@
         "sameAs": [
           "https://www.facebook.com/p/Planet-G-100085681698367/",
           "https://www.instagram.com/planetg_04/",
-          "https://share.google/EqzOU4I1Bw5Xifm0y",
-          "https://jsdl.in/DT-43E222EAA6I"
+          "https://www.google.com/maps/place/Planet+G/@19.1294583,72.8361544,17z/data=!4m8!3m7!1s0x3be7b625ba6c9ab7:0xf13085ef7546294d!8m2!3d19.1294583!4d72.8361544!9m1!1b1!16s%2Fg%2F11hzyphswq?entry=ttu",
+          "https://www.justdial.com/Mumbai/Planet-G-Near-Hotel-Courtyard-Andheri-West/022PXX22-XX22-190626122634-U2B6_BZDET/reviews"
         ]
       },
       {
@@ -185,7 +185,8 @@
 
         <!-- Central Large Unclipped Logo Card -->
         <div class="pg-loader-logo-badge">
-          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="pg-loader-logo-img" onerror="this.src='assets/planetG-logo.jpeg'" />
+          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="pg-loader-logo-img"
+            onerror="this.src='assets/planetG-logo.jpeg'" />
         </div>
       </div>
 
@@ -203,30 +204,41 @@
   </div>
   <script>
     (function () {
+      try {
+        if (sessionStorage.getItem('planetg_visited') === 'true') {
+          var el = document.getElementById('pg-loader-overlay');
+          if (el) {
+            el.style.display = 'none';
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+          return;
+        }
+        sessionStorage.setItem('planetg_visited', 'true');
+      } catch (e) { }
       var l = document.getElementById('pg-loader-overlay');
       if (!l) return;
       var hide = function () {
         if (!l.classList.contains('is-hidden')) {
           l.classList.add('is-hidden');
-          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 500);
+          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 350);
         }
       };
       l.addEventListener('click', hide);
       l.addEventListener('touchstart', hide, { passive: true });
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        setTimeout(hide, 350);
+        setTimeout(hide, 150);
       } else {
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 350); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 180); });
       }
-      window.addEventListener('load', function () { setTimeout(hide, 200); });
-      setTimeout(hide, 700);
+      window.addEventListener('load', function () { setTimeout(hide, 100); });
+      setTimeout(hide, 450);
     })();
   </script>
 
   <div id="page">
 
     <!-- HEADER_START -->
-<!-- 1. INFOBAR -->
+    <!-- 1. INFOBAR -->
     <div class="gardyn-topbar">
       <div class="container gardyn-topbar__inner">
         <div class="gardyn-topbar__info" aria-label="Business information">
@@ -245,11 +257,13 @@
         </div>
 
         <div class="social" aria-label="Social links">
-          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" aria-label="X"><i class="bi bi-x"></i></a>
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -263,7 +277,8 @@
           </a>
 
           <!-- Mobile Hamburger Toggle Button (Always visible on mobile, triggers drawer) -->
-          <button class="header-menu-btn d-lg-none" type="button" aria-label="Open mobile navigation menu" data-menu-toggle>
+          <button class="header-menu-btn d-lg-none" type="button" aria-label="Open mobile navigation menu"
+            data-menu-toggle>
             <i class="bi bi-list"></i>
           </button>
 
@@ -320,12 +335,18 @@
           <section class="menu-block">
             <div class="menu-block-title">Our Services</div>
             <ul class="menu-service-list" aria-label="Our services">
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &amp; Architecture</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &amp; Makeovers</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care &amp; Maintenance</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation &amp; Smart Watering Systems</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens Supplier</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &amp;
+                  Architecture</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &amp;
+                  Makeovers</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care &amp;
+                  Maintenance</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation &amp; Smart Watering
+                  Systems</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a>
+              </li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens
+                  Supplier</a></li>
             </ul>
           </section>
 
@@ -333,15 +354,18 @@
             <div class="menu-block-title">Contact Us</div>
             <ul class="menu-contact-list" aria-label="Contact information">
               <li class="menu-contact-item"><i class="bi bi-clock"></i><span>Mon–Fri | 10:00 AM–6:00 PM</span></li>
-              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854" style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
-              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in" style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
+              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854"
+                  style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
+              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in"
+                  style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
             </ul>
           </section>
         </div>
       </div>
 
       <!-- MOBILE MENU PANEL -->
-      <div class="menu-modal-panel menu-modal-panel--mobile" role="dialog" aria-modal="true" aria-label="Mobile site menu">
+      <div class="menu-modal-panel menu-modal-panel--mobile" role="dialog" aria-modal="true"
+        aria-label="Mobile site menu">
         <div class="menu-modal-header">
           <div class="menu-logo">
             <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="menu-logo-image">
@@ -382,7 +406,8 @@
         <div class="menu-divider"></div>
 
         <div class="menu-mobile-extra mt-2">
-          <a class="btn btn-outline-light rounded-pill w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-3" href="contact.html">
+          <a class="btn btn-outline-light rounded-pill w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-3"
+            href="contact.html">
             <span>Get In Touch</span>
             <i class="bi bi-arrow-right"></i>
           </a>
@@ -401,9 +426,18 @@
             </div>
           </div>
           <div class="d-flex align-items-center gap-3 pt-1">
-            <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -576,8 +610,9 @@
           <div class="col-lg-6">
             <div class="row g-4">
               <div class="col-md-6">
-                <a href="https://jsdl.in/DT-43E222EAA6I" class="glass-card review-card-link" target="_blank"
-                  rel="noopener noreferrer" aria-label="View PlanetG on Justdial">
+                <a href="https://www.justdial.com/Mumbai/Planet-G-Near-Hotel-Courtyard-Andheri-West/022PXX22-XX22-190626122634-U2B6_BZDET/reviews"
+                  class="glass-card review-card-link" target="_blank" rel="noopener noreferrer"
+                  aria-label="View PlanetG on Justdial">
                   <h3>Excellent</h3>
                   <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                   <p>Based on 185 reviews</p>
@@ -610,9 +645,10 @@
               </div>
 
               <div class="col-md-6">
-                <a href="https://share.google/EqzOU4I1Bw5Xifm0y" class="glass-card review-card-link" target="_blank"
-                  rel="noopener noreferrer" aria-label="View PlanetG on Google">
-                  <h3>4.8 out of 5</h3>
+                <a href="https://www.google.com/maps/place/Planet+G/@19.1294583,72.8361544,17z/data=!4m8!3m7!1s0x3be7b625ba6c9ab7:0xf13085ef7546294d!8m2!3d19.1294583!4d72.8361544!9m1!1b1!16s%2Fg%2F11hzyphswq?entry=ttu"
+                  class="glass-card review-card-link" target="_blank" rel="noopener noreferrer"
+                  aria-label="View PlanetG on Google">
+                  <h3>5.0 out of 5.0</h3>
                   <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                   <p>Based on 200 reviews</p>
                   <img src="assets/google-120x30.webp" alt="Google" class="review-logo">
@@ -634,23 +670,26 @@
 
         <div class="client-logo-grid">
           <article class="client-logo-card">
-            <img src="assets/AP-new.webp" alt="ACCRA PAC" class="client-logo-image" loading="lazy">
+            <img src="assets/client/accra-pac.webp" alt="ACCRA PAC" class="client-logo-image" loading="lazy">
           </article>
           <article class="client-logo-card">
-            <img src="assets/ghcl-new.webp" alt="GHCL Limited" class="client-logo-image" loading="lazy">
+            <img src="assets/client/ghcl.webp" alt="GHCL Limited" class="client-logo-image" loading="lazy">
           </article>
           <article class="client-logo-card">
-            <img src="assets/pal-new.webp" alt="Parekh Aluminex Limited" class="client-logo-image" loading="lazy">
-          </article>
-          <article class="client-logo-card">
-            <img src="assets/p-new.webp" alt="Prakash Steelage Limited" class="client-logo-image" loading="lazy">
-          </article>
-          <article class="client-logo-card">
-            <img src="assets/pc-new.webp" alt="Pruthvi Ceramics" class="client-logo-image" loading="lazy">
-          </article>
-          <article class="client-logo-card">
-            <img src="assets/pfi-new.webp" alt="Permeshwar Fashions Impex Pvt. Ltd." class="client-logo-image"
+            <img src="assets/client/parekh-aluminex.webp" alt="Parekh Aluminex Limited" class="client-logo-image"
               loading="lazy">
+          </article>
+          <article class="client-logo-card">
+            <img src="assets/client/prakash-steelage.webp" alt="Prakash Steelage Limited" class="client-logo-image"
+              loading="lazy">
+          </article>
+          <article class="client-logo-card">
+            <img src="assets/client/pruthvi-ceramics.webp" alt="Pruthvi Ceramics" class="client-logo-image"
+              loading="lazy">
+          </article>
+          <article class="client-logo-card">
+            <img src="assets/client/permeshwar-fashions.webp" alt="Permeshwar Fashions Impex Pvt. Ltd."
+              class="client-logo-image" loading="lazy">
           </article>
         </div>
 
@@ -666,7 +705,7 @@
     <section class="service-section" id="services">
       <div class="container py-5">
         <div class="text-center service-section-heading">
-          <div class="service-pill">Our Landscaping Services</div>
+          <div class="service-pill">Our Services</div>
         </div>
 
         <div class="row g-4">
@@ -788,25 +827,34 @@
           <!-- CARD 1: Terrace & Balcony Gardens -->
           <div class="col-lg-6">
             <a class="work-card" href="projects.html?category=terrace-balcony-gardens"
-              aria-label="View Terrace & Balcony Gardens projects">
+              aria-label="View Terrace & Balcony Gardens projects gallery">
               <img class="work-card__media" src="assets/optimized/Eco-Balcony-Living.webp"
                 alt="Terrace & Balcony Gardens" loading="lazy" decoding="async">
-              <div class="work-info">
-                <div>
-                  <p class="label">Category</p>
-                  <h5>Terrace &amp; Balcony Gardens</h5>
+              
+              <!-- Subtle Default Base Caption (Desktop initial view) -->
+              <div class="work-caption-base">
+                <div class="work-caption-main">
+                  <span class="work-tag">Category</span>
+                  <h4 class="work-title">Terrace &amp; Balcony Gardens</h4>
                 </div>
-                <div>
-                  <p class="label">Location</p>
-                  <h5>Mumbai &amp; Vapi</h5>
+                <div class="work-meta">
+                  <span class="work-loc"><i class="bi bi-geo-alt"></i> Mumbai &amp; Vapi</span>
+                  <span class="work-arrow">&rarr;</span>
                 </div>
-                <div class="arrow">&rarr;</div>
               </div>
-              <div class="hover-content">
-                <p>
+
+              <!-- Translucent Overlay (Reveals on hover; Subtle caption on phone) -->
+              <div class="work-overlay">
+                <span class="work-tag">Category</span>
+                <h4 class="work-title">Terrace &amp; Balcony Gardens</h4>
+                <p class="work-desc">
                   Transforming urban balconies and rooftop terraces into tranquil green retreats with lightweight
                   planters, living accents, and shade arrangements.
                 </p>
+                <div class="work-prompt">
+                  <span class="prompt-text prompt-desktop">Click to view <i class="bi bi-arrow-right"></i></span>
+                  <span class="prompt-text prompt-mobile">Tap to view <i class="bi bi-arrow-right"></i></span>
+                </div>
               </div>
             </a>
           </div>
@@ -814,25 +862,34 @@
           <!-- CARD 2: Outdoor Gardens & Lawns -->
           <div class="col-lg-6">
             <a class="work-card" href="projects.html?category=outdoor-gardens-lawns"
-              aria-label="View Outdoor Gardens & Lawns projects">
+              aria-label="View Outdoor Gardens & Lawns projects gallery">
               <img class="work-card__media" src="assets/optimized/home-garden.webp" alt="Outdoor Gardens & Lawns"
                 loading="lazy" decoding="async">
-              <div class="work-info">
-                <div>
-                  <p class="label">Category</p>
-                  <h5>Outdoor Gardens &amp; Lawns</h5>
+              
+              <!-- Subtle Default Base Caption (Desktop initial view) -->
+              <div class="work-caption-base">
+                <div class="work-caption-main">
+                  <span class="work-tag">Category</span>
+                  <h4 class="work-title">Outdoor Gardens &amp; Lawns</h4>
                 </div>
-                <div>
-                  <p class="label">Location</p>
-                  <h5>Mumbai &amp; Gujarat</h5>
+                <div class="work-meta">
+                  <span class="work-loc"><i class="bi bi-geo-alt"></i> Mumbai &amp; Gujarat</span>
+                  <span class="work-arrow">&rarr;</span>
                 </div>
-                <div class="arrow">&rarr;</div>
               </div>
-              <div class="hover-content">
-                <p>
+
+              <!-- Translucent Overlay (Reveals on hover; Subtle caption on phone) -->
+              <div class="work-overlay">
+                <span class="work-tag">Category</span>
+                <h4 class="work-title">Outdoor Gardens &amp; Lawns</h4>
+                <p class="work-desc">
                   Expansive lawns, structured perimeter shrubs, native perennial layouts, and serene garden pathways for
                   residential villas and estates.
                 </p>
+                <div class="work-prompt">
+                  <span class="prompt-text prompt-desktop">Click to view <i class="bi bi-arrow-right"></i></span>
+                  <span class="prompt-text prompt-mobile">Tap to view <i class="bi bi-arrow-right"></i></span>
+                </div>
               </div>
             </a>
           </div>
@@ -840,25 +897,34 @@
           <!-- CARD 3: Office & Commercial Landscaping -->
           <div class="col-lg-6">
             <a class="work-card" href="projects.html?category=office-commercial-landscaping"
-              aria-label="View Office & Commercial Landscaping projects">
+              aria-label="View Office & Commercial Landscaping projects gallery">
               <img class="work-card__media" src="assets/optimized/factory-gardeen.webp"
                 alt="Office & Commercial Landscaping" loading="lazy" decoding="async">
-              <div class="work-info">
-                <div>
-                  <p class="label">Category</p>
-                  <h5>Office &amp; Commercial Landscaping</h5>
+              
+              <!-- Subtle Default Base Caption (Desktop initial view) -->
+              <div class="work-caption-base">
+                <div class="work-caption-main">
+                  <span class="work-tag">Category</span>
+                  <h4 class="work-title">Office &amp; Commercial Landscaping</h4>
                 </div>
-                <div>
-                  <p class="label">Location</p>
-                  <h5>Vapi &amp; Mumbai</h5>
+                <div class="work-meta">
+                  <span class="work-loc"><i class="bi bi-geo-alt"></i> Vapi &amp; Mumbai</span>
+                  <span class="work-arrow">&rarr;</span>
                 </div>
-                <div class="arrow">&rarr;</div>
               </div>
-              <div class="hover-content">
-                <p>
+
+              <!-- Translucent Overlay (Reveals on hover; Subtle caption on phone) -->
+              <div class="work-overlay">
+                <span class="work-tag">Category</span>
+                <h4 class="work-title">Office &amp; Commercial Landscaping</h4>
+                <p class="work-desc">
                   Master-planned green landscapes for corporate offices, manufacturing campuses, residential societies,
                   and institutional sites.
                 </p>
+                <div class="work-prompt">
+                  <span class="prompt-text prompt-desktop">Click to view <i class="bi bi-arrow-right"></i></span>
+                  <span class="prompt-text prompt-mobile">Tap to view <i class="bi bi-arrow-right"></i></span>
+                </div>
               </div>
             </a>
           </div>
@@ -866,25 +932,34 @@
           <!-- CARD 4: Indoor Garden Transformations -->
           <div class="col-lg-6">
             <a class="work-card" href="projects.html?category=indoor-garden-transformations"
-              aria-label="View Indoor Garden Transformations projects">
+              aria-label="View Indoor Garden Transformations projects gallery">
               <img class="work-card__media" src="assets/optimized/urban-gardan.webp" alt="Indoor Garden Transformations"
                 loading="lazy" decoding="async">
-              <div class="work-info">
-                <div>
-                  <p class="label">Category</p>
-                  <h5>Indoor Garden Transformations</h5>
+              
+              <!-- Subtle Default Base Caption (Desktop initial view) -->
+              <div class="work-caption-base">
+                <div class="work-caption-main">
+                  <span class="work-tag">Category</span>
+                  <h4 class="work-title">Indoor Garden Transformations</h4>
                 </div>
-                <div>
-                  <p class="label">Location</p>
-                  <h5>Mumbai &amp; Vapi</h5>
+                <div class="work-meta">
+                  <span class="work-loc"><i class="bi bi-geo-alt"></i> Mumbai &amp; Vapi</span>
+                  <span class="work-arrow">&rarr;</span>
                 </div>
-                <div class="arrow">&rarr;</div>
               </div>
-              <div class="hover-content">
-                <p>
+
+              <!-- Translucent Overlay (Reveals on hover; Subtle caption on phone) -->
+              <div class="work-overlay">
+                <span class="work-tag">Category</span>
+                <h4 class="work-title">Indoor Garden Transformations</h4>
+                <p class="work-desc">
                   Atrium plant decor, air-purifying foliage installations, and vertical indoor plant arrangements
                   seamlessly blended with modern interiors.
                 </p>
+                <div class="work-prompt">
+                  <span class="prompt-text prompt-desktop">Click to view <i class="bi bi-arrow-right"></i></span>
+                  <span class="prompt-text prompt-mobile">Tap to view <i class="bi bi-arrow-right"></i></span>
+                </div>
               </div>
             </a>
           </div>
@@ -897,132 +972,132 @@
     </section>
 
     <!-- FOOTER_START -->
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="grass"></div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="grass"></div>
 
-  <div class="container">
-    <!-- Main 4-Column Balanced Grid -->
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Bio -->
-      <div class="footer-brand-col">
-        <div class="footer-brand">
-          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="footer-logo">
-          <div>
-            <div class="logo">Planet G</div>
-            <p class="footer-tagline">Landscape design and maintenance for modern urban spaces.</p>
-          </div>
-        </div>
+      <div class="container">
+        <!-- Main 4-Column Balanced Grid -->
+        <div class="footer-grid">
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-brand-col">
+            <div class="footer-brand">
+              <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="footer-logo">
+              <div>
+                <div class="logo">Planet G</div>
+                <p class="footer-tagline">Landscape design and maintenance for modern urban spaces.</p>
+              </div>
+            </div>
 
-        <div class="social mt-3">
-          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
-            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
-            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
-            target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-
-      <!-- Col 2: Services -->
-      <div class="footer-col footer-col--services">
-        <h5>Our Services</h5>
-        <ul class="footer-links-list">
-          <li><a href="services.html">Landscape Design &amp; Architecture</a></li>
-          <li><a href="services.html">Garden Installation &amp; Makeovers</a></li>
-          <li><a href="services.html">Garden Care &amp; Maintenance</a></li>
-          <li><a href="services.html">Irrigation &amp; Smart Watering Systems</a></li>
-          <li><a href="services.html">Garden Essentials Supplier</a></li>
-          <li><a href="services.html">Exotic Mini Gardens Supplier</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Service Areas -->
-      <div class="footer-col footer-col--areas">
-        <h5>Service Areas</h5>
-        <div class="footer-area-blocks">
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Mumbai &amp; Nearby Areas:</span>
-            <p class="footer-area-text">Andheri, Bandra, Borivali, Goregaon, Malad, Juhu, Worli, Malabar Hill, and
-              Prabhadevi.</p>
-          </div>
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Vapi &amp; Gujarat:</span>
-            <p class="footer-area-text">Vapi, GIDC Vapi, Valsad, Pardi, Umbergaon, Sarigam, Chanod, and Bhilad.</p>
-          </div>
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Nearby Areas:</span>
-            <p class="footer-area-text">Silvassa and Daman.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Col 4: Contact & Hours -->
-      <div class="footer-col footer-col--contact">
-        <h5>Contact &amp; Hours</h5>
-        <div class="footer-contact-items">
-          <div class="footer-contact-item">
-            <i class="bi bi-clock-fill"></i>
-            <div>
-              <span class="contact-label">Working Hours</span>
-              <span class="contact-value">Mon–Fri | 10:00 AM–6:00 PM</span>
+            <div class="social mt-3">
+              <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+                aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+                target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-telephone-fill"></i>
-            <div>
-              <span class="contact-label">Call Us</span>
-              <a href="tel:+919664570668" class="contact-phone-link">+91 9664570668</a>
-              <a href="tel:+919879232854" class="contact-phone-sub">+91 9879232854 (Office)</a>
+          <!-- Col 2: Services -->
+          <div class="footer-col footer-col--services">
+            <h5>Our Services</h5>
+            <ul class="footer-links-list">
+              <li><a href="services.html">Landscape Design &amp; Architecture</a></li>
+              <li><a href="services.html">Garden Installation &amp; Makeovers</a></li>
+              <li><a href="services.html">Garden Care &amp; Maintenance</a></li>
+              <li><a href="services.html">Irrigation &amp; Smart Watering Systems</a></li>
+              <li><a href="services.html">Garden Essentials Supplier</a></li>
+              <li><a href="services.html">Exotic Mini Gardens Supplier</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Service Areas -->
+          <div class="footer-col footer-col--areas">
+            <h5>Service Areas</h5>
+            <div class="footer-area-blocks">
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Mumbai &amp; Nearby Areas:</span>
+                <p class="footer-area-text">Andheri, Bandra, Borivali, Goregaon, Malad, Juhu, Worli, Malabar Hill, and
+                  Prabhadevi.</p>
+              </div>
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Vapi &amp; Gujarat:</span>
+                <p class="footer-area-text">Vapi, GIDC Vapi, Valsad, Pardi, Umbergaon, Sarigam, Chanod, and Bhilad.</p>
+              </div>
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Nearby Areas:</span>
+                <p class="footer-area-text">Silvassa and Daman.</p>
+              </div>
             </div>
           </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-envelope-fill"></i>
-            <div>
-              <span class="contact-label">Email</span>
-              <a href="mailto:office@planetg.co.in" class="contact-link">office@planetg.co.in</a>
-            </div>
-          </div>
+          <!-- Col 4: Contact & Hours -->
+          <div class="footer-col footer-col--contact">
+            <h5>Contact &amp; Hours</h5>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <i class="bi bi-clock-fill"></i>
+                <div>
+                  <span class="contact-label">Working Hours</span>
+                  <span class="contact-value">Mon–Fri | 10:00 AM–6:00 PM</span>
+                </div>
+              </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-geo-alt-fill"></i>
-            <div>
-              <span class="contact-label">Offices</span>
-              <span class="contact-value">Andheri West, Mumbai &middot; Vapi, Gujarat</span>
+              <div class="footer-contact-item">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                  <span class="contact-label">Call Us</span>
+                  <a href="tel:+919879232854" class="contact-phone-link">+91 9879232854</a>
+                </div>
+              </div>
+
+              <div class="footer-contact-item">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:office@planetg.co.in" class="contact-link">office@planetg.co.in</a>
+                </div>
+              </div>
+
+              <div class="footer-contact-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <span class="contact-label">Offices</span>
+                  <span class="contact-value">Andheri West, Mumbai<br>Vapi, Gujarat</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Horizontal Company Navigation Bar -->
+        <div class="footer-nav-bar">
+          <nav class="footer-nav-links" aria-label="Company Quick Links">
+            <a href="index.html">Home</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="about.html">About Us</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="services.html">Services</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="projects.html">Projects</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="testimonials.html">Testimonials</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+
+        <!-- Copyright & Tagline Bottom Bar -->
+        <div class="footer-bottom">
+          <div>&copy; 2026 Planet G. All Rights Reserved.</div>
+          <div class="footer-bottom-tagline">Developed by <a href="https://roofze.com/" target="_blank"
+              rel="noopener noreferrer" class="footer-credit-link">Roofze Digital Hub LLP</a></div>
+        </div>
       </div>
-    </div>
-
-    <!-- Horizontal Company Navigation Bar -->
-    <div class="footer-nav-bar">
-      <nav class="footer-nav-links" aria-label="Company Quick Links">
-        <a href="index.html">Home</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="about.html">About Us</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="services.html">Services</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="projects.html">Projects</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="testimonials.html">Testimonials</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-
-    <!-- Copyright & Tagline Bottom Bar -->
-    <div class="footer-bottom">
-      <div>&copy; 2026 Planet G. All Rights Reserved.</div>
-      <div class="footer-bottom-tagline">Developed by <a href="https://roofze.com/" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Roofze Digital Hub LLP</a></div>
-    </div>
-  </div>
-</footer>
+    </footer>
     <!-- FOOTER_END -->
 
   </div>

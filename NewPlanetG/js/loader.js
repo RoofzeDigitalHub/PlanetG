@@ -1,10 +1,32 @@
 /**
- * Planet G - Ultra-Fast Botanical Loader Controller
- * Automatically dismisses loader smoothly when DOM is ready or within max 800ms.
- * Tap/click anywhere dismisses immediately.
+ * Planet G - Fast Botanical Loader Controller
+ * 1. Shows only ONCE per visit/session (using sessionStorage).
+ * 2. Instant zero-delay bypass when moving between pages in the same session.
+ * 3. Shortened display time (~150ms-180ms) on initial visit so it never holds up visitors.
  */
 (function () {
   'use strict';
+
+  var SESSION_KEY = 'planetg_visited';
+  var isVisited = false;
+  try {
+    isVisited = sessionStorage.getItem(SESSION_KEY) === 'true';
+  } catch (e) {}
+
+  var loader = document.getElementById('pg-loader-overlay') || document.querySelector('.pg-loader-overlay');
+
+  if (isVisited) {
+    if (loader) {
+      loader.style.display = 'none';
+      if (loader.parentNode) loader.parentNode.removeChild(loader);
+    }
+    return;
+  }
+
+  // Mark session as visited
+  try {
+    sessionStorage.setItem(SESSION_KEY, 'true');
+  } catch (e) {}
 
   var dismissed = false;
 
@@ -12,42 +34,40 @@
     if (dismissed) return;
     dismissed = true;
 
-    var loader = document.getElementById('pg-loader-overlay') || document.querySelector('.pg-loader-overlay');
-    if (!loader) return;
+    var el = document.getElementById('pg-loader-overlay') || document.querySelector('.pg-loader-overlay');
+    if (!el) return;
 
-    loader.classList.add('is-hidden');
+    el.classList.add('is-hidden');
 
-    // Remove from DOM after CSS fade transition completes
     setTimeout(function () {
-      if (loader && loader.parentNode) {
-        loader.parentNode.removeChild(loader);
+      if (el && el.parentNode) {
+        el.parentNode.removeChild(el);
       }
-    }, 600);
+    }, 350);
   }
 
-  // Dismiss on click/tap on loader overlay
+  // Immediate dismiss on click/tap
   document.addEventListener('DOMContentLoaded', function () {
-    var loader = document.getElementById('pg-loader-overlay') || document.querySelector('.pg-loader-overlay');
-    if (loader) {
-      loader.addEventListener('click', dismissLoader);
-      loader.addEventListener('touchstart', dismissLoader, { passive: true });
+    var el = document.getElementById('pg-loader-overlay') || document.querySelector('.pg-loader-overlay');
+    if (el) {
+      el.addEventListener('click', dismissLoader);
+      el.addEventListener('touchstart', dismissLoader, { passive: true });
     }
   });
 
-  // Fast dismissal: when DOM is interactive (doesn't wait for images/network)
+  // Shortened delay: dismiss as soon as DOM is interactive
   if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    setTimeout(dismissLoader, 300);
+    setTimeout(dismissLoader, 150);
   } else {
     document.addEventListener('DOMContentLoaded', function () {
-      setTimeout(dismissLoader, 350);
+      setTimeout(dismissLoader, 180);
     });
   }
 
-  // Fallback for full page window load
   window.addEventListener('load', function () {
-    setTimeout(dismissLoader, 200);
+    setTimeout(dismissLoader, 100);
   });
 
-  // ABSOLUTE SAFETY FAILSAFE: Never keep user waiting longer than 750ms
-  setTimeout(dismissLoader, 750);
+  // Safety failsafe: never hold up longer than 450ms
+  setTimeout(dismissLoader, 450);
 })();

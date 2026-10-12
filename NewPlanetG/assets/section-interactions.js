@@ -277,10 +277,7 @@
 
     const workCard = event.target.closest(".work-card");
     if (workCard) {
-      if (isTouchWorkCardMode()) {
-        event.preventDefault();
-        toggleWorkCard(workCard);
-      }
+      // Allow whole card to naturally open category gallery on both click and mobile tap
       return;
     }
 

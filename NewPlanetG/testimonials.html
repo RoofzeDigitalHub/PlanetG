@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Client Reviews &amp; Testimonials | Planet G Landscaping</title>
-  <meta name="description" content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi, Valsad, Silvassa & Daman." />
-  <meta name="keywords" content="Planet G reviews, landscaping testimonials Mumbai, garden maintenance feedback Vapi, landscape design reviews India, garden makeover client ratings" />
+  <meta name="description"
+    content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi, Valsad, Silvassa & Daman." />
+  <meta name="keywords"
+    content="Planet G reviews, landscaping testimonials Mumbai, garden maintenance feedback Vapi, landscape design reviews India, garden makeover client ratings" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://planetg.co.in/testimonials.html" />
 
@@ -13,7 +16,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Planet G" />
   <meta property="og:title" content="Client Reviews &amp; Testimonials | Planet G Landscaping" />
-  <meta property="og:description" content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi & Gujarat." />
+  <meta property="og:description"
+    content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi & Gujarat." />
   <meta property="og:url" content="https://planetg.co.in/testimonials.html" />
   <meta property="og:image" content="https://planetg.co.in/assets/planetG-logo.webp" />
   <meta property="og:locale" content="en_IN" />
@@ -21,7 +25,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Client Reviews &amp; Testimonials | Planet G Landscaping" />
-  <meta name="twitter:description" content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi & Gujarat." />
+  <meta name="twitter:description"
+    content="Read verified Google reviews & testimonials from residential, corporate, and institutional landscaping clients across Mumbai, Vapi & Gujarat." />
   <meta name="twitter:image" content="https://planetg.co.in/assets/planetG-logo.webp" />
 
   <!-- Geo & Regional Meta -->
@@ -111,7 +116,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor Icons & Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
@@ -175,7 +182,8 @@
 
         <!-- Central Large Unclipped Logo Card -->
         <div class="pg-loader-logo-badge">
-          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="pg-loader-logo-img" onerror="this.src='assets/planetG-logo.jpeg'" />
+          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="pg-loader-logo-img"
+            onerror="this.src='assets/planetG-logo.jpeg'" />
         </div>
       </div>
 
@@ -193,30 +201,41 @@
   </div>
   <script>
     (function () {
+      try {
+        if (sessionStorage.getItem('planetg_visited') === 'true') {
+          var el = document.getElementById('pg-loader-overlay');
+          if (el) {
+            el.style.display = 'none';
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+          return;
+        }
+        sessionStorage.setItem('planetg_visited', 'true');
+      } catch (e) { }
       var l = document.getElementById('pg-loader-overlay');
       if (!l) return;
       var hide = function () {
         if (!l.classList.contains('is-hidden')) {
           l.classList.add('is-hidden');
-          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 500);
+          setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 350);
         }
       };
       l.addEventListener('click', hide);
       l.addEventListener('touchstart', hide, { passive: true });
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        setTimeout(hide, 350);
+        setTimeout(hide, 150);
       } else {
-        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 350); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hide, 180); });
       }
-      window.addEventListener('load', function () { setTimeout(hide, 200); });
-      setTimeout(hide, 700);
+      window.addEventListener('load', function () { setTimeout(hide, 100); });
+      setTimeout(hide, 450);
     })();
   </script>
 
   <div id="page">
 
     <!-- HEADER_START -->
-<!-- 1. INFOBAR -->
+    <!-- 1. INFOBAR -->
     <div class="gardyn-topbar">
       <div class="container gardyn-topbar__inner">
         <div class="gardyn-topbar__info" aria-label="Business information">
@@ -235,11 +254,13 @@
         </div>
 
         <div class="social" aria-label="Social links">
-          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" aria-label="X"><i class="bi bi-x"></i></a>
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -253,7 +274,8 @@
           </a>
 
           <!-- Mobile Hamburger Toggle Button (Always visible on mobile, triggers drawer) -->
-          <button class="header-menu-btn d-lg-none" type="button" aria-label="Open mobile navigation menu" data-menu-toggle>
+          <button class="header-menu-btn d-lg-none" type="button" aria-label="Open mobile navigation menu"
+            data-menu-toggle>
             <i class="bi bi-list"></i>
           </button>
 
@@ -310,12 +332,18 @@
           <section class="menu-block">
             <div class="menu-block-title">Our Services</div>
             <ul class="menu-service-list" aria-label="Our services">
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &amp; Architecture</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &amp; Makeovers</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care &amp; Maintenance</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation &amp; Smart Watering Systems</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens Supplier</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &amp;
+                  Architecture</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &amp;
+                  Makeovers</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care &amp;
+                  Maintenance</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation &amp; Smart Watering
+                  Systems</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a>
+              </li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens
+                  Supplier</a></li>
             </ul>
           </section>
 
@@ -323,15 +351,18 @@
             <div class="menu-block-title">Contact Us</div>
             <ul class="menu-contact-list" aria-label="Contact information">
               <li class="menu-contact-item"><i class="bi bi-clock"></i><span>Mon–Fri | 10:00 AM–6:00 PM</span></li>
-              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854" style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
-              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in" style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
+              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854"
+                  style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
+              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in"
+                  style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
             </ul>
           </section>
         </div>
       </div>
 
       <!-- MOBILE MENU PANEL -->
-      <div class="menu-modal-panel menu-modal-panel--mobile" role="dialog" aria-modal="true" aria-label="Mobile site menu">
+      <div class="menu-modal-panel menu-modal-panel--mobile" role="dialog" aria-modal="true"
+        aria-label="Mobile site menu">
         <div class="menu-modal-header">
           <div class="menu-logo">
             <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="menu-logo-image">
@@ -372,7 +403,8 @@
         <div class="menu-divider"></div>
 
         <div class="menu-mobile-extra mt-2">
-          <a class="btn btn-outline-light rounded-pill w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-3" href="contact.html">
+          <a class="btn btn-outline-light rounded-pill w-100 py-2 d-flex align-items-center justify-content-center gap-2 mb-3"
+            href="contact.html">
             <span>Get In Touch</span>
             <i class="bi bi-arrow-right"></i>
           </a>
@@ -391,9 +423,18 @@
             </div>
           </div>
           <div class="d-flex align-items-center gap-3 pt-1">
-            <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light rounded-circle"
+              style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;"
+              aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
       </div>
@@ -465,12 +506,18 @@
           <section class="menu-block">
             <div class="menu-block-title">Our Services</div>
             <ul class="menu-service-list" aria-label="Our services">
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design & Architecture</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation & Makeovers</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care & Maintenance</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation & Smart Watering Systems</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a></li>
-              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens Supplier</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Landscape Design &
+                  Architecture</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Installation &
+                  Makeovers</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Care & Maintenance</a>
+              </li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Irrigation & Smart Watering
+                  Systems</a></li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Garden Essentials Supplier</a>
+              </li>
+              <li><a href="services.html" style="color: inherit; text-decoration: none;">Exotic Mini Gardens
+                  Supplier</a></li>
             </ul>
           </section>
 
@@ -478,8 +525,10 @@
             <div class="menu-block-title">Contact Us</div>
             <ul class="menu-contact-list" aria-label="Contact information">
               <li class="menu-contact-item"><i class="bi bi-clock"></i><span>Mon–Fri | 10:00 AM–6:00 PM</span></li>
-              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854" style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
-              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in" style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
+              <li class="menu-contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919879232854"
+                  style="color: inherit; text-decoration: none;">+91 9879232854</a></li>
+              <li class="menu-contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:office@planetg.co.in"
+                  style="color: inherit; text-decoration: none;">office@planetg.co.in</a></li>
             </ul>
           </section>
         </div>
@@ -502,19 +551,22 @@
       <div class="container">
         <div class="client-reviews-heading">
           <h2 class="client-reviews-pill" style="margin: 0;">Client Reviews</h2>
-          <p class="client-reviews-subtitle">Real words from the homes and offices we've been greening — plant care, landscaping and maintenance, all in one place.</p>
+          <p class="client-reviews-subtitle">Real words from the homes and offices we've been greening — plant care,
+            landscaping and maintenance, all in one place.</p>
         </div>
 
         <!-- Summary strip with Google Reviews link -->
-        <a href="https://share.google/EqzOU4I1Bw5Xifm0y" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
+        <a href="https://www.google.com/maps/place/Planet+G/@19.1294583,72.8361544,17z/data=!4m8!3m7!1s0x3be7b625ba6c9ab7:0xf13085ef7546294d!8m2!3d19.1294583!4d72.8361544!9m1!1b1!16s%2Fg%2F11hzyphswq?entry=ttu"
+          target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
           <div class="client-reviews-summary">
             <div class="reviews-summary-score">
-              <strong>4.9</strong>
+              <strong>5.0</strong>
               <span>out of 5</span>
             </div>
             <div class="reviews-summary-stars" aria-label="5 star rating">★★★★★</div>
             <div class="reviews-summary-divider"></div>
-            <div class="reviews-summary-source">Based on <strong>120+ Google reviews</strong> <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+            <div class="reviews-summary-source">Based on <strong>100+ Reviews</strong> <i
+                class="bi bi-box-arrow-up-right ms-1"></i></div>
           </div>
         </a>
 
@@ -522,7 +574,8 @@
         <div class="client-reviews-grid">
           <article class="client-review-card">
             <div class="review-stars" aria-label="5 stars">★★★★★</div>
-            <p class="review-text">I had a wonderful experience working with Manissha and Planet G. As someone who is completely new to keeping plants, I really appreciated the guidance at every step.</p>
+            <p class="review-text">I had a wonderful experience working with Manissha and Planet G. As someone who is
+              completely new to keeping plants, I really appreciated the guidance at every step.</p>
             <div class="review-author">
               <div class="review-avatar">M</div>
               <div class="review-author-info">
@@ -534,7 +587,9 @@
 
           <article class="client-review-card">
             <div class="review-stars" aria-label="5 stars">★★★★★</div>
-            <p class="review-text">I've had a great experience with Planet G's plant service and maintenance at home. Their team is extremely professional, knowledgeable, and genuinely passionate about plants. From selection to placement, everything was thoughtfully done.</p>
+            <p class="review-text">I've had a great experience with Planet G's plant service and maintenance at home.
+              Their team is extremely professional, knowledgeable, and genuinely passionate about plants. From selection
+              to placement, everything was thoughtfully done.</p>
             <div class="review-author">
               <div class="review-avatar">V</div>
               <div class="review-author-info">
@@ -546,7 +601,9 @@
 
           <article class="client-review-card">
             <div class="review-stars" aria-label="5 stars">★★★★★</div>
-            <p class="review-text">Manisha has done an incredible job with my lawn and little garden. After trying more than five different landscape vendors earlier, I had honestly lost hope — but she managed to create exactly what I always wanted.</p>
+            <p class="review-text">Manisha has done an incredible job with my lawn and little garden. After trying more
+              than five different landscape vendors earlier, I had honestly lost hope — but she managed to create
+              exactly what I always wanted.</p>
             <div class="review-author">
               <div class="review-avatar">S</div>
               <div class="review-author-info">
@@ -558,7 +615,8 @@
 
           <article class="client-review-card">
             <div class="review-stars" aria-label="5 stars">★★★★★</div>
-            <p class="review-text">Professional service, quality execution and reliable long-term garden maintenance. Highly recommended for corporate properties and societies in Vapi & Mumbai.</p>
+            <p class="review-text">Professional service, quality execution and reliable long-term garden maintenance.
+              Highly recommended for corporate properties and societies in Vapi & Mumbai.</p>
             <div class="review-author">
               <div class="review-avatar">A</div>
               <div class="review-author-info">
@@ -567,60 +625,89 @@
               </div>
             </div>
           </article>
+
+          <article class="client-review-card">
+            <div class="review-stars" aria-label="5 stars">★★★★★</div>
+            <p class="review-text">I would like to appreciate the efforts of Manisha for carrying out the recent plant maintenance work in our office.<br><br>The work was done professionally and with attention to detail. The plants look fresh, well-pruned, and have been arranged aesthetically across the office space. It has noticeably improved the overall ambiance and environment.<br><br>We are satisfied with the quality of work and would definitely recommend their services for future requirements as well.<br><br>Thank you once again for your great work.</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div class="review-author-info">
+                <span class="review-author-name">Ayad Mukadam</span>
+                <span class="review-author-meta">Local Guide · Google Review</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="client-review-card">
+            <div class="review-stars" aria-label="5 stars">★★★★★</div>
+            <p class="review-text">We are very satisfied with the quality of service provided under our Plant AMC. The team has been consistent, punctual, and attentive to the health and appearance of all our plants.<br><br>There is a visible improvement in plant vitality and overall maintenance since Manisha's team took over. The staff is knowledgeable, courteous, and takes initiative in ensuring regular care, pest control, and timely replacements where needed.<br><br>Thank you for your commitment to excellence. We look forward to continuing this association and would gladly recommend your services to others seeking reliable and professional plant maintenance.</p>
+            <div class="review-author">
+              <div class="review-avatar">K</div>
+              <div class="review-author-info">
+                <span class="review-author-name">Kim</span>
+                <span class="review-author-meta">Local Guide · Google Review</span>
+              </div>
+            </div>
+          </article>
         </div>
 
         <!-- Corporate Clients Section in #f4f6f1 with white cards -->
-        <div class="client-logo-section mt-5" style="background-color: #f4f6f1; border-radius: 18px; padding: 48px 24px;">
+        <div class="client-logo-section client-logo-embedded mt-5">
           <div class="client-logo-heading text-center mb-4">
             <span class="client-logo-pill">Featured Clients</span>
-            <h3 style="font-family: 'Poppins', sans-serif; font-weight: 700; margin-top: 10px; color: #243523;">Our Corporate &amp; Industrial Partners</h3>
-            <p class="client-logo-subtitle mx-auto" style="max-width: 620px;">Proudly designing, installing, and maintaining prestigious green campuses for industrial and corporate leaders across Mumbai, Vapi, and Gujarat.</p>
+            <h3 class="client-logo-title">Our Corporate &amp; Industrial Partners</h3>
+            <p class="client-logo-subtitle mx-auto" style="max-width: 620px;">Proudly designing, installing, and
+              maintaining prestigious green campuses for industrial and corporate leaders across Mumbai, Vapi, and
+              Gujarat.</p>
           </div>
           <div class="client-logo-grid">
-            <!-- 1. Zandu Pharmaceutical Works Pvt Ltd -->
+            <!-- 1. Zandu Pharmaceutical Works Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/zandu-news.webp" alt="Zandu Pharmaceutical Works Pvt Ltd" class="client-logo-image" loading="lazy" onerror="this.src='assets/zandu-news.png'">
+                <img src="assets/client/zandu.webp" alt="Zandu Pharmaceutical Works Pvt. Ltd." class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Zandu Pharmaceutical Works Pvt Ltd</h4>
+                <h4 class="partner-title">Zandu Pharmaceutical Works Pvt. Ltd.</h4>
                 <span class="partner-badge">Pharmaceuticals &amp; Healthcare</span>
                 <p class="partner-scope">Industrial Green Belt &amp; Campus Landscaping</p>
               </div>
             </article>
 
-            <!-- 2. Hotel Fortune Galaxy Vapi -->
+            <!-- 2. Hotel Fortune Galaxy, Vapi -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/fortune-new.webp" alt="Hotel Fortune Galaxy Vapi" class="client-logo-image" loading="lazy" onerror="this.src='assets/fortune-new.png'">
+                <img src="assets/client/fortune-galaxy.webp" alt="Hotel Fortune Galaxy, Vapi" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Hotel Fortune Galaxy Vapi</h4>
-                <span class="partner-badge">Luxury Hospitality &amp; Hotel</span>
-                <p class="partner-scope">Hotel Entrance, Lawns &amp; Interior Plantscaping</p>
+                <h4 class="partner-title">Hotel Fortune Galaxy, Vapi</h4>
+                <span class="partner-badge">Hotel &amp; Hospitality</span>
+                <p class="partner-scope">Landscaping for Hotel Entrances, Lawns &amp; Interior Spaces</p>
               </div>
             </article>
 
             <!-- 3. Accra Pac India Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/AP-new.webp" alt="Accra Pac India Pvt. Ltd." class="client-logo-image" loading="lazy" onerror="this.src='assets/AP-new.png'">
+                <img src="assets/client/accra-pac.webp" alt="Accra Pac India Pvt. Ltd." class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Accra Pac India Pvt. Ltd.</h4>
-                <span class="partner-badge">Aerosol &amp; Contract Packaging</span>
-                <p class="partner-scope">Industrial Campus &amp; Green Belt Management</p>
+                <span class="partner-badge">Aerosol Packaging</span>
+                <p class="partner-scope">Industrial Campus Landscaping &amp; Green Belt Maintenance</p>
               </div>
             </article>
 
             <!-- 4. Ananya Fashions Private Limited -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Aqsa.webp" alt="Ananya Fashions Private Limited" class="client-logo-image" loading="lazy" onerror="this.src='assets/Aqsa.png'">
+                <div class="partner-emblem-badge">AF</div>
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Ananya Fashions Private Limited</h4>
-                <span class="partner-badge">Fashion &amp; Textile Exports</span>
+                <span class="partner-badge">Fashion &amp; Textiles</span>
                 <p class="partner-scope">Commercial Facility Gardens &amp; Grounds</p>
               </div>
             </article>
@@ -628,94 +715,99 @@
             <!-- 5. Bharat Plastic Industries -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/OIP (2).webp" alt="Bharat Plastic Industries" class="client-logo-image" loading="lazy">
+                <div class="partner-emblem-badge">BP</div>
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Bharat Plastic Industries</h4>
-                <span class="partner-badge">Polymer &amp; Plastic Manufacturing</span>
-                <p class="partner-scope">Factory Grounds &amp; Green Perimeter</p>
+                <span class="partner-badge">Plastic &amp; Packaging Manufacturing</span>
+                <p class="partner-scope">Factory Grounds &amp; Perimeter Landscaping</p>
               </div>
             </article>
 
-            <!-- 6. Delta Co-op Hsg. Society Ltd -->
+            <!-- 6. Delta Co-op Housing Society Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Happy-Nest-Residency.webp" alt="Delta Co-op Hsg. Society Ltd" class="client-logo-image" loading="lazy" onerror="this.src='assets/Happy-Nest-Residency.png'">
+                <div class="partner-emblem-badge partner-emblem-badge--pill">Delta</div>
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Delta Co-op Hsg. Society Ltd</h4>
-                <span class="partner-badge">Residential Co-operative Housing</span>
-                <p class="partner-scope">Society Lawns, Tree Care &amp; Pathways</p>
+                <h4 class="partner-title">Delta Co-op Housing Society Ltd.</h4>
+                <span class="partner-badge">Residential Cooperative Housing</span>
+                <p class="partner-scope">Society Lawns, Tree Care &amp; Garden Pathways</p>
               </div>
             </article>
 
-            <!-- 7. Enercon India Ltd, Daman (eta) -->
+            <!-- 7. Enercon India Ltd. (Daman) -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Logo-HN-orizontal.webp" alt="Enercon India Ltd, Daman (eta)" class="client-logo-image" loading="lazy">
+                <img src="assets/client/enercon.webp" alt="Enercon India Ltd. (Daman)" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Enercon India Ltd, Daman (eta)</h4>
-                <span class="partner-badge">Wind Power &amp; Renewable Energy</span>
+                <h4 class="partner-title">Enercon India Ltd. (Daman)</h4>
+                <span class="partner-badge">Renewable Energy</span>
                 <p class="partner-scope">Manufacturing Facility Landscape Maintenance</p>
               </div>
             </article>
 
-            <!-- 8. Essel Mining Vapi -->
+            <!-- 8. Essel Mining & Industries Ltd. (Vapi) -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/vidunit.webp" alt="Essel Mining Vapi" class="client-logo-image" loading="lazy" onerror="this.src='assets/vidunit.jpg'">
+                <img src="assets/client/essel-mining.webp" alt="Essel Mining &amp; Industries Ltd. (Vapi)"
+                  class="client-logo-image" loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Essel Mining Vapi</h4>
-                <span class="partner-badge">Mining &amp; Heavy Industries</span>
+                <h4 class="partner-title">Essel Mining &amp; Industries Ltd. (Vapi)</h4>
+                <span class="partner-badge">Mining, Iron Ore &amp; Related Industries</span>
                 <p class="partner-scope">Industrial Perimeter &amp; Plantation Care</p>
               </div>
             </article>
 
-            <!-- 9. Filter Machines Pvt Ltd -->
+            <!-- 9. Filter Machines Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/fm-new.webp" alt="Filter Machines Pvt Ltd" class="client-logo-image" loading="lazy" onerror="this.src='assets/fm-new.png'">
+                <img src="assets/client/filter-machines.webp" alt="Filter Machines Pvt. Ltd." class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Filter Machines Pvt Ltd</h4>
-                <span class="partner-badge">Industrial Machinery &amp; Filtration</span>
-                <p class="partner-scope">Campus Landscaping &amp; Maintenance</p>
+                <h4 class="partner-title">Filter Machines Pvt. Ltd.</h4>
+                <span class="partner-badge">Industrial Filtration Equipment</span>
+                <p class="partner-scope">Campus Landscaping &amp; Grounds Maintenance</p>
               </div>
             </article>
 
-            <!-- 10. FRISCH MEDICAL DEVICES LLP -->
+            <!-- 10. Frisch Medical Devices LLP -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Frisch-Medical.webp" alt="FRISCH MEDICAL DEVICES LLP" class="client-logo-image" loading="lazy" onerror="this.src='assets/Frisch-Medical.png'">
+                <img src="assets/client/frisch-medical.webp" alt="Frisch Medical Devices LLP" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">FRISCH MEDICAL DEVICES LLP</h4>
-                <span class="partner-badge">Medical Technology &amp; Healthcare</span>
-                <p class="partner-scope">Cleanroom Surrounds &amp; Entrance Lawns</p>
+                <h4 class="partner-title">Frisch Medical Devices LLP</h4>
+                <span class="partner-badge">Medical Devices &amp; Healthcare</span>
+                <p class="partner-scope">Cleanroom Surroundings &amp; Entrance Landscaping</p>
               </div>
             </article>
 
-            <!-- 11. GHCL LTD. in Vapi -->
+            <!-- 11. GHCL Ltd. (Vapi) -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/ghcl-new.webp" alt="GHCL LTD. in Vapi" class="client-logo-image" loading="lazy" onerror="this.src='assets/ghcl-new.png'">
+                <img src="assets/client/ghcl.webp" alt="GHCL Ltd. (Vapi)" class="client-logo-image" loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">GHCL LTD. in Vapi</h4>
+                <h4 class="partner-title">GHCL Ltd. (Vapi)</h4>
                 <span class="partner-badge">Chemicals &amp; Consumer Products</span>
                 <p class="partner-scope">Corporate Facility Landscaping &amp; Lawns</p>
               </div>
             </article>
 
-            <!-- 12. Gb-light Industries -->
+            <!-- 12. GB Light Industries -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/gb-new.webp" alt="Gb-light Industries" class="client-logo-image" loading="lazy" onerror="this.src='assets/gb-new.png'">
+                <img src="assets/client/gb-light.webp" alt="GB Light Industries" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Gb-light Industries</h4>
+                <h4 class="partner-title">GB Light Industries</h4>
                 <span class="partner-badge">Electrical &amp; Lighting Manufacturing</span>
                 <p class="partner-scope">Industrial Facility Perimeter Gardens</p>
               </div>
@@ -724,7 +816,8 @@
             <!-- 13. Heranba Industries Limited -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/h-new.webp" alt="Heranba Industries Limited" class="client-logo-image" loading="lazy" onerror="this.src='assets/h-new.png'">
+                <img src="assets/client/heranba.webp" alt="Heranba Industries Limited" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Heranba Industries Limited</h4>
@@ -733,49 +826,52 @@
               </div>
             </article>
 
-            <!-- 14. Hotel Sea Rock Inn Daman -->
+            <!-- 14. Ville Flora Hotels -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/OIP (1).webp" alt="Hotel Sea Rock Inn Daman" class="client-logo-image" loading="lazy">
+                <img src="assets/client/ville-flora.webp" alt="Ville Flora Hotels" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Hotel Sea Rock Inn Daman</h4>
-                <span class="partner-badge">Beachfront Resort &amp; Hospitality</span>
-                <p class="partner-scope">Tropical Gardens, Palms &amp; Courtyards</p>
+                <h4 class="partner-title">Ville Flora Hotels</h4>
+                <span class="partner-badge">Hotel &amp; Hospitality</span>
+                <p class="partner-scope">Tropical Gardens, Palms &amp; Courtyard Landscaping</p>
               </div>
             </article>
 
-            <!-- 15. J.J.Corporation -->
+            <!-- 15. J.J. Corporation -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <div class="partner-emblem-badge">JJ</div>
+                <img src="assets/client/jj-corporation.webp" alt="J.J. Corporation" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">J.J.Corporation</h4>
+                <h4 class="partner-title">J.J. Corporation</h4>
                 <span class="partner-badge">Commercial Trading &amp; Logistics</span>
                 <p class="partner-scope">Corporate Office Grounds &amp; Plant Care</p>
               </div>
             </article>
 
-            <!-- 16. Jay Chemicals -->
+            <!-- 16. Jay Finechem Pvt. Ltd. (formerly Jay Chemicals) -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Jay-Finechem-Logo.webp" alt="Jay Chemicals" class="client-logo-image" loading="lazy" onerror="this.src='assets/Jay-Finechem-Logo.png'">
+                <img src="assets/client/jay-finechem.webp" alt="Jay Finechem Pvt. Ltd. (formerly Jay Chemicals)"
+                  class="client-logo-image" loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Jay Chemicals</h4>
+                <h4 class="partner-title">Jay Finechem Pvt. Ltd. (formerly Jay Chemicals)</h4>
                 <span class="partner-badge">Fine Chemicals &amp; Dyes</span>
-                <p class="partner-scope">Chemical Plant Landscape Architecture</p>
+                <p class="partner-scope">Chemical Plant Landscape Design</p>
               </div>
             </article>
 
-            <!-- 17. Joy Polytab Pvt Ltd -->
+            <!-- 17. Joy Polyfab Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
                 <div class="partner-emblem-badge">JP</div>
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Joy Polytab Pvt Ltd</h4>
+                <h4 class="partner-title">Joy Polyfab Pvt. Ltd.</h4>
                 <span class="partner-badge">Polymer &amp; Technical Textiles</span>
                 <p class="partner-scope">Factory Green Belt &amp; Horticulture</p>
               </div>
@@ -784,7 +880,7 @@
             <!-- 18. Kalpana Industries -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/pi-new.webp" alt="Kalpana Industries" class="client-logo-image" loading="lazy" onerror="this.src='assets/pi-new.png'">
+                <div class="partner-emblem-badge">KI</div>
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Kalpana Industries</h4>
@@ -793,26 +889,28 @@
               </div>
             </article>
 
-            <!-- 19. Parekh Aluminex Ltd -->
+            <!-- 19. Parekh Aluminex Limited -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/pal-new.webp" alt="Parekh Aluminex Ltd" class="client-logo-image" loading="lazy" onerror="this.src='assets/pal-new.png'">
+                <img src="assets/client/parekh-aluminex.webp" alt="Parekh Aluminex Limited" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Parekh Aluminex Ltd</h4>
+                <h4 class="partner-title">Parekh Aluminex Limited</h4>
                 <span class="partner-badge">Aluminium Foil Manufacturing</span>
-                <p class="partner-scope">Manufacturing Facility Perimeter &amp; Trees</p>
+                <p class="partner-scope">Manufacturing Facility Perimeter &amp; Tree Care</p>
               </div>
             </article>
 
             <!-- 20. Pidilite Industries -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/pi-new.webp" alt="Pidilite Industries" class="client-logo-image" loading="lazy" onerror="this.src='assets/pi-new.png'">
+                <img src="assets/client/pidilite.webp" alt="Pidilite Industries" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Pidilite Industries</h4>
-                <span class="partner-badge">Adhesives &amp; Speciality Chemicals</span>
+                <span class="partner-badge">Adhesives &amp; Specialty Chemicals</span>
                 <p class="partner-scope">Plant Landscape Design &amp; Tree Maintenance</p>
               </div>
             </article>
@@ -820,11 +918,12 @@
             <!-- 21. Permeshwar Fashions Impex Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/pfi-new.webp" alt="Permeshwar Fashions Impex Pvt. Ltd." class="client-logo-image" loading="lazy" onerror="this.src='assets/pfi-new.png'">
+                <img src="assets/client/permeshwar-fashions.webp" alt="Permeshwar Fashions Impex Pvt. Ltd."
+                  class="client-logo-image" loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Permeshwar Fashions Impex Pvt. Ltd.</h4>
-                <span class="partner-badge">Apparel &amp; Global Textiles</span>
+                <span class="partner-badge">Apparel &amp; Textiles</span>
                 <p class="partner-scope">Commercial Facility Gardens &amp; Maintenance</p>
               </div>
             </article>
@@ -832,22 +931,23 @@
             <!-- 22. Power Grid -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/p-new.webp" alt="Power Grid" class="client-logo-image" loading="lazy" onerror="this.src='assets/p-new.png'">
+                <img src="assets/client/power-grid.webp" alt="Power Grid" class="client-logo-image" loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Power Grid</h4>
                 <span class="partner-badge">Power Transmission &amp; Energy</span>
-                <p class="partner-scope">Sub-Station &amp; Campus Perimeter Greenery</p>
+                <p class="partner-scope">Substation &amp; Campus Perimeter Greenery</p>
               </div>
             </article>
 
-            <!-- 23. Powerband Industries Pvt. Lid -->
+            <!-- 23. Powerband Industries Pvt. Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <div class="partner-emblem-badge">PB</div>
+                <img src="assets/client/powerband.webp" alt="Powerband Industries Pvt. Ltd." class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Powerband Industries Pvt. Lid</h4>
+                <h4 class="partner-title">Powerband Industries Pvt. Ltd.</h4>
                 <span class="partner-badge">Packaging &amp; Industrial Strapping</span>
                 <p class="partner-scope">Manufacturing Unit Grounds &amp; Lawns</p>
               </div>
@@ -856,19 +956,21 @@
             <!-- 24. Prakash Steelage Limited -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/p-new.webp" alt="Prakash Steelage Limited" class="client-logo-image" loading="lazy" onerror="this.src='assets/p-new.png'">
+                <img src="assets/client/prakash-steelage.webp" alt="Prakash Steelage Limited" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Prakash Steelage Limited</h4>
                 <span class="partner-badge">Stainless Steel &amp; Heavy Engineering</span>
-                <p class="partner-scope">Industrial Plant Entrance &amp; Executive Grounds</p>
+                <p class="partner-scope">Industrial Entrance &amp; Executive Grounds</p>
               </div>
             </article>
 
             <!-- 25. Pruthvi Ceramics -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/pc-new.webp" alt="Pruthvi Ceramics" class="client-logo-image" loading="lazy" onerror="this.src='assets/pc-new.png'">
+                <img src="assets/client/pruthvi-ceramics.webp" alt="Pruthvi Ceramics" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Pruthvi Ceramics</h4>
@@ -877,13 +979,14 @@
               </div>
             </article>
 
-            <!-- 26. Samrat Remedies Ltd -->
+            <!-- 26. Samrat Remedies Ltd. -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/SRL-New.webp" alt="Samrat Remedies Ltd" class="client-logo-image" loading="lazy" onerror="this.src='assets/SRL-New.png'">
+                <img src="assets/client/samrat-remedies.webp" alt="Samrat Remedies Ltd." class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
-                <h4 class="partner-title">Samrat Remedies Ltd</h4>
+                <h4 class="partner-title">Samrat Remedies Ltd.</h4>
                 <span class="partner-badge">Pharmaceuticals &amp; Active Ingredients</span>
                 <p class="partner-scope">Pharma Campus Green Belt &amp; Horticulture</p>
               </div>
@@ -892,7 +995,8 @@
             <!-- 27. Shanti Developers -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/Happy-Nest-Residency.webp" alt="Shanti Developers" class="client-logo-image" loading="lazy" onerror="this.src='assets/Happy-Nest-Residency.png'">
+                <img src="assets/client/shanti-developers.webp" alt="Shanti Developers" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Shanti Developers</h4>
@@ -916,11 +1020,11 @@
             <!-- 29. Super Tyre -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <img src="assets/OIP.webp" alt="Super Tyre" class="client-logo-image" loading="lazy" onerror="this.src='assets/OIP.jpeg'">
+                <div class="partner-emblem-badge">ST</div>
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Super Tyre</h4>
-                <span class="partner-badge">Automotive &amp; Tyre Solutions</span>
+                <span class="partner-badge">Tyre Retreading &amp; Services</span>
                 <p class="partner-scope">Factory Grounds &amp; Tree Plantation</p>
               </div>
             </article>
@@ -928,11 +1032,12 @@
             <!-- 30. Veera Da Dhaba -->
             <article class="client-logo-card partner-card">
               <div class="partner-logo-wrap">
-                <div class="partner-emblem-badge">VD</div>
+                <img src="assets/client/veera-da-dhaba.webp" alt="Veera Da Dhaba" class="client-logo-image"
+                  loading="lazy">
               </div>
               <div class="partner-details">
                 <h4 class="partner-title">Veera Da Dhaba</h4>
-                <span class="partner-badge">Hospitality &amp; Dining Destination</span>
+                <span class="partner-badge">Restaurant &amp; Hospitality</span>
                 <p class="partner-scope">Outdoor Dining Greenery &amp; Lawn Landscaping</p>
               </div>
             </article>
@@ -943,138 +1048,140 @@
     </section>
 
     <!-- FOOTER_START -->
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="grass"></div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="grass"></div>
 
-  <div class="container">
-    <!-- Main 4-Column Balanced Grid -->
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Bio -->
-      <div class="footer-brand-col">
-        <div class="footer-brand">
-          <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="footer-logo">
-          <div>
-            <div class="logo">Planet G</div>
-            <p class="footer-tagline">Landscape design and maintenance for modern urban spaces.</p>
-          </div>
-        </div>
+      <div class="container">
+        <!-- Main 4-Column Balanced Grid -->
+        <div class="footer-grid">
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-brand-col">
+            <div class="footer-brand">
+              <img src="assets/planetG-logo.webp" alt="Planet G Logo" class="footer-logo">
+              <div>
+                <div class="logo">Planet G</div>
+                <p class="footer-tagline">Landscape design and maintenance for modern urban spaces.</p>
+              </div>
+            </div>
 
-        <div class="social mt-3">
-          <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
-            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
-            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
-            target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-
-      <!-- Col 2: Services -->
-      <div class="footer-col footer-col--services">
-        <h5>Our Services</h5>
-        <ul class="footer-links-list">
-          <li><a href="services.html">Landscape Design &amp; Architecture</a></li>
-          <li><a href="services.html">Garden Installation &amp; Makeovers</a></li>
-          <li><a href="services.html">Garden Care &amp; Maintenance</a></li>
-          <li><a href="services.html">Irrigation &amp; Smart Watering Systems</a></li>
-          <li><a href="services.html">Garden Essentials Supplier</a></li>
-          <li><a href="services.html">Exotic Mini Gardens Supplier</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Service Areas -->
-      <div class="footer-col footer-col--areas">
-        <h5>Service Areas</h5>
-        <div class="footer-area-blocks">
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Mumbai &amp; Nearby Areas:</span>
-            <p class="footer-area-text">Andheri, Bandra, Borivali, Goregaon, Malad, Juhu, Worli, Malabar Hill, and
-              Prabhadevi.</p>
-          </div>
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Vapi &amp; Gujarat:</span>
-            <p class="footer-area-text">Vapi, GIDC Vapi, Valsad, Pardi, Umbergaon, Sarigam, Chanod, and Bhilad.</p>
-          </div>
-          <div class="footer-area-block">
-            <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Nearby Areas:</span>
-            <p class="footer-area-text">Silvassa and Daman.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Col 4: Contact & Hours -->
-      <div class="footer-col footer-col--contact">
-        <h5>Contact &amp; Hours</h5>
-        <div class="footer-contact-items">
-          <div class="footer-contact-item">
-            <i class="bi bi-clock-fill"></i>
-            <div>
-              <span class="contact-label">Working Hours</span>
-              <span class="contact-value">Mon–Fri | 10:00 AM–6:00 PM</span>
+            <div class="social mt-3">
+              <a href="https://www.facebook.com/p/Planet-G-100085681698367/" target="_blank" rel="noopener noreferrer"
+                aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/planetg_04/" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more%20about%20your%20services."
+                target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-telephone-fill"></i>
-            <div>
-              <span class="contact-label">Call Us</span>
-              <a href="tel:+919664570668" class="contact-phone-link">+91 9664570668</a>
-              <a href="tel:+919879232854" class="contact-phone-sub">+91 9879232854 (Office)</a>
+          <!-- Col 2: Services -->
+          <div class="footer-col footer-col--services">
+            <h5>Our Services</h5>
+            <ul class="footer-links-list">
+              <li><a href="services.html">Landscape Design &amp; Architecture</a></li>
+              <li><a href="services.html">Garden Installation &amp; Makeovers</a></li>
+              <li><a href="services.html">Garden Care &amp; Maintenance</a></li>
+              <li><a href="services.html">Irrigation &amp; Smart Watering Systems</a></li>
+              <li><a href="services.html">Garden Essentials Supplier</a></li>
+              <li><a href="services.html">Exotic Mini Gardens Supplier</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Service Areas -->
+          <div class="footer-col footer-col--areas">
+            <h5>Service Areas</h5>
+            <div class="footer-area-blocks">
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Mumbai &amp; Nearby Areas:</span>
+                <p class="footer-area-text">Andheri, Bandra, Borivali, Goregaon, Malad, Juhu, Worli, Malabar Hill, and
+                  Prabhadevi.</p>
+              </div>
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Vapi &amp; Gujarat:</span>
+                <p class="footer-area-text">Vapi, GIDC Vapi, Valsad, Pardi, Umbergaon, Sarigam, Chanod, and Bhilad.</p>
+              </div>
+              <div class="footer-area-block">
+                <span class="footer-area-badge"><i class="bi bi-geo-alt-fill"></i> Nearby Areas:</span>
+                <p class="footer-area-text">Silvassa and Daman.</p>
+              </div>
             </div>
           </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-envelope-fill"></i>
-            <div>
-              <span class="contact-label">Email</span>
-              <a href="mailto:office@planetg.co.in" class="contact-link">office@planetg.co.in</a>
-            </div>
-          </div>
+          <!-- Col 4: Contact & Hours -->
+          <div class="footer-col footer-col--contact">
+            <h5>Contact &amp; Hours</h5>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <i class="bi bi-clock-fill"></i>
+                <div>
+                  <span class="contact-label">Working Hours</span>
+                  <span class="contact-value">Mon–Fri | 10:00 AM–6:00 PM</span>
+                </div>
+              </div>
 
-          <div class="footer-contact-item">
-            <i class="bi bi-geo-alt-fill"></i>
-            <div>
-              <span class="contact-label">Offices</span>
-              <span class="contact-value">Andheri West, Mumbai &middot; Vapi, Gujarat</span>
+              <div class="footer-contact-item">
+                <i class="bi bi-telephone-fill"></i>
+                <div>
+                  <span class="contact-label">Call Us</span>
+                  <a href="tel:+919879232854" class="contact-phone-link">+91 9879232854</a>
+                </div>
+              </div>
+
+              <div class="footer-contact-item">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:office@planetg.co.in" class="contact-link">office@planetg.co.in</a>
+                </div>
+              </div>
+
+              <div class="footer-contact-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <span class="contact-label">Offices</span>
+                  <span class="contact-value">Andheri West, Mumbai<br>Vapi, Gujarat</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Horizontal Company Navigation Bar -->
+        <div class="footer-nav-bar">
+          <nav class="footer-nav-links" aria-label="Company Quick Links">
+            <a href="index.html">Home</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="about.html">About Us</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="services.html">Services</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="projects.html">Projects</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="testimonials.html">Testimonials</a>
+            <span class="footer-nav-sep">&bull;</span>
+            <a href="contact.html">Contact Us</a>
+          </nav>
+        </div>
+
+        <!-- Copyright & Tagline Bottom Bar -->
+        <div class="footer-bottom">
+          <div>&copy; 2026 Planet G. All Rights Reserved.</div>
+          <div class="footer-bottom-tagline">Developed by <a href="https://roofze.com/" target="_blank"
+              rel="noopener noreferrer" class="footer-credit-link">Roofze Digital Hub LLP</a></div>
+        </div>
       </div>
-    </div>
-
-    <!-- Horizontal Company Navigation Bar -->
-    <div class="footer-nav-bar">
-      <nav class="footer-nav-links" aria-label="Company Quick Links">
-        <a href="index.html">Home</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="about.html">About Us</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="services.html">Services</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="projects.html">Projects</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="testimonials.html">Testimonials</a>
-        <span class="footer-nav-sep">&bull;</span>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-
-    <!-- Copyright & Tagline Bottom Bar -->
-    <div class="footer-bottom">
-      <div>&copy; 2026 Planet G. All Rights Reserved.</div>
-      <div class="footer-bottom-tagline">Developed by <a href="https://roofze.com/" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Roofze Digital Hub LLP</a></div>
-    </div>
-  </div>
-</footer>
+    </footer>
     <!-- FOOTER_END -->
 
   </div>
 
   <!-- WhatsApp Floating Action Button -->
-  <a class="pg-wa-fab" data-pg-whatsapp-fab="true" href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more." target="_blank" rel="noopener noreferrer">
+  <a class="pg-wa-fab" data-pg-whatsapp-fab="true"
+    href="https://wa.me/919879232854?text=Hi%20PlanetG%2C%20I%20want%20to%20know%20more." target="_blank"
+    rel="noopener noreferrer">
     <i class="bi bi-whatsapp"></i>
   </a>
 
@@ -1087,4 +1194,5 @@
   <script src="js/section-interactions.js"></script>
   <script src="js/whatsapp-fab.js"></script>
 </body>
+
 </html>

@@ -15,6 +15,12 @@
   color: var(--client-ink);
 }
 
+.client-logo-embedded {
+  background-color: #f4f6f1;
+  border-radius: 18px;
+  padding: 48px 24px;
+}
+
 .client-logo-section .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -45,6 +51,15 @@
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
+}
+
+.client-logo-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #243523;
+  font-size: 26px;
+  line-height: 1.3;
 }
 
 .client-logo-subtitle {
@@ -106,33 +121,69 @@
 
 /* ---------- Corporate Partner Cards with Info (Testimonials Page) ---------- */
 .client-logo-card.partner-card {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   text-align: center;
-  padding: 24px 20px 22px;
-  gap: 14px;
+  padding: 26px 20px 22px;
+  gap: 16px;
   border-radius: 14px;
-  min-height: 200px;
+  min-height: 235px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .partner-logo-wrap {
   width: 100%;
-  height: 80px;
+  height: 105px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4px;
+  box-sizing: border-box;
 }
 
-.partner-logo-wrap img {
-  max-height: 72px;
+.partner-logo-wrap img,
+.partner-logo-wrap .client-logo-image {
+  height: 100px;
+  max-height: 100px;
   max-width: 90%;
+  width: auto;
   object-fit: contain;
   transition: transform 0.25s ease;
+  display: block;
 }
 
-.client-logo-card.partner-card:hover .partner-logo-wrap img {
+.client-logo-card.partner-card:hover .partner-logo-wrap img,
+.client-logo-card.partner-card:hover .partner-logo-wrap .client-logo-image {
   transform: scale(1.05);
+}
+
+/* Custom partner logo sizing */
+.partner-logo-wrap.logo-wrap-h100 {
+  height: auto;
+  min-height: 100px;
+}
+
+.partner-logo-wrap.logo-wrap-h100 img,
+.partner-logo-wrap img.logo-img-h100 {
+  height: 100px;
+  max-height: 100px;
+}
+
+.partner-logo-wrap.logo-wrap-h170 {
+  height: auto;
+  min-height: 170px;
+}
+
+.partner-logo-wrap.logo-wrap-h170 img,
+.partner-logo-wrap img.logo-img-h170 {
+  height: 170px !important;
+  max-height: 170px !important;
+  width: auto !important;
+  object-fit: contain !important;
 }
 
 .partner-emblem-badge {
@@ -151,6 +202,16 @@
   box-shadow: 0 6px 16px rgba(45, 63, 44, 0.16);
   border: 2px solid rgba(255, 255, 255, 0.85);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+
+.partner-emblem-badge--pill {
+  width: auto !important;
+  min-width: 58px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 999px !important;
+  font-size: 13.5px;
 }
 
 .client-logo-card.partner-card:hover .partner-emblem-badge {
@@ -165,7 +226,7 @@
   gap: 6px;
   width: 100%;
   border-top: 1px solid rgba(63, 79, 60, 0.08);
-  padding-top: 12px;
+  padding-top: 15px;
 }
 
 .partner-title {
@@ -251,20 +312,39 @@
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.client-logo-card:nth-child(1) { animation-delay: 0.02s; }
-.client-logo-card:nth-child(2) { animation-delay: 0.05s; }
-.client-logo-card:nth-child(3) { animation-delay: 0.08s; }
-.client-logo-card:nth-child(4) { animation-delay: 0.11s; }
-.client-logo-card:nth-child(5) { animation-delay: 0.14s; }
-.client-logo-card:nth-child(6) { animation-delay: 0.17s; }
+.client-logo-card:nth-child(1) {
+  animation-delay: 0.02s;
+}
+
+.client-logo-card:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.client-logo-card:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.client-logo-card:nth-child(4) {
+  animation-delay: 0.11s;
+}
+
+.client-logo-card:nth-child(5) {
+  animation-delay: 0.14s;
+}
+
+.client-logo-card:nth-child(6) {
+  animation-delay: 0.17s;
+}
 
 @media (prefers-reduced-motion: reduce) {
+
   .client-logo-card,
   .client-logo-image,
   .btn-view-clients {
@@ -279,93 +359,247 @@
   .client-logo-section {
     padding: 54px 0 64px;
   }
+
+  .client-logo-embedded {
+    padding: 38px 20px;
+    border-radius: 16px;
+  }
+
+  .client-logo-title {
+    font-size: 23px;
+  }
+
   .client-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
+
   .client-logo-card {
     min-height: 140px;
     padding: 20px 22px;
   }
+
   .client-logo-image {
     max-height: 80px;
   }
+
   .client-logo-card.partner-card {
-    min-height: 185px;
+    min-height: 205px;
     padding: 20px 16px 18px;
+    gap: 12px;
+  }
+
+  .partner-logo-wrap {
+    height: 85px;
+    min-height: 85px;
+  }
+
+  .partner-logo-wrap img,
+  .partner-logo-wrap .client-logo-image {
+    height: 80px !important;
+    max-height: 80px !important;
+    max-width: 88% !important;
   }
 }
 
 @media (max-width: 768px) {
-  .client-logo-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px;
+  .client-logo-embedded {
+    padding: 30px 16px;
+    border-radius: 14px;
   }
+
+  .client-logo-title {
+    font-size: 21px;
+  }
+
+  .client-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
   .client-logo-card {
     min-height: 130px;
-    padding: 18px 18px;
+    padding: 16px 16px;
   }
-  .client-logo-image {
-    max-height: 75px;
-    max-width: 88%;
-  }
+
   .client-logo-card.partner-card {
-    min-height: 175px;
+    min-height: 180px;
     padding: 16px 12px 14px;
     gap: 10px;
+    border-radius: 12px;
   }
+
   .partner-logo-wrap {
-    height: 65px;
+    height: 70px;
+    padding: 4px;
   }
-  .partner-logo-wrap img {
-    max-height: 58px;
+
+  .partner-logo-wrap img,
+  .partner-logo-wrap .client-logo-image {
+    max-height: 56px !important;
+    max-width: 90% !important;
   }
+
+  .partner-emblem-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .partner-emblem-badge--pill {
+    min-width: 52px;
+    height: 38px;
+    font-size: 12.5px;
+    padding: 0 12px;
+  }
+
+  .partner-details {
+    padding-top: 10px;
+    gap: 5px;
+  }
+
   .partner-title {
     font-size: 13px;
+    line-height: 1.35;
+    min-height: 35px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
   .partner-badge {
     font-size: 10.5px;
-    padding: 2px 8px;
+    padding: 2.5px 8px;
   }
+
   .partner-scope {
     font-size: 11px;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .client-logo-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px;
+  .client-logo-embedded {
+    padding: 22px 10px;
+    border-radius: 14px;
   }
+
+  .client-logo-heading {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .client-logo-pill {
+    font-size: 10.5px;
+    padding: 5px 12px;
+  }
+
+  .client-logo-title {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-top: 6px;
+  }
+
+  .client-logo-subtitle {
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 0 4px;
+  }
+
+  .client-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px;
+    margin-bottom: 24px;
+  }
+
   .client-logo-card {
     min-height: 110px;
-    padding: 14px 14px;
+    padding: 12px 10px;
   }
-  .client-logo-image {
-    max-height: 60px;
-  }
+
   .client-logo-card.partner-card {
-    min-height: 155px;
+    min-height: 168px;
     padding: 14px 8px 12px;
     gap: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(63, 79, 60, 0.10);
+    box-shadow: 0 2px 8px rgba(45, 63, 44, 0.035);
   }
+
   .partner-logo-wrap {
-    height: 52px;
+    height: 64px;
+    padding: 2px 4px;
   }
-  .partner-logo-wrap img {
-    max-height: 48px;
+
+  .partner-logo-wrap img,
+  .partner-logo-wrap .client-logo-image {
+    max-height: 50px !important;
+    max-width: 94% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
   }
+
+  .partner-emblem-badge {
+    width: 46px;
+    height: 46px;
+    font-size: 14px;
+    border-width: 1.5px;
+    box-shadow: 0 3px 8px rgba(45, 63, 44, 0.14);
+  }
+
+  .partner-emblem-badge--pill {
+    min-width: 46px;
+    height: 34px;
+    font-size: 11.5px;
+    padding: 0 10px;
+  }
+
+  .partner-details {
+    padding-top: 8px;
+    gap: 4px;
+    border-top: 1px solid rgba(63, 79, 60, 0.07);
+  }
+
   .partner-title {
-    font-size: 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #243523;
+    min-height: 30px;
+    max-height: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
   .partner-badge {
-    font-size: 10px;
+    font-size: 9.5px;
+    line-height: 1.25;
     padding: 2px 6px;
+    letter-spacing: 0.1px;
+    margin-top: 1px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
+
   .partner-scope {
     display: none;
   }
+
   .btn-view-clients {
-    padding: 10px 24px;
+    padding: 9px 20px;
     font-size: 11px;
   }
 }
@@ -373,5 +607,32 @@
 @media (max-width: 340px) {
   .client-logo-grid {
     grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .client-logo-card.partner-card {
+    min-height: auto;
+    padding: 16px 12px;
+  }
+
+  .partner-logo-wrap {
+    height: 68px;
+  }
+
+  .partner-logo-wrap img,
+  .partner-logo-wrap .client-logo-image {
+    max-height: 54px !important;
+  }
+
+  .partner-title {
+    font-size: 13px;
+    min-height: auto;
+    max-height: none;
+    -webkit-line-clamp: unset;
+  }
+
+  .partner-badge {
+    font-size: 10.5px;
+    -webkit-line-clamp: unset;
   }
 }

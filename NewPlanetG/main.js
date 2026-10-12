@@ -139,35 +139,43 @@ document.addEventListener("DOMContentLoaded", () => {
       formFeedback.style.display = "none";
       formFeedback.className = "form-feedback";
 
-      const formData = new FormData(contactForm);
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwM0Py-5gaczalRBj8EuBUmoA2vRcav1KTLCRiX0txXbk1n8QwltiJOIDmhx0cCsMDx/exec";
+      const payload = {
+        name: contactForm.name ? contactForm.name.value.trim() : "",
+        email: contactForm.email ? contactForm.email.value.trim() : "",
+        phone: contactForm.phone ? contactForm.phone.value.trim() : "",
+        service: contactForm.service ? contactForm.service.value.trim() : "General Consultation / Other",
+        message: contactForm.message ? contactForm.message.value.trim() : ""
+      };
 
       try {
-        const response = await fetch("contact-submit.php", {
+        const response = await fetch(SCRIPT_URL, {
           method: "POST",
-          body: formData
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
         });
 
         const result = await response.json().catch(() => null);
 
-        if (response.ok && result && result.status === "success") {
+        if (response.ok && result && result.success) {
           formFeedback.textContent = result.message || "Thank you! Your message has been sent successfully. We will get back to you shortly.";
           formFeedback.classList.add("success");
           formFeedback.style.display = "block";
           contactForm.reset();
         } else {
-          // If PHP backend is not configured in local environment or returned error
           const errMsg = (result && result.message) 
             ? result.message 
-            : "Your message has been prepared! If you are testing locally without PHP mailer, please email us directly at office@planetg.co.in or click WhatsApp.";
+            : "Unable to send your inquiry at this moment. Please email us directly at office@planetg.co.in or contact via WhatsApp.";
           
           formFeedback.textContent = errMsg;
-          formFeedback.classList.add("success"); // user reassurance
+          formFeedback.className = "form-feedback error";
           formFeedback.style.display = "block";
         }
       } catch (err) {
-        // Fallback for direct browser testing without local server
         formFeedback.textContent = "Thank you! For instant assistance, you can also reach us directly via WhatsApp at +91 9879232854 or office@planetg.co.in.";
-        formFeedback.classList.add("success");
+        formFeedback.className = "form-feedback";
         formFeedback.style.display = "block";
       } finally {
         if (submitBtn) {
